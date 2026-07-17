@@ -36,12 +36,26 @@
       "type": "string",
       "minLength": 1
     },
+    "star_condition": {
+      "type": "string",
+      "enum": ["star_on", "star_off", "not_eligible"]
+    },
     "panel_label": {
       "type": "string",
       "enum": ["question", "response", "mark_scheme", "commentary", "star_chart", "ui"]
     },
+    "aoi_type": {
+      "type": ["string", "null"],
+      "description": "Raw/sub-AOI type retained as a segment feature"
+    },
+    "aoi_id": {
+      "type": ["string", "null"]
+    },
     "corrected_text": {
       "type": "string"
+    },
+    "corrected_text_from_ocr_fallback": {
+      "type": "boolean"
     },
     "segment_type": {
       "type": "string",
@@ -90,19 +104,40 @@
     "geometry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["x", "y", "w", "h", "n_boxes", "n_lines"],
+      "required": ["x", "y", "w", "h", "n_boxes", "n_lines", "x_min", "y_min", "x_max", "y_max"],
       "properties": {
-        "x": { "type": "number" },
-        "y": { "type": "number" },
+        "x": { "type": "number", "description": "Centre x (document px)" },
+        "y": { "type": "number", "description": "Centre y (document px)" },
         "w": { "type": "number", "minimum": 0 },
         "h": { "type": "number", "minimum": 0 },
+        "x_min": { "type": "number" },
+        "y_min": { "type": "number" },
+        "x_max": { "type": "number" },
+        "y_max": { "type": "number" },
         "n_boxes": { "type": "integer", "minimum": 1 },
         "n_lines": { "type": "integer", "minimum": 1 }
       }
     },
+    "box_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "segment_order": {
       "type": "integer",
       "minimum": 0
+    },
+    "ocr_confidence": {
+      "type": ["number", "null"]
+    },
+    "aoi_manual": {
+      "type": ["boolean", "null"]
+    },
+    "aoi_ambiguous": {
+      "type": ["boolean", "null"]
+    },
+    "fallbacks_applied": {
+      "type": "array",
+      "items": { "type": "string" }
     }
   }
 }

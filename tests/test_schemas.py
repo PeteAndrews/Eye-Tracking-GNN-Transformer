@@ -110,7 +110,18 @@ def test_invalid_segment_rejected() -> None:
         "star_id": None,
         "bools": {},
         "formatting": {"bold": False, "italic": False, "formatted_prop": 0.0},
-        "geometry": {"x": 0, "y": 0, "w": 1, "h": 1, "n_boxes": 1, "n_lines": 1},
+        "geometry": {
+            "x": 0.5,
+            "y": 0.5,
+            "w": 1,
+            "h": 1,
+            "x_min": 0,
+            "y_min": 0,
+            "x_max": 1,
+            "y_max": 1,
+            "n_boxes": 1,
+            "n_lines": 1,
+        },
         "segment_order": 0,
     }
     assert not uio.is_valid(bad, "segment")

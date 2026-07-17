@@ -58,3 +58,19 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - P3-E1: AOI hit injection generalisation logged; PLAN/schema/config updated (UI additive hits; star-chart unchanged; P6 empty-space split).
 
 **Unblocked:** P2 segment compilation can proceed. `T10-completee.json` typo still present (harmless to identity parser).
+
+---
+
+## P2 — Metadata compilation (2026-07-17)
+
+**Built**
+- `src/data/segments.py`: box-union geometry; canonical panel map (UI → schema `ui`); panel-region table; P2.7 fallbacks (`segment_role`, spatial `aoi_id`, `segment_order` tie-break); empty strings → null; `star_chart_annotations` ignored.
+- Schema `segment.json` extended for geometry AABB, QC fields, retained `aoi_type`/`box_ids`/`fallbacks_applied`.
+- `scripts/run_p2_metadata.py` (runs P2.6 audit gate then compile); `tests/test_segments.py`.
+- Outputs: `data_processed/v0_p0/metadata/` (`*__segments.json` + parquet companion, `*__panels.*`, `p2_summary.json`).
+
+**Accept**
+- P2.6 audit: **36/36 PASS** (exit 0).
+- Compile: **36/36** variants; schema validation clean; `n_unclaimed_boxes_total=0`.
+- Fallback totals: `segment_role_derived=1206`, `segment_order_tiebreak=168` (no spatial `aoi_id` needed).
+- `pytest`: 35 passed (includes geometry/panel/fallback unit tests + updated fixtures).

@@ -30,12 +30,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 40,
-      "y": 40,
+      "x": 240.0,
+      "y": 60.0,
       "w": 400,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 40.0,
+      "y_min": 40.0,
+      "x_max": 440.0,
+      "y_max": 80.0
     },
     "segment_order": 0
   },
@@ -70,12 +74,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 40,
-      "y": 200,
+      "x": 250.0,
+      "y": 225.0,
       "w": 420,
       "h": 50,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 40.0,
+      "y_min": 200.0,
+      "x_max": 460.0,
+      "y_max": 250.0
     },
     "segment_order": 0
   },
@@ -110,12 +118,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 40,
-      "y": 260,
+      "x": 250.0,
+      "y": 285.0,
       "w": 420,
       "h": 50,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 40.0,
+      "y_min": 260.0,
+      "x_max": 460.0,
+      "y_max": 310.0
     },
     "segment_order": 1
   },
@@ -150,12 +162,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 500,
-      "y": 200,
+      "x": 690.0,
+      "y": 220.0,
       "w": 380,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 500.0,
+      "y_min": 200.0,
+      "x_max": 880.0,
+      "y_max": 240.0
     },
     "segment_order": 0
   },
@@ -190,12 +206,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 500,
-      "y": 250,
+      "x": 690.0,
+      "y": 270.0,
       "w": 380,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 500.0,
+      "y_min": 250.0,
+      "x_max": 880.0,
+      "y_max": 290.0
     },
     "segment_order": 1
   },
@@ -230,12 +250,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 40,
-      "y": 450,
+      "x": 460.0,
+      "y": 470.0,
       "w": 840,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 40.0,
+      "y_min": 450.0,
+      "x_max": 880.0,
+      "y_max": 490.0
     },
     "segment_order": 0
   },
@@ -270,12 +294,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 900,
-      "y": 200,
+      "x": 980.0,
+      "y": 220.0,
       "w": 160,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 900.0,
+      "y_min": 200.0,
+      "x_max": 1060.0,
+      "y_max": 240.0
     },
     "segment_order": 0
   },
@@ -310,12 +338,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 900,
-      "y": 250,
+      "x": 980.0,
+      "y": 270.0,
       "w": 160,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 900.0,
+      "y_min": 250.0,
+      "x_max": 1060.0,
+      "y_max": 290.0
     },
     "segment_order": 1
   },
@@ -350,12 +382,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 40,
-      "y": 90,
+      "x": 240.0,
+      "y": 110.0,
       "w": 400,
       "h": 40,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 40.0,
+      "y_min": 90.0,
+      "x_max": 440.0,
+      "y_max": 130.0
     },
     "segment_order": 1
   },
@@ -390,12 +426,16 @@
       "formatted_prop": 0.0
     },
     "geometry": {
-      "x": 500,
-      "y": 320,
+      "x": 690.0,
+      "y": 345.0,
       "w": 380,
       "h": 50,
       "n_boxes": 1,
-      "n_lines": 1
+      "n_lines": 1,
+      "x_min": 500.0,
+      "y_min": 320.0,
+      "x_max": 880.0,
+      "y_max": 370.0
     },
     "segment_order": 2
   }

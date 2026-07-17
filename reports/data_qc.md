@@ -28,6 +28,12 @@ Accumulating preprocessing QC notes (P0–P7).
 - All previous NS `bbox_outside_document` errors cleared.
 - Report: `reports/metadata_audit/`
 
+## P2 — Metadata compilation
+
+- Variants compiled: **36/36**; unclaimed boxes: **0**; schema errors: **0**.
+- Fallbacks: `segment_role_derived=1206` (nearly all segments; roles empty in source), `segment_order_tiebreak=168`, `spatial_aoi_id=0`.
+- Outputs: `data_processed/v0_p0/metadata/`.
+
 ## P0 correspondence (M3-C1)
 
 - All six eligible trials PASS after allowlisting remaining T11 star-instruction commentary fragments.

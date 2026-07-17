@@ -45,7 +45,19 @@ def _fmt(bold=False, italic=False, prop=0.0):
 
 
 def _geom(x, y, w, h, n_boxes=1, n_lines=1):
-    return {"x": x, "y": y, "w": w, "h": h, "n_boxes": n_boxes, "n_lines": n_lines}
+    """x,y are top-left of the box; schema stores centre + AABB corners."""
+    return {
+        "x": x + w / 2.0,
+        "y": y + h / 2.0,
+        "w": w,
+        "h": h,
+        "x_min": float(x),
+        "y_min": float(y),
+        "x_max": float(x + w),
+        "y_max": float(y + h),
+        "n_boxes": n_boxes,
+        "n_lines": n_lines,
+    }
 
 
 def _seg(sid, trial, qid, panel, text, stype, role, order, geom, **kw):

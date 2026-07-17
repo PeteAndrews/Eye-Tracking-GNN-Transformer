@@ -16,7 +16,13 @@ gaze_assignment:
 
 # Canonical panel mapping: metadata aoi_type → panel_label (P2.2 / next-panel).
 # Content panels collapse as before. UI aoi_types keep fine-grained labels for
-# empty-space tokens (P3-E1); abstract BELONGS_TO "ui" panel nodes still group them.
+# empty-space tokens (P3-E1); segment.panel_label collapses those to schema enum
+# ``ui`` in src/data/segments.py. Abstract BELONGS_TO "ui" panel nodes still group them.
+#
+# P2.7 fallbacks (deterministic; counted in p2_summary.json):
+# - empty segment_role → sub-AOI (answers/extra_information/level_descriptor) else segment_type
+# - missing aoi_id → containing panel region (smaller area wins on overlap)
+# - duplicate segment_order within a panel → sort by order, then y_min, x_min, id; dense reindex
 canonical_panel_map:
   question: question
   response: response
