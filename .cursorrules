@@ -32,6 +32,8 @@ for the owner if it touches a frozen commitment.
 - Inputs: metadata JSONs in `_data\annotations-audited\complete\` (36 files),
   gaze TSVs in `_data\eye-tracking-data-doc-space\` (25 participants),
   document images in `_data\document-space-images\` (36 PNGs).
+  Audit script path is in configs/data.yaml (currently under
+  `_data\annotations-audited-legacy\audit_metadata.py`).
 
 ## Windows I/O rules (this machine is Windows; locale default is cp1252)
 
@@ -107,9 +109,8 @@ and approved by the owner first — it never goes silently into code:
 ## Reuse constraints
 
 - `_data\annotations-audited\audit_metadata.py` is the P2.6 metadata audit
-  tool. Current locations after owner re-export: script at
-  `_data\annotations-audited-legacy\audit_metadata.py`, JSONs at
-  `_data\annotations-audited\annotations-audited\complete\` (paths in
+  tool. After owner re-export the script may live at
+  `_data\annotations-audited-legacy\audit_metadata.py` (path in
   configs/data.yaml). INVOKE it (subprocess via scripts/run_audit.py);
   do not rewrite, fork, or "improve" it. Its non-zero exit on ERROR gates P2.
 - `legacy/gaze-feature-engineering.py` is the HMM study's feature script:

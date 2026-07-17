@@ -53,7 +53,7 @@ Workspace root is the repo root. Layout per dev plan §1, plus `legacy/`:
 │                       # model_transformer.yaml, train.yaml, splits.yaml, preprocessing.yaml, ablations/
 ├── schemas/            # segment.json, fixation.json, star_conditions.json (JSON Schema)
 ├── src/
-│   ├── data/           # registry.py, gaze_load.py, segments.py, star_injection.py, coords.py,
+│   ├── data/           # registry.py, gaze_load.py, segments.py, aoi_injection.py, coords.py,
 │   │                   # gaze_assignment.py, fixations.py, loops.py, splits.py, validate.py
 │   ├── text/           # encoder_selection.py, encoder.py            (Stage 2)
 │   ├── graph/          # build.py, edges.py, diagnostics.py          (Stage 2)
@@ -135,27 +135,34 @@ Ordered task list. Each task ends with green `pytest`, a `reports/REPORT.md` ent
 
 **Accept:** audit exit code 0 on all 36 files (or every ERROR triaged by the owner and re-run clean); segment + panel tables for all 36 trial variants conform to `schemas/segment.json`; fallback applications counted and listed in `reports/REPORT.md`; unit tests for geometry union, panel mapping, and each fallback rule on fixtures.
 
-## S1-T4 · P3 — Star-chart AOI hit injection
+## S1-T4 · P3 — AOI hit injection (star-chart + UI regions)
 
-**Files:** `src/data/star_injection.py`, `tests/test_star_injection.py`; outputs `data_processed/{data_version}/gaze_canonical/p{ID}.parquet` — the **star-injected gaze parquet, the canonical gaze table from P3 onward: written once; all downstream stages (P4–P7) read it, never the P1 pruned table directly** — plus per-episode injection QC.
+**Files:** `src/data/aoi_injection.py` (was star-only; generalised), `tests/test_aoi_injection.py`; outputs `data_processed/{data_version}/gaze_canonical/p{ID}.parquet` — the **AOI-injected gaze parquet, the canonical gaze table from P3 onward: written once; all downstream stages (P4–P7) read it, never the P1 pruned table directly** — plus per-episode injection QC.
 
-**Tasks:**
-1. Applies **only to star_on episodes** (from the P0 condition table); star_off and non-eligible untouched.
-2. Sample level, before any event aggregation, in **raw document px**: for each sample whose `(x_doc, y_doc)` falls strictly inside the star-chart AOI bbox, set `AOI__Star_Chart = 1`, `AOI_label = 'Star_Chart'`, zero every other AOI one-hot (explicit override of the commentary mislabel).
-3. Add `AOI__Star_Chart` column to **all** episodes (constant 0 where inapplicable) so schemas stay uniform.
-4. QC per star_on episode: count of samples relabelled commentary→star_chart; star-chart hit proportion. Feeds Gate 1's star-injection panel.
+**Tasks — sample level, before any event aggregation, in raw document px:**
 
-**Accept:** unit tests with synthetic samples straddling the star bbox (inside/outside/boundary, non-star episodes untouched); QC counts produced for all star_on episodes (25 participants × 3 each = 75 episodes).
+1. **Star-chart injection (star_on episodes only; behaviour unchanged):** for each sample whose `(x_doc, y_doc)` falls strictly inside the star-chart AOI bbox, set `AOI__Star_Chart = 1`, `AOI_label = 'Star_Chart'`, and zero every other AOI one-hot (explicit override of the commentary mislabel). Star_off / non-eligible episodes untouched for this rule. Add `AOI__Star_Chart` to **all** episodes (constant 0 where inapplicable).
+
+2. **UI-region injection (all episodes):** new hit columns `AOI__Answer_Scroll_Bar`, `AOI__Commentary_Scroll_Bar`, `AOI__General_UI` — set to 1 when the sample falls strictly inside the corresponding `aoi_annotations` region (`answer_scroll_bar`, `commentary_scroll_bar`, `general_ui`). Columns present on all episodes (constant 0 where the region is absent).
+
+3. **Precedence:**
+   - UI injections are **additive**: set `AOI_label` to the new region only when the sample has no existing content-AOI label (`NoAOI` / empty); **never** override a content hit (question / response / mark_scheme / commentary / star_chart).
+   - Star-chart injection keeps its explicit commentary-override rule unchanged.
+   - Where regions overlap, **smaller-region containment priority** applies (consistent with the existing panel-priority rule).
+
+4. **QC:** per-episode hit counts for each new column + star-chart relabel counts / hit proportion. Note in QC that scrollbar regions are thin relative to gaze precision, so hit rates are indicative, not precise. Feeds Gate 1’s injection panels.
+
+**Accept:** unit tests with synthetic samples straddling star and UI bboxes (inside/outside/boundary; UI never overrides content labels; star still overrides commentary; non-star episodes untouched by star rule); QC counts for all episodes (star_on: 75 episodes for star metrics; all ~750 for UI columns).
 
 ## S1-T5 · P4 — VISUAL GATE 1: metadata–gaze alignment (STOP POINT)
 
 **Files:** `scripts/gaze_overlay_check.py` (Plotly, self-contained HTML, no server), `tests/test_overlay_smoke.py`; outputs `reports/gaze_checks/gate1/*.html`.
 
 **Tasks — build the checker rendering, per (participant, trial), all in raw document px:**
-1. Document image with segment bounding boxes (colour = canonical panel), panel-region outlines, star-chart boxes for star_on episodes.
+1. Document image with segment bounding boxes (colour = canonical panel), panel-region outlines, star-chart boxes for star_on episodes; scroll-bar / general-UI region outlines.
 2. Gaze overlaid two ways (toggle): raw sample scatter (density/alpha) and fixation points sized by duration, with a time slider/play control.
-3. Each gaze point coloured by its **export AOI hit** (`AOI_label`, incl. injected `Star_Chart`) so metadata boxes and AOI hits are visually cross-checkable — misalignment = colour spilling across box edges.
-4. Star-injection panel for star_on episodes: relabelled samples highlighted, before/after counts from P3 QC.
+3. Each gaze point coloured by its **export AOI hit** (`AOI_label`, incl. injected `Star_Chart` and UI-region labels) so metadata boxes and AOI hits are visually cross-checkable — misalignment = colour spilling across box edges. Injected UI hits (`Answer_Scroll_Bar`, `Commentary_Scroll_Bar`, `General_UI`) rendered in their own distinct colours.
+4. Star-injection panel for star_on episodes: relabelled samples highlighted, before/after counts from P3 QC; UI-injection summary with per-column hit counts (scrollbar rates flagged as indicative).
 5. Summary stats: per-AOI-label counts; % gaze inside any segment box / any panel region / outside document.
 6. **Batch mode** generating the stratified sample: every participant × ≥3 trials; star_on episodes covering all 6 eligible trials; every episode/file flagged by the P2 audit.
 
@@ -185,7 +192,7 @@ Ordered task list. Each task ends with green `pytest`, a `reports/REPORT.md` ent
 4. **Scroll features per fixation** from the `scroll_offset_y` trace: direction, displacement since previous fixation, instantaneous velocity, time since scroll onset/offset, during-scroll flag, normalised viewport document position, gaze-in-viewport y. **Input-only signals; never prediction targets.**
 5. **Gaze→segment assignment policy** (`gaze_assignment.py`, config-driven, applied identically everywhere, raw document px):
    - Dilation margin ε per box. **ε derivation (resolved decision, self-contained):** recover mm-per-px by regressing paired DACSmm gaze columns against pixel gaze columns; viewing distance = median eye-position Z (DACSmm, ~700 mm); `ε_px = tan(0.5°) × distance_mm × px_per_mm`. Write derivation, inputs, and resulting value into `configs/preprocessing.yaml` as comments; report per-participant derived-distance spread as QC. **Fallback if regression unstable/implausible:** half the median vertical gap between adjacent text-box lines; record fallback in `reports/DECISIONS.md`. ε is a config default, not a scientific commitment.
-   - Rules: (1) strictly inside exactly one box → that segment, confidence 1.0 interior decaying toward edge zone; (2) inside multiple boxes or within ε of ≥2 → smallest centre-weighted distance, `ambiguous=true`, runner-up `segment_id_alt` recorded, confidence reduced by best-vs-runner-up margin; (3) outside all boxes but within ε of one → nearest segment, confidence linear to 0 at ε; (4) beyond ε of all → panel-specific empty-space category via P2 panel regions (**star-chart region takes containment priority over commentary**), else `outside_document`.
+   - Rules: (1) strictly inside exactly one box → that segment, confidence 1.0 interior decaying toward edge zone; (2) inside multiple boxes or within ε of ≥2 → smallest centre-weighted distance, `ambiguous=true`, runner-up `segment_id_alt` recorded, confidence reduced by best-vs-runner-up margin; (3) outside all boxes but within ε of one → nearest segment, confidence linear to 0 at ε; (4) beyond ε of all → empty-space category via P2 panel regions with **smaller-region containment priority** (star-chart over commentary; scroll-bar / general-UI regions over larger panels when contained). Empty-space categories are panel-specific content backgrounds **plus** the split UI categories `answer_scroll_bar` / `commentary_scroll_bar` / `ui_general` (P3-E1; not a single generic `ui` background), else `outside_document`.
    - Confidence = deterministic function of geometry, documented in the module docstring.
    - **ε sensitivity:** re-run at ×0.5 and ×1.5; report % of fixations whose assignment changes (feeds M8 sensitivity analysis).
 6. **Visit/return + loop annotations** (`loops.py`, deterministic, config-driven, run at build time — single source for token features, attention biases, and the M7 D2 probe):

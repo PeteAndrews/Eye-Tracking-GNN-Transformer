@@ -37,7 +37,7 @@ def main() -> int:
     if summary.get("soft_warnings"):
         print(f"SOFT WARNINGS ({len(summary['soft_warnings'])}):")
         for w in summary["soft_warnings"]:
-            print(f"  - {w}")
+            print("  -", w.encode("ascii", "replace").decode("ascii"))
     print("P0 OK")
     return 0
 

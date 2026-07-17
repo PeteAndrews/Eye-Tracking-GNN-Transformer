@@ -53,6 +53,9 @@
         "mark_scheme_background",
         "commentary_background",
         "star_chart_background",
+        "answer_scroll_bar",
+        "commentary_scroll_bar",
+        "ui_general",
         "outside_document"
       ]
     },
@@ -65,6 +68,9 @@
         "commentary",
         "star_chart",
         "ui",
+        "answer_scroll_bar",
+        "commentary_scroll_bar",
+        "ui_general",
         "outside_document"
       ]
     },

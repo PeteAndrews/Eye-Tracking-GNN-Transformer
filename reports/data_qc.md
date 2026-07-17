@@ -24,9 +24,14 @@ Accumulating preprocessing QC notes (P0–P7).
 
 ## P2.6 audit (re-run after owner fix)
 
-- 35/36 PASS; **T11NS FAIL**: `no_text` on `ann_segment_060` (empty corrected_text and ocr_text).
-- All previous `bbox_outside_document` errors on NS variants: **cleared**.
+- **36/36 PASS** after T11NS empty-text fix and path flatten (2026-07-17 afternoon).
+- All previous NS `bbox_outside_document` errors cleared.
 - Report: `reports/metadata_audit/`
+
+## P0 correspondence (M3-C1)
+
+- All six eligible trials PASS after allowlisting remaining T11 star-instruction commentary fragments.
+- Soft geometry/AOI-id drift only (expected under per-variant construction).
 
 ## P1 — Gaze prune/tidy
 
@@ -93,4 +98,8 @@ Accumulating preprocessing QC notes (P0–P7).
 ## P0 registry validation
 
 - ERROR: Variant consistency T11: 2 unmatched NS segments; 3 unexpected S-only segments; 2 allowlisted star-conditional S-only; within-panel order mismatch: ['commentary']; soft drift in ['aoi_geometry', 'text_boxes', 'aoi_id_types']
+
+## P0 registry validation
+
+- ERROR: Variant consistency T11: 1 unexpected S-only segments; 2 allowlisted star-conditional S-only; soft drift in ['aoi_geometry', 'text_boxes']
 

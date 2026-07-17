@@ -1,6 +1,6 @@
 # Metadata graph-readiness audit
 
-**Files audited:** 36  |  **ERROR:** 1  |  **WARN:** 0  |  **INFO:** 0
+**Files audited:** 36  |  **ERROR:** 0  |  **WARN:** 0  |  **INFO:** 0
 
 
 ## T01-complete.json — PASS  (trial `T01`, not_eligible)
@@ -93,17 +93,13 @@ No issues found.
 No issues found.
 
 
-## T11NS-complete.json — FAIL  (trial `T11`, star_off)
+## T11NS-complete.json — PASS  (trial `T11`, star_off)
 
 - segments: 56, boxes: 80, AOIs: 12, star segments: 0, doc image: T11NS.png 1920x1080
-- segment types: {'sentence': 4, 'clause': 18, 'bullet_point': 2, 'level_descriptor': 4, 'mark_scheme_point': 12, 'commentary_guidance': 16}
+- segment types: {'sentence': 5, 'clause': 18, 'bullet_point': 2, 'level_descriptor': 4, 'mark_scheme_point': 12, 'commentary_guidance': 15}
 - mark_point_id coverage (mark-scheme bullets labelled): 12/12 (metadata completeness only)
 
-### ERROR (1)
-
-| category | entity | id | message | suggested fix |
-|---|---|---|---|---|
-| no_text | segment | `ann_segment_060` | Both corrected_text and ocr_text empty; node has no text embedding source. | Add the segment text. |
+No issues found.
 
 
 ## T11S-complete.json — PASS  (trial `T11`, star_on)

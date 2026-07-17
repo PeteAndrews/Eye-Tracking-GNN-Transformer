@@ -1,2 +1,1 @@
 file,trial_id,star_condition,severity,category,entity_type,entity_id,message,suggested_fix
-T11NS-complete.json,T11,star_off,ERROR,no_text,segment,ann_segment_060,Both corrected_text and ocr_text empty; node has no text embedding source.,Add the segment text.

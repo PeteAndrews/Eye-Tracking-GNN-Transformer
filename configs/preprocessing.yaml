@@ -14,7 +14,9 @@ gaze_assignment:
   # Placeholder until derived; unit tests may override
   epsilon_fallback_doc_px: 8.0
 
-# Canonical panel mapping: metadata aoi_type → panel_label (P2.2)
+# Canonical panel mapping: metadata aoi_type → panel_label (P2.2 / next-panel).
+# Content panels collapse as before. UI aoi_types keep fine-grained labels for
+# empty-space tokens (P3-E1); abstract BELONGS_TO "ui" panel nodes still group them.
 canonical_panel_map:
   question: question
   response: response
@@ -24,9 +26,23 @@ canonical_panel_map:
   level_descriptor: mark_scheme
   commentary: commentary
   star_chart: star_chart
-  general_ui: ui
-  answer_scroll_bar: ui
-  commentary_scroll_bar: ui
+  general_ui: ui_general
+  answer_scroll_bar: answer_scroll_bar
+  commentary_scroll_bar: commentary_scroll_bar
+
+# Empty-space category when fixation is beyond ε of all segments but inside a
+# panel/UI region (P6; smaller-region wins). Content panels → *_background;
+# UI regions → fine-grained categories (not a single generic ui background).
+empty_space_category_map:
+  question: question_background
+  response: response_background
+  mark_scheme: mark_scheme_background
+  commentary: commentary_background
+  star_chart: star_chart_background
+  answer_scroll_bar: answer_scroll_bar
+  commentary_scroll_bar: commentary_scroll_bar
+  ui_general: ui_general
+  ui: ui_general
 
 # Gaze-export AOI one-hot / AOI_label → canonical panel (Gate 1/2 cross-checks)
 gaze_aoi_panel_map:
@@ -38,6 +54,31 @@ gaze_aoi_panel_map:
   Commentary: commentary
   Star_Chart: star_chart
   Advance: ui
+  Answer_Scroll_Bar: answer_scroll_bar
+  Commentary_Scroll_Bar: commentary_scroll_bar
+  General_UI: ui_general
+
+# P3 AOI injection (additive UI hits + star-chart override)
+aoi_injection:
+  ui_regions:
+    - aoi_type: answer_scroll_bar
+      column: AOI__Answer_Scroll_Bar
+      label: Answer_Scroll_Bar
+    - aoi_type: commentary_scroll_bar
+      column: AOI__Commentary_Scroll_Bar
+      label: Commentary_Scroll_Bar
+    - aoi_type: general_ui
+      column: AOI__General_UI
+      label: General_UI
+  # Content labels that block additive UI AOI_label overwrite
+  content_aoi_labels:
+    - Question
+    - Response
+    - Mark_Scheme
+    - Commentary
+    - Star_Chart
+    - Green_Answer_Box
+    - Grey_Answer_Box
 
 # Document normalisation (P5)
 normalisation: docnorm  # docnorm | isotropic
@@ -53,6 +94,8 @@ star_conditional_text_patterns:
   - "using the system of stars"
   - "system of stars described"
   - "you may find it easier to put stars"
+  - "insufficient to reach the next level"
+  - "upper mark within the level"
 
 # Loop detector (P6 / M5) — thresholds provisional until corpus frequencies land
 loops:

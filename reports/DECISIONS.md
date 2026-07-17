@@ -51,7 +51,36 @@ against the correct NS canvas; corrected metadata.
 blocks a fully clean P0/P2 until that segment is fixed and commentary texts align
 (or are explicitly allowlisted if star-conditional).
 
-**Path note.** Audited JSONs currently live at
-`_data/annotations-audited/annotations-audited/complete/` (nested). Config
-updated. `audit_metadata.py` is at `_data/annotations-audited-legacy/`.
-`T10-completee.json` typo reappeared in the new export — rename again when convenient.
+**Path note (updated).** Audited JSONs flattened back to
+`_data/annotations-audited/complete/`. `audit_metadata.py` remains at
+`_data/annotations-audited-legacy/audit_metadata.py`. `T10-completee.json`
+typo may still be present — rename when convenient.
+
+---
+
+## P3-E1 — Generalise P3 to AOI hit injection (2026-07-17)
+
+**Amendment.** P3 scope extends from star-chart-only injection to **AOI hit
+injection**, without changing star-chart behaviour.
+
+**Additions (all episodes):**
+- Columns `AOI__Answer_Scroll_Bar`, `AOI__Commentary_Scroll_Bar`, `AOI__General_UI`
+  set when sample `(x_doc, y_doc)` is strictly inside the matching
+  `aoi_annotations` region (`answer_scroll_bar`, `commentary_scroll_bar`,
+  `general_ui`). Present on all episodes (0 if region absent).
+
+**Precedence:**
+- UI injections are **additive**: update `AOI_label` only when there is no
+  existing content-AOI label (NoAOI/empty); never override content hits.
+- Star-chart injection retains its commentary-override rule.
+- Overlaps: smaller-region containment priority (same as panel-priority rule).
+
+**P6 knock-on:** empty-space categories split UI into `answer_scroll_bar` /
+`commentary_scroll_bar` / `ui_general` (not a single generic ui background).
+`schemas/fixation.json` enum updated.
+
+**QC / Gate 1:** per-episode hit counts for each new column; distinct colours in
+Gate 1; note that scrollbar regions are thin vs gaze precision — rates are
+indicative, not precise.
+
+**No change** to star-chart injection semantics.

@@ -474,9 +474,9 @@ def check_variant_consistency(
         "level_descriptor": "mark_scheme",
         "commentary": "commentary",
         "star_chart": "star_chart",
-        "general_ui": "ui",
-        "answer_scroll_bar": "ui",
-        "commentary_scroll_bar": "ui",
+        "general_ui": "ui_general",
+        "answer_scroll_bar": "answer_scroll_bar",
+        "commentary_scroll_bar": "commentary_scroll_bar",
     }
 
     def panel_of(seg: dict[str, Any]) -> str:
@@ -616,7 +616,7 @@ def check_variant_consistency(
         ok = not hard_fail
         parts = []
         if ok:
-            parts.append("NS↔S correspondence OK")
+            parts.append("NS<->S correspondence OK")
         if unmatched_ns:
             parts.append(f"{len(unmatched_ns)} unmatched NS segments")
         if unexpected_s:
