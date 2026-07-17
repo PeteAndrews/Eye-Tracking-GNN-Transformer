@@ -1,0 +1,1122 @@
+[
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_000",
+    "t_start_ms": 0.0,
+    "duration_ms": 140,
+    "segment_id": "seg_q1",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 50,
+      "direction_deg": 0
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_001",
+    "t_start_ms": 170.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 51,
+      "direction_deg": 37
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_002",
+    "t_start_ms": 340.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 52,
+      "direction_deg": 74
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_003",
+    "t_start_ms": 510.0,
+    "duration_ms": 164,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 53,
+      "direction_deg": 111
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_004",
+    "t_start_ms": 680.0,
+    "duration_ms": 172,
+    "segment_id": "seg_st1",
+    "empty_space_category": null,
+    "panel_label": "star_chart",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 54,
+      "direction_deg": 148
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_005",
+    "t_start_ms": 850.0,
+    "duration_ms": 110,
+    "segment_id": null,
+    "empty_space_category": "star_chart_background",
+    "panel_label": "star_chart",
+    "assignment_confidence": 0.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 0.0,
+      "direction_deg": 0.0
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_006",
+    "t_start_ms": 1020.0,
+    "duration_ms": 140,
+    "segment_id": "seg_st2",
+    "empty_space_category": null,
+    "panel_label": "star_chart",
+    "assignment_confidence": 0.95,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 56,
+      "direction_deg": 222
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_007",
+    "t_start_ms": 1190.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r2",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 57,
+      "direction_deg": 259
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_008",
+    "t_start_ms": 1360.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms2",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 58,
+      "direction_deg": 296
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_009",
+    "t_start_ms": 1530.0,
+    "duration_ms": 164,
+    "segment_id": "seg_c1",
+    "empty_space_category": null,
+    "panel_label": "commentary",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 59,
+      "direction_deg": 333
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_010",
+    "t_start_ms": 1700.0,
+    "duration_ms": 172,
+    "segment_id": "seg_ld1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 0.85,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 60,
+      "direction_deg": 10
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_011",
+    "t_start_ms": 1870.0,
+    "duration_ms": 180,
+    "segment_id": "seg_q2",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 61,
+      "direction_deg": 47
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_012",
+    "t_start_ms": 2040.0,
+    "duration_ms": 140,
+    "segment_id": "seg_q1",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 62,
+      "direction_deg": 84
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_013",
+    "t_start_ms": 2210.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 63,
+      "direction_deg": 121
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_014",
+    "t_start_ms": 2380.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 64,
+      "direction_deg": 158
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_015",
+    "t_start_ms": 2550.0,
+    "duration_ms": 164,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 65,
+      "direction_deg": 195
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_016",
+    "t_start_ms": 2720.0,
+    "duration_ms": 172,
+    "segment_id": "seg_st1",
+    "empty_space_category": null,
+    "panel_label": "star_chart",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 66,
+      "direction_deg": 232
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_017",
+    "t_start_ms": 2890.0,
+    "duration_ms": 180,
+    "segment_id": "seg_r2",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 67,
+      "direction_deg": 269
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_018",
+    "t_start_ms": 3060.0,
+    "duration_ms": 140,
+    "segment_id": "seg_st2",
+    "empty_space_category": null,
+    "panel_label": "star_chart",
+    "assignment_confidence": 0.95,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 68,
+      "direction_deg": 306
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_019",
+    "t_start_ms": 3230.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r2",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 69,
+      "direction_deg": 343
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_020",
+    "t_start_ms": 3400.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms2",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 70,
+      "direction_deg": 20
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_021",
+    "t_start_ms": 3570.0,
+    "duration_ms": 164,
+    "segment_id": "seg_c1",
+    "empty_space_category": null,
+    "panel_label": "commentary",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 71,
+      "direction_deg": 57
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_022",
+    "t_start_ms": 3740.0,
+    "duration_ms": 172,
+    "segment_id": "seg_ld1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 0.85,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 72,
+      "direction_deg": 94
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_023",
+    "t_start_ms": 3910.0,
+    "duration_ms": 180,
+    "segment_id": "seg_q2",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 73,
+      "direction_deg": 131
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_024",
+    "t_start_ms": 4080.0,
+    "duration_ms": 140,
+    "segment_id": "seg_q1",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 74,
+      "direction_deg": 168
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_025",
+    "t_start_ms": 4250.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 75,
+      "direction_deg": 205
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_026",
+    "t_start_ms": 4420.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 76,
+      "direction_deg": 242
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_027",
+    "t_start_ms": 4590.0,
+    "duration_ms": 164,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 77,
+      "direction_deg": 279
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_028",
+    "t_start_ms": 4760.0,
+    "duration_ms": 110,
+    "segment_id": null,
+    "empty_space_category": "commentary_background",
+    "panel_label": "commentary",
+    "assignment_confidence": 0.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 0.0,
+      "direction_deg": 0.0
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_029",
+    "t_start_ms": 4930.0,
+    "duration_ms": 180,
+    "segment_id": "seg_r2",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 79,
+      "direction_deg": 353
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_030",
+    "t_start_ms": 5100.0,
+    "duration_ms": 140,
+    "segment_id": "seg_st2",
+    "empty_space_category": null,
+    "panel_label": "star_chart",
+    "assignment_confidence": 0.95,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 80,
+      "direction_deg": 30
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_031",
+    "t_start_ms": 5270.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r2",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 81,
+      "direction_deg": 67
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_032",
+    "t_start_ms": 5440.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms2",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 82,
+      "direction_deg": 104
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_033",
+    "t_start_ms": 5610.0,
+    "duration_ms": 164,
+    "segment_id": "seg_c1",
+    "empty_space_category": null,
+    "panel_label": "commentary",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 83,
+      "direction_deg": 141
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_034",
+    "t_start_ms": 5780.0,
+    "duration_ms": 172,
+    "segment_id": "seg_ld1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 0.85,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 84,
+      "direction_deg": 178
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_035",
+    "t_start_ms": 5950.0,
+    "duration_ms": 180,
+    "segment_id": "seg_q2",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 85,
+      "direction_deg": 215
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_036",
+    "t_start_ms": 6120.0,
+    "duration_ms": 140,
+    "segment_id": "seg_q1",
+    "empty_space_category": null,
+    "panel_label": "question",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 86,
+      "direction_deg": 252
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_037",
+    "t_start_ms": 6290.0,
+    "duration_ms": 148,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 87,
+      "direction_deg": 289
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_038",
+    "t_start_ms": 6460.0,
+    "duration_ms": 156,
+    "segment_id": "seg_ms1",
+    "empty_space_category": null,
+    "panel_label": "mark_scheme",
+    "assignment_confidence": 1.0,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 88,
+      "direction_deg": 326
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  },
+  {
+    "participant_id": "P_FX",
+    "trial_id": "T98",
+    "fixation_id": "fix_039",
+    "t_start_ms": 6630.0,
+    "duration_ms": 164,
+    "segment_id": "seg_r1",
+    "empty_space_category": null,
+    "panel_label": "response",
+    "assignment_confidence": 0.9,
+    "scroll": {
+      "direction": "none",
+      "displacement_px": 0.0,
+      "velocity_px_s": 0.0,
+      "t_since_scroll_onset_ms": 0,
+      "t_since_scroll_offset_ms": 0,
+      "during_scroll": false,
+      "viewport_doc_position": 0.0,
+      "gaze_viewport_y": 0.5
+    },
+    "prev_saccade": {
+      "amplitude": 89,
+      "direction_deg": 3
+    },
+    "ambiguous": false,
+    "segment_id_alt": null,
+    "star_condition": "star_on"
+  }
+]

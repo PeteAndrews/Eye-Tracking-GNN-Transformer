@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gnn-gaze.local/schemas/segment.json",
+  "title": "SemanticSegment",
+  "description": "One semantic segment node in a trial graph (dev plan §2.1).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "segment_id",
+    "trial_id",
+    "question_id",
+    "panel_label",
+    "corrected_text",
+    "segment_type",
+    "segment_role",
+    "level_band",
+    "mark_point_id",
+    "star_id",
+    "bools",
+    "formatting",
+    "geometry",
+    "segment_order"
+  ],
+  "properties": {
+    "segment_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique within a trial"
+    },
+    "trial_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^T\\d+$"
+    },
+    "question_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "panel_label": {
+      "type": "string",
+      "enum": ["question", "response", "mark_scheme", "commentary", "star_chart", "ui"]
+    },
+    "corrected_text": {
+      "type": "string"
+    },
+    "segment_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "segment_role": {
+      "type": "string"
+    },
+    "level_band": {
+      "type": ["string", "null"]
+    },
+    "mark_point_id": {
+      "type": ["string", "null"]
+    },
+    "star_id": {
+      "type": ["string", "null"]
+    },
+    "bools": {
+      "type": "object",
+      "additionalProperties": { "type": "boolean" },
+      "properties": {
+        "command_word": { "type": "boolean" },
+        "domain_term": { "type": "boolean" },
+        "is_bullet_point": { "type": "boolean" },
+        "is_level_descriptor": { "type": "boolean" },
+        "is_mark_scheme_point": { "type": "boolean" },
+        "is_commentary": { "type": "boolean" },
+        "is_star_chart": { "type": "boolean" },
+        "requires_calculation": { "type": "boolean" },
+        "contains_data_reference": { "type": "boolean" },
+        "contains_allow_instruction": { "type": "boolean" },
+        "contains_reject_instruction": { "type": "boolean" },
+        "contains_comparison": { "type": "boolean" }
+      }
+    },
+    "formatting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bold", "italic", "formatted_prop"],
+      "properties": {
+        "bold": { "type": "boolean" },
+        "italic": { "type": "boolean" },
+        "formatted_prop": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h", "n_boxes", "n_lines"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "w": { "type": "number", "minimum": 0 },
+        "h": { "type": "number", "minimum": 0 },
+        "n_boxes": { "type": "integer", "minimum": 1 },
+        "n_lines": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "segment_order": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "v0_m0",
+  "eligible_trials": [
+    "T98"
+  ],
+  "assignments": [
+    {
+      "participant_id": "P_FX",
+      "trial_id": "T99",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P_FX",
+      "trial_id": "T98",
+      "star_condition": "star_on"
+    }
+  ]
+}

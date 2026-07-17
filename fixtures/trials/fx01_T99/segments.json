@@ -1,0 +1,402 @@
+[
+  {
+    "segment_id": "seg_q1",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "question",
+    "corrected_text": "Explain the process of photosynthesis.",
+    "segment_type": "sentence",
+    "segment_role": "question_stem",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 40,
+      "w": 400,
+      "h": 40,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 0
+  },
+  {
+    "segment_id": "seg_q2",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "question",
+    "corrected_text": "Include the role of chlorophyll.",
+    "segment_type": "sentence",
+    "segment_role": "question_stem",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": true,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 90,
+      "w": 400,
+      "h": 40,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 1
+  },
+  {
+    "segment_id": "seg_r1",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "response",
+    "corrected_text": "Plants convert light energy into chemical energy.",
+    "segment_type": "sentence",
+    "segment_role": "response_text",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 200,
+      "w": 420,
+      "h": 50,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 0
+  },
+  {
+    "segment_id": "seg_r2",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "response",
+    "corrected_text": "Chlorophyll absorbs light to drive the reaction.",
+    "segment_type": "sentence",
+    "segment_role": "response_text",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": true,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 260,
+      "w": 420,
+      "h": 50,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 1
+  },
+  {
+    "segment_id": "seg_r3",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "response",
+    "corrected_text": "Oxygen is released as a by-product.",
+    "segment_type": "sentence",
+    "segment_role": "response_text",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 320,
+      "w": 420,
+      "h": 50,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 2
+  },
+  {
+    "segment_id": "seg_ms1",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "mark_scheme",
+    "corrected_text": "Chlorophyll absorbs light energy.",
+    "segment_type": "mark_scheme_point",
+    "segment_role": "answers",
+    "level_band": null,
+    "mark_point_id": "mp_01",
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": true,
+      "is_bullet_point": true,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": true,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 500,
+      "y": 200,
+      "w": 380,
+      "h": 40,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 0
+  },
+  {
+    "segment_id": "seg_ms2",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "mark_scheme",
+    "corrected_text": "Chemical energy stored in glucose.",
+    "segment_type": "mark_scheme_point",
+    "segment_role": "answers",
+    "level_band": null,
+    "mark_point_id": "mp_02",
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": true,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": true,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 500,
+      "y": 250,
+      "w": 380,
+      "h": 40,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 1
+  },
+  {
+    "segment_id": "seg_ld1",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "mark_scheme",
+    "corrected_text": "Level 2: clear explanation of energy conversion.",
+    "segment_type": "level_descriptor",
+    "segment_role": "level_descriptor",
+    "level_band": "L2",
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": true,
+      "is_mark_scheme_point": false,
+      "is_commentary": false,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 500,
+      "y": 320,
+      "w": 380,
+      "h": 50,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 2
+  },
+  {
+    "segment_id": "seg_c1",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "commentary",
+    "corrected_text": "Accept equivalent wording for energy conversion.",
+    "segment_type": "commentary_guidance",
+    "segment_role": "commentary",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": true,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": true,
+      "contains_reject_instruction": false,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 450,
+      "w": 840,
+      "h": 40,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 0
+  },
+  {
+    "segment_id": "seg_c2",
+    "trial_id": "T99",
+    "question_id": "Q_FIXTURE_01",
+    "panel_label": "commentary",
+    "corrected_text": "Do not credit vague references to sunlight alone.",
+    "segment_type": "commentary_guidance",
+    "segment_role": "commentary",
+    "level_band": null,
+    "mark_point_id": null,
+    "star_id": null,
+    "bools": {
+      "command_word": false,
+      "domain_term": false,
+      "is_bullet_point": false,
+      "is_level_descriptor": false,
+      "is_mark_scheme_point": false,
+      "is_commentary": true,
+      "is_star_chart": false,
+      "requires_calculation": false,
+      "contains_data_reference": false,
+      "contains_allow_instruction": false,
+      "contains_reject_instruction": true,
+      "contains_comparison": false
+    },
+    "formatting": {
+      "bold": false,
+      "italic": false,
+      "formatted_prop": 0.0
+    },
+    "geometry": {
+      "x": 40,
+      "y": 500,
+      "w": 840,
+      "h": 40,
+      "n_boxes": 1,
+      "n_lines": 1
+    },
+    "segment_order": 1
+  }
+]

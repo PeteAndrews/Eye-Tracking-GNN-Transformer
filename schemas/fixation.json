@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gnn-gaze.local/schemas/fixation.json",
+  "title": "FixationEvent",
+  "description": "One fixation event after P6 feature engineering (dev plan §2.2).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "participant_id",
+    "trial_id",
+    "fixation_id",
+    "t_start_ms",
+    "duration_ms",
+    "segment_id",
+    "empty_space_category",
+    "panel_label",
+    "assignment_confidence",
+    "scroll",
+    "prev_saccade"
+  ],
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trial_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^T\\d+$"
+    },
+    "fixation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "t_start_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "duration_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "segment_id": {
+      "type": ["string", "null"],
+      "description": "null when empty-space"
+    },
+    "empty_space_category": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "question_background",
+        "response_background",
+        "mark_scheme_background",
+        "commentary_background",
+        "star_chart_background",
+        "outside_document"
+      ]
+    },
+    "panel_label": {
+      "type": "string",
+      "enum": [
+        "question",
+        "response",
+        "mark_scheme",
+        "commentary",
+        "star_chart",
+        "ui",
+        "outside_document"
+      ]
+    },
+    "assignment_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "scroll": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direction",
+        "displacement_px",
+        "velocity_px_s",
+        "t_since_scroll_onset_ms",
+        "t_since_scroll_offset_ms",
+        "during_scroll",
+        "viewport_doc_position",
+        "gaze_viewport_y"
+      ],
+      "properties": {
+        "direction": {
+          "type": "string",
+          "enum": ["up", "down", "none"]
+        },
+        "displacement_px": { "type": "number" },
+        "velocity_px_s": { "type": "number" },
+        "t_since_scroll_onset_ms": { "type": "number", "minimum": 0 },
+        "t_since_scroll_offset_ms": { "type": "number", "minimum": 0 },
+        "during_scroll": { "type": "boolean" },
+        "viewport_doc_position": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "gaze_viewport_y": { "type": "number" }
+      }
+    },
+    "prev_saccade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amplitude", "direction_deg"],
+      "properties": {
+        "amplitude": { "type": "number", "minimum": 0 },
+        "direction_deg": { "type": "number" }
+      }
+    },
+    "ambiguous": {
+      "type": "boolean"
+    },
+    "segment_id_alt": {
+      "type": ["string", "null"]
+    },
+    "star_condition": {
+      "type": "string",
+      "enum": ["star_on", "star_off", "not_eligible"]
+    }
+  }
+}

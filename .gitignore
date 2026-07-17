@@ -1,0 +1,50 @@
+# Raw data (read-only inputs; never commit)
+_data/
+
+# Pipeline and experiment outputs
+data_processed/
+runs/
+artifacts/*.pt
+artifacts/**/*.pt
+!artifacts/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+
+# Conda / local env artefacts
+.conda/
+*.conda
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# MLflow / trackers
+mlruns/
+wandb/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Local temp
+*.tmp
+*.log
+.cache/

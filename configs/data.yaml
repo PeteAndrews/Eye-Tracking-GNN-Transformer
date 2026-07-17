@@ -1,0 +1,32 @@
+# Data paths and versioning (M0 placeholders; filled as stages land).
+# All paths relative to the repository root unless absolute.
+
+data_version: "v0_m0"
+
+paths:
+  # READ-ONLY inputs — never write here
+  metadata_dir: "_data/annotations-audited/complete"
+  metadata_audit_script: "_data/annotations-audited/audit_metadata.py"
+  gaze_dir: "_data/eye-tracking-data-doc-space"
+  document_images_dir: "_data/document-space-images"
+  # Pipeline outputs (gitignored)
+  processed_root: "data_processed"
+  reports_root: "reports"
+  fixtures_root: "fixtures"
+
+# Star-eligible trials (validated in P0 against real data)
+star_eligible_trials:
+  - T11
+  - T12
+  - T13
+  - T21
+  - T27
+  - T30
+
+# Expected counts (P0 validation targets)
+expected:
+  n_participants: 25
+  n_trials: 30
+  n_metadata_variants: 36
+  n_document_images: 36
+  star_on_per_participant: 3

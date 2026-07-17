@@ -1,0 +1,59 @@
+# Preprocessing hyperparameters (M0 placeholders).
+# Scientific defaults live here — no magic numbers in code.
+
+# Gaze→segment assignment edge tolerance ε (document px).
+# Derivation (P6): recover mm-per-px by regressing paired DACSmm vs pixel gaze;
+# viewing distance = median eye-position Z (DACSmm); ε = tan(0.5°) * d * px_per_mm.
+# If regression is unstable, fall back to half the median vertical text-box gap
+# and record the fallback in reports/DECISIONS.md. ε is a config default, not a
+# scientific commitment — ×0.5 / ×1.5 sensitivity and Gate 2 are the real check.
+gaze_assignment:
+  epsilon_doc_px: null  # filled after P6 derivation
+  epsilon_visual_angle_deg: 0.5
+  sensitivity_scales: [0.5, 1.5]
+  # Placeholder until derived; unit tests may override
+  epsilon_fallback_doc_px: 8.0
+
+# Canonical panel mapping: metadata aoi_type → panel_label (P2.2)
+canonical_panel_map:
+  question: question
+  response: response
+  mark_scheme: mark_scheme
+  mark_scheme_answers: mark_scheme
+  mark_scheme_extra_information: mark_scheme
+  level_descriptor: mark_scheme
+  commentary: commentary
+  star_chart: star_chart
+  general_ui: ui
+  answer_scroll_bar: ui
+  commentary_scroll_bar: ui
+
+# Gaze-export AOI one-hot / AOI_label → canonical panel (Gate 1/2 cross-checks)
+gaze_aoi_panel_map:
+  Question: question
+  Response: response
+  Green_Answer_Box: response
+  Grey_Answer_Box: response
+  Mark_Scheme: mark_scheme
+  Commentary: commentary
+  Star_Chart: star_chart
+  Advance: ui
+
+# Document normalisation (P5)
+normalisation: docnorm  # docnorm | isotropic
+
+# Loop detector (P6 / M5) — thresholds provisional until corpus frequencies land
+loops:
+  max_loop_gap_events: 20
+  min_template_corpus_count: 50
+  templates:
+    - [response, mark_scheme, response]
+    - [response, mark_scheme_level_descriptor, response]
+    - [response, commentary, response]
+    - [mark_scheme, response, mark_scheme]
+    - [question, response, question]
+    - [response, star_chart, response]
+
+# Event aggregation (P6, ported from legacy/)
+event_aggregation:
+  min_valid_any: 0.0

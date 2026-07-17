@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gnn-gaze.local/schemas/star_conditions.json",
+  "title": "StarConditionTable",
+  "description": "Participant × trial star-condition assignment (dev plan §2.3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "eligible_trials", "assignments"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "eligible_trials": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^T\\d+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "assignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participant_id", "trial_id", "star_condition"],
+        "properties": {
+          "participant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trial_id": {
+            "type": "string",
+            "pattern": "^T\\d+$"
+          },
+          "star_condition": {
+            "type": "string",
+            "enum": ["star_on", "star_off", "not_eligible"]
+          }
+        }
+      }
+    }
+  }
+}

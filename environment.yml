@@ -1,0 +1,33 @@
+# Conda environment for Phase 1 (gnn-gaze), Python 3.11.
+#
+# Torch / PyG are CUDA-machine-specific. After `conda env create -f environment.yml`:
+#   conda activate gnn-gaze
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+#   pip install torch-geometric sentence-transformers
+#   pip freeze > requirements-lock.txt
+# Commit both environment.yml and requirements-lock.txt. Recreate on another
+# machine from the lockfile after installing the matching CUDA torch wheel.
+name: gnn-gaze
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26
+  - pandas>=2.1
+  - pyarrow>=14
+  - pillow>=10
+  - scikit-learn>=1.4
+  - matplotlib>=3.8
+  - statsmodels>=0.14
+  - pytest>=8
+  - jsonschema>=4.21
+  - pyyaml>=6
+  - omegaconf>=2.3
+  - pip:
+      # Lightweight pip deps safe before CUDA torch (do NOT add sentence-transformers
+      # here — it pulls a CPU torch wheel). Install torch + PyG + sentence-transformers
+      # after conda create using the commands in the header comment.
+      - plotly>=5.18
+      - mlflow>=2.10

@@ -1,0 +1,52 @@
+{
+  "NEXT_SEGMENT": [
+    [
+      "seg_q1",
+      "seg_q2"
+    ],
+    [
+      "seg_r1",
+      "seg_r2"
+    ],
+    [
+      "seg_ms1",
+      "seg_ms2"
+    ],
+    [
+      "seg_ms2",
+      "seg_ld1"
+    ],
+    [
+      "seg_st1",
+      "seg_st2"
+    ]
+  ],
+  "SEMANTIC_CANDIDATE": [
+    [
+      "seg_r1",
+      "seg_ms1"
+    ],
+    [
+      "seg_r2",
+      "seg_ms2"
+    ],
+    [
+      "seg_r1",
+      "seg_st1"
+    ],
+    [
+      "seg_r2",
+      "seg_st2"
+    ]
+  ],
+  "multi_relation_pairs": [
+    {
+      "source": "seg_r1",
+      "target": "seg_ms1",
+      "relations": [
+        "SPATIAL_NEIGHBOUR",
+        "SEMANTIC_CANDIDATE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+# Working agreement — Gaze-Informed GNN-Transformer (Phase 1)
+
+You are building Phase 1 of a research codebase that learns examiner marking
+behaviour from eye-gaze over semantic assessment-document graphs. You may be a
+different model from the one that planned this project: everything you need is
+in the four documents below. Read the relevant sections BEFORE writing code.
+Do not improvise around them.
+
+## Source-of-truth hierarchy
+
+1. docs/updated_gnn_transformer_gnn_llm_development_plan_v4.md
+   — the research plan: architecture, losses, ablations, validation. Scientific law.
+2. docs/phase1_dev_plan_cursor.md
+   — implementation milestones M0–M9 with acceptance criteria.
+3. docs/gaze_preprocessing_plan.md
+   — preprocessing stages P0–P7. SUPERSEDES milestones M1–M1b of doc 2.
+4. PLAN.md (repo root)
+   — the execution map: every stage/milestone with tasks, files, acceptance
+   criteria, resolved decisions, and a resolved-questions log. Start here.
+
+If docs conflict or reality diverges from them, do NOT silently pick one:
+record the issue and your proposed resolution in reports/DECISIONS.md and stop
+for the owner if it touches a frozen commitment.
+
+## Data safety (absolute rules)
+
+- Everything under `_data\` is READ-ONLY. Never write, rename, delete, or
+  "fix" anything there. Never commit it (it is gitignored).
+- Pipeline outputs go to `data_processed/` (gitignored), keyed by the
+  `data_version` tag from configs/data.yaml.
+- `_data\annotations-audited\save\` is a stale legacy export: never load it.
+- Inputs: metadata JSONs in `_data\annotations-audited\complete\` (36 files),
+  gaze TSVs in `_data\eye-tracking-data-doc-space\` (25 participants),
+  document images in `_data\document-space-images\` (36 PNGs).
+
+## Windows I/O rules (this machine is Windows; locale default is cp1252)
+
+- EVERY file open/read/write specifies encoding explicitly:
+  `open(p, encoding="utf-8")`, `Path.read_text(encoding="utf-8")`,
+  `Path.write_text(..., encoding="utf-8")`, `newline=""` for csv writers.
+  Use the helpers in `src/utils/io.py` once they exist.
+- Paths via `pathlib.Path`, never string concatenation; no hardcoded
+  backslash literals inside library code (configs hold the roots).
+- The gaze TSVs are ~340 MB each: read with explicit dtypes, stream or chunk
+  where sensible, never load all 25 at once.
+
+## Process rules
+
+- ONE milestone/stage at a time, in PLAN.md order. A milestone is done only
+  when its acceptance criteria pass, `pytest` is green, and a short entry is
+  appended to reports/REPORT.md. Then commit. Do not scaffold future
+  milestones speculatively.
+- Tests before real data: every parser, dataset, and model component gets
+  unit tests on synthetic fixtures (fixtures/) before touching `_data\`.
+- Config-driven everything: no magic numbers in code. Hyperparameters, paths,
+  thresholds, mappings, and switches live in YAML under configs/.
+- Schemas are law: modules communicate through the JSON Schemas in schemas/.
+  If a schema must change, update schema + validator + tests in one commit.
+- Determinism: seed torch/numpy/random from config; log seed + git commit
+  hash into every run directory.
+- Never tune on a participant-held-out test fold. Grouped 5-fold over
+  participants is the sole protocol for training, tuning, and ablations.
+
+## Frozen scientific commitments (never change in code)
+
+Pre-registered decisions. Any deviation is proposed in reports/DECISIONS.md
+and approved by the owner first — it never goes silently into code:
+
+- Exactly THREE initial losses: next-panel prediction, multi-label
+  next-relation prediction, candidate next-node ranking. No extra losses,
+  no masked reconstruction on the causal model. Return/loop/contrastive
+  objectives only if a diagnostic gate fails, with a DECISIONS.md entry.
+- Diagnostic gate D1–D3 thresholds are fixed in config BEFORE results are
+  inspected (D1 default: +0.05 AUC over the feature-only probe).
+- Exactly SIX core ablations (PLAN.md S2-T9). No "quick experiments".
+- SEMANTIC_CANDIDATE edges: cross-panel only; response<->mark_scheme
+  prioritised with k=3 plus a per-mark-scheme-bullet coverage floor (every
+  bullet gets >=1 best response edge even below threshold, flagged
+  `below_threshold`); other allowed pairs k=2 with threshold.
+- SAME_MARK_POINT and SAME_STAR edges are REMOVED; mark_point_id and star_id
+  are node metadata only.
+- Scroll features are input-only, never prediction targets; scroll-feature
+  dropout p=0.3 per episode during training.
+- Star-condition graph variants are built as base + overlay, with a
+  regression test that the non-star subgraph is identical across variants.
+- Loop annotations come from the single deterministic detector
+  (src/data/loops.py); it is the only source for loop features, attention
+  biases, and D2 probe labels.
+- The HMM comparison is DEFERRED: build only the per-fixation posterior
+  export hook; write no comparison code.
+
+## Human gates (hard stops)
+
+- P4 (Visual Gate 1, metadata–gaze alignment) and P7 (Visual Gate 2,
+  fixation->segment assignment, = M1b): build the checker tooling, generate
+  the stratified review sample into reports/gaze_checks/, then STOP and wait
+  for the owner's manual sign-off recorded in reports/DECISIONS.md.
+- NEVER self-certify a gate or proceed past one. P5+ is blocked until P4 is
+  signed off; ALL model code (M2 onward) is blocked until P7 is signed off.
+- The owner runs training themselves: for M6+ you prepare code, configs,
+  tests, and a dry-run verification, not full training runs.
+
+## Reuse constraints
+
+- `_data\annotations-audited\audit_metadata.py` is the P2.6 metadata audit
+  tool. It exists and works. INVOKE it (subprocess via scripts/run_audit.py);
+  do not rewrite, fork, or "improve" it. Its non-zero exit on ERROR gates P2.
+- `legacy/gaze-feature-engineering.py` is the HMM study's feature script:
+  the porting reference for P6 event aggregation. Port its core unchanged,
+  then verify with the legacy-comparability check (old vs new builders on the
+  same input -> identical event segmentation and shared columns). Read-only.
+
+## Environment
+
+- Conda env `gnn-gaze` (Python 3.11): activate before any command
+  (`conda activate gnn-gaze`). Do not use the system Python 3.12.
+- Dependencies live in environment.yml plus a pip lockfile (pip freeze /
+  pip-compile output — the torch/PyG line differs per CUDA setup, so conda
+  YAML alone underdetermines the env); update both in the same commit as any
+  new import.
+- Run tests with `pytest` from the repo root.
+
+## Reporting
+
+- reports/REPORT.md — one short entry per completed milestone (what was
+  built, acceptance evidence, QC numbers of note).
+- reports/DECISIONS.md — deviations, fallback activations, gate sign-offs
+  (sign-offs are written by the owner, not you), dropped loop templates,
+  and anything ambiguous you resolved with a documented rationale.
+- reports/data_qc.md — the accumulating data QC report (P0–P7).
