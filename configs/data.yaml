@@ -1,7 +1,7 @@
 # Data paths and versioning (M0 placeholders; filled as stages land).
 # All paths relative to the repository root unless absolute.
 
-data_version: "v0_m0"
+data_version: "v0_p0"
 
 paths:
   # READ-ONLY inputs — never write here

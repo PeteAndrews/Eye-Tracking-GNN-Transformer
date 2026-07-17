@@ -18,3 +18,17 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 **Accept**
 - `pytest`: 12 passed (schema validators + both fixtures load through every schema).
 - `torch.cuda.is_available()` → `True`.
+
+---
+
+## P0 — Registries and identity (2026-07-17)
+
+**Built**
+- `src/data/registry.py`: filename→identity parser; trial registry; document dimension registry (PIL); star-condition table from gaze `Star Chart`; `question_type`/`question_id` from gaze `Question type` (constant per trial); S/NS variant consistency check.
+- `scripts/run_p0_registry.py`; tests in `tests/test_registry.py`.
+- Outputs under `data_processed/v0_p0/registry/` (json + parquet).
+
+**Accept**
+- Unit tests: parser (T / TS / TNS + rejection), strip/star rules, hard vs soft vs triage variant cases — all green (with M0: 21 passed).
+- Real data: 36 variants, 36 images, 750 star assignments, 30 question types; star-on = 3/participant validated.
+- Variant segment asymmetries **triaged** in `reports/DECISIONS.md` P0-V1 (M3 base definition still needs owner choice).
