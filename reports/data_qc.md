@@ -54,6 +54,14 @@ Accumulating preprocessing QC notes (P0–P7).
 - New columns: `x_docnorm`, `y_docnorm`, `y_screen`, `viewport_doc_position`, `gaze_viewport_y`, plus `w_doc`/`h_doc`/`h_screen`/`normalisation_mode`.
 - Outputs: `data_processed/v0_p0/gaze_coords/` (parquet + TSV). P6+ should read these.
 
+## P6 — Fixation construction
+
+- Episodes: **750/750**; ε = **27.093** doc px (corpus median; no fallback).
+- Mean empty-space **14.0%**; ambiguous **13.7%**; mean assignment confidence **0.45**.
+- ε sensitivity (assignment change): ×0.5 **5.84%**, ×1.5 **3.85%**.
+- Loop corpus counts: all templates ≥50 (none dropped).
+- Outputs: `data_processed/v0_p0/fixations/`.
+
 ## P0 correspondence (M3-C1)
 
 - All six eligible trials PASS after allowlisting remaining T11 star-instruction commentary fragments.

@@ -8,7 +8,7 @@
 # and record the fallback in reports/DECISIONS.md. ε is a config default, not a
 # scientific commitment — ×0.5 / ×1.5 sensitivity and Gate 2 are the real check.
 gaze_assignment:
-  epsilon_doc_px: null  # filled after P6 derivation
+  epsilon_doc_px: 27.093  # corpus median from P1 epsilon_inputs; tan(0.5°)×Z_mm×px_per_mm
   epsilon_visual_angle_deg: 0.5
   sensitivity_scales: [0.5, 1.5]
   # Placeholder until derived; unit tests may override

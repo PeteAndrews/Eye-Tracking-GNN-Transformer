@@ -117,3 +117,21 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - Unit tests green; 25/25 participants enriched (**16 179 675** rows); required columns present; `p5_summary.json` `ok: true`.
 - P4 sign-off recorded in `DECISIONS.md` (Peter Andrews, 2026-07-17).
 - Note: assignment still uses raw `gaze_point_*_doc`; DOCnorm/viewport feed P6 only.
+
+---
+
+## P6 — Fixation construction (2026-07-17)
+
+**Built**
+- `src/data/fixations.py`: legacy-compatible event aggregation; doc-space fixation medians + DOCnorm; saccade→`prev_saccade`; scroll features; orchestrates assignment + loops.
+- `src/data/gaze_assignment.py`: ε-dilated assignment policy + empty-space (smaller region wins).
+- `src/data/loops.py`: visit/return + A→B→A template detector.
+- `src/data/epsilon.py`: corpus ε from P1 `epsilon_inputs` → **27.093 px** (no fallback).
+- Tests: `test_fixations`, `test_gaze_assignment`, `test_loops`; `scripts/run_p6_fixations.py`.
+
+**Accept**
+- 750/750 episodes; 0 errors; schema sample validation green.
+- ε sensitivity mean % changed: ×0.5 → **5.84%**, ×1.5 → **3.85%**.
+- Empty-space ~**14.0%**; ambiguous ~**13.7%**; mean confidence ~**0.45**.
+- All 6 loop templates ≥50 corpus count (none dropped for D2).
+- Outputs: `data_processed/v0_p0/fixations/{Pxx}/{trial}__{star}.parquet` + QC/sensitivity tables.
