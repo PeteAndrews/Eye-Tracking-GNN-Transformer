@@ -88,3 +88,18 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - Unit tests: inside/outside/boundary; UI never overrides content labels; star overrides commentary; star_off untouched — green.
 - Real data: 25 participants, **750** episodes, **75** star_on; star hits/relabels **408526**; UI hits answer_scroll_bar **59470**, commentary_scroll_bar **21217**, general_ui **115006** (scrollbar rates indicative).
 - `p3_summary.json` `ok: true`.
+
+---
+
+## P4 — Visual Gate 1 (2026-07-17) — STOP for owner sign-off
+
+**Built**
+- `src/viz/overlay_check.py` + `scripts/gaze_overlay_check.py`: Plotly self-contained HTML overlays (document image, segment/panel/UI/star outlines, sample↔fixation toggle, time play/slider, AOI_label colours incl. P3 UI/star, injection QC sidebar, alignment %).
+- `tests/test_overlay_smoke.py`; config `gate1` in `configs/preprocessing.yaml`.
+
+**Accept (tooling)**
+- Smoke HTML from fixtures: all required panels present (`pytest` + `--smoke` green).
+- Stratified batch: **75** reports, **25** participants × ≥3 trials, star_on covers T11/T12/T13/T21/T27/T30; P2 audit had 0 ERROR flags to add.
+- Index: `reports/gaze_checks/gate1/index.html` (generated HTMLs gitignored — regenerate with `python scripts/gaze_overlay_check.py`).
+
+**STOP:** Owner reviews the stratified sample and records sign-off in `reports/DECISIONS.md`. **P5 must not start until that entry exists.** Do not self-certify.

@@ -136,3 +136,35 @@ loops:
 # Event aggregation (P6, ported from legacy/)
 event_aggregation:
   min_valid_any: 0.0
+
+# P4 Visual Gate 1 — metadata–gaze alignment overlays
+gate1:
+  trials_per_participant: 3
+  max_scatter_points: 8000
+  jpeg_quality: 70
+  # Panel colours for segment / region outlines (hex)
+  panel_colors:
+    question: "#1f77b4"
+    response: "#2ca02c"
+    mark_scheme: "#ff7f0e"
+    commentary: "#9467bd"
+    star_chart: "#d62728"
+    ui: "#7f7f7f"
+  # AOI_label → colour (includes P3 injected labels)
+  aoi_label_colors:
+    Question: "#1f77b4"
+    Response: "#2ca02c"
+    Mark_Scheme: "#ff7f0e"
+    Commentary: "#9467bd"
+    Star_Chart: "#d62728"
+    Green_Answer_Box: "#98df8a"
+    Grey_Answer_Box: "#c7c7c7"
+    Advance: "#c5b0d5"
+    Outside: "#aaaaaa"
+    Answer_Scroll_Bar: "#17becf"
+    Commentary_Scroll_Bar: "#e377c2"
+    General_UI: "#bcbd22"
+  ui_panel_aoi_types:
+    - answer_scroll_bar
+    - commentary_scroll_bar
+    - general_ui

@@ -48,3 +48,8 @@ wandb/
 *.tmp
 *.log
 .cache/
+
+# Gate 1/2 visual check HTMLs (large; regenerate with scripts/gaze_overlay_check.py)
+reports/gaze_checks/**/*.html
+reports/gaze_checks/**/*.png
+!reports/gaze_checks/**/.gitkeep

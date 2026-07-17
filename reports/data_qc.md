@@ -41,6 +41,12 @@ Accumulating preprocessing QC notes (P0–P7).
 - Note: scrollbar regions are thin vs gaze precision — hit rates are indicative.
 - Outputs: `data_processed/v0_p0/gaze_canonical/` (parquet + UTF-8 TSV companions; parquet is pipeline-canonical from P3 onward).
 
+## P4 — Visual Gate 1
+
+- Stratified sample: **75** HTML reports under `reports/gaze_checks/gate1/` (25 participants × ≥3 trials; all 6 eligible star_on trials covered).
+- P2 audit ERROR flags added to sample: **0** (clean audit).
+- Regenerated via `python scripts/gaze_overlay_check.py`. Sign-off: **PENDING** in `DECISIONS.md`.
+
 ## P0 correspondence (M3-C1)
 
 - All six eligible trials PASS after allowlisting remaining T11 star-instruction commentary fragments.

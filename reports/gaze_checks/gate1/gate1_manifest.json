@@ -1,0 +1,2319 @@
+{
+  "sample": [
+    {
+      "participant_id": "P01",
+      "trial_id": "T06",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P01",
+      "trial_id": "T13",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P01",
+      "trial_id": "T26",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P02",
+      "trial_id": "T15",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P02",
+      "trial_id": "T24",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P02",
+      "trial_id": "T29",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P03",
+      "trial_id": "T05",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P03",
+      "trial_id": "T15",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P03",
+      "trial_id": "T27",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P04",
+      "trial_id": "T12",
+      "star_condition": "star_off"
+    },
+    {
+      "participant_id": "P04",
+      "trial_id": "T14",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P04",
+      "trial_id": "T17",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P05",
+      "trial_id": "T07",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P05",
+      "trial_id": "T23",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P05",
+      "trial_id": "T26",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P06",
+      "trial_id": "T11",
+      "star_condition": "star_off"
+    },
+    {
+      "participant_id": "P06",
+      "trial_id": "T18",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P06",
+      "trial_id": "T22",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P09",
+      "trial_id": "T13",
+      "star_condition": "star_off"
+    },
+    {
+      "participant_id": "P09",
+      "trial_id": "T16",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P09",
+      "trial_id": "T27",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P10",
+      "trial_id": "T05",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P10",
+      "trial_id": "T10",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P10",
+      "trial_id": "T16",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P11",
+      "trial_id": "T10",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P11",
+      "trial_id": "T27",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P11",
+      "trial_id": "T29",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P12",
+      "trial_id": "T02",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P12",
+      "trial_id": "T07",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P12",
+      "trial_id": "T21",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P15",
+      "trial_id": "T03",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P15",
+      "trial_id": "T23",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P15",
+      "trial_id": "T27",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P16",
+      "trial_id": "T04",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P16",
+      "trial_id": "T24",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P16",
+      "trial_id": "T29",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P17",
+      "trial_id": "T12",
+      "star_condition": "star_off"
+    },
+    {
+      "participant_id": "P17",
+      "trial_id": "T20",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P17",
+      "trial_id": "T25",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P18",
+      "trial_id": "T12",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P18",
+      "trial_id": "T18",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P18",
+      "trial_id": "T25",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P19",
+      "trial_id": "T06",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P19",
+      "trial_id": "T14",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P19",
+      "trial_id": "T29",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P20",
+      "trial_id": "T02",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P20",
+      "trial_id": "T11",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P20",
+      "trial_id": "T28",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P21",
+      "trial_id": "T11",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P21",
+      "trial_id": "T13",
+      "star_condition": "star_off"
+    },
+    {
+      "participant_id": "P21",
+      "trial_id": "T20",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P23",
+      "trial_id": "T05",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P23",
+      "trial_id": "T10",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P23",
+      "trial_id": "T22",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P24",
+      "trial_id": "T07",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P24",
+      "trial_id": "T15",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P24",
+      "trial_id": "T19",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P25",
+      "trial_id": "T04",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P25",
+      "trial_id": "T12",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P25",
+      "trial_id": "T19",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P26",
+      "trial_id": "T07",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P26",
+      "trial_id": "T24",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P26",
+      "trial_id": "T28",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P27",
+      "trial_id": "T05",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P27",
+      "trial_id": "T13",
+      "star_condition": "star_off"
+    },
+    {
+      "participant_id": "P27",
+      "trial_id": "T23",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P28",
+      "trial_id": "T15",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P28",
+      "trial_id": "T17",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P28",
+      "trial_id": "T30",
+      "star_condition": "star_on"
+    },
+    {
+      "participant_id": "P30",
+      "trial_id": "T04",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P30",
+      "trial_id": "T15",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P30",
+      "trial_id": "T28",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P31",
+      "trial_id": "T01",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P31",
+      "trial_id": "T05",
+      "star_condition": "not_eligible"
+    },
+    {
+      "participant_id": "P31",
+      "trial_id": "T07",
+      "star_condition": "not_eligible"
+    }
+  ],
+  "results": [
+    {
+      "participant_id": "P01",
+      "trial_id": "T06",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P01_T06_not_eligible.html",
+      "stats": {
+        "n_samples": 7752,
+        "n_valid_xy": 7456,
+        "pct_inside_segment": 47.06276824034335,
+        "pct_inside_panel": 82.95332618025752,
+        "pct_outside_document": 0.09388412017167382,
+        "aoi_label_counts": {
+          "Commentary": 2544,
+          "Question": 2233,
+          "Mark_Scheme": 801,
+          "Outside": 770,
+          "Response": 555,
+          "Advance": 305,
+          "Grey_Answer_Box": 76,
+          "Green_Answer_Box": 75,
+          "Answer_Scroll_Bar": 60,
+          "General_UI": 35,
+          "Commentary_Scroll_Bar": 2
+        }
+      },
+      "n_fixations": 86
+    },
+    {
+      "participant_id": "P01",
+      "trial_id": "T13",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P01_T13_star_on.html",
+      "stats": {
+        "n_samples": 12317,
+        "n_valid_xy": 10388,
+        "pct_inside_segment": 67.66461301501732,
+        "pct_inside_panel": 92.0196380438968,
+        "pct_outside_document": 2.339237581825183,
+        "aoi_label_counts": {
+          "Star_Chart": 3480,
+          "Response": 2838,
+          "Question": 1506,
+          "Outside": 1442,
+          "Mark_Scheme": 660,
+          "Green_Answer_Box": 138,
+          "Commentary": 129,
+          "Advance": 88,
+          "General_UI": 70,
+          "Commentary_Scroll_Bar": 19,
+          "Answer_Scroll_Bar": 18
+        }
+      },
+      "n_fixations": 163
+    },
+    {
+      "participant_id": "P01",
+      "trial_id": "T26",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P01_T26_not_eligible.html",
+      "stats": {
+        "n_samples": 4209,
+        "n_valid_xy": 3958,
+        "pct_inside_segment": 52.248610409297626,
+        "pct_inside_panel": 78.19605861546235,
+        "pct_outside_document": 0.202122283981809,
+        "aoi_label_counts": {
+          "Question": 1002,
+          "Commentary": 948,
+          "Outside": 883,
+          "Mark_Scheme": 591,
+          "Advance": 236,
+          "Response": 110,
+          "Green_Answer_Box": 98,
+          "Grey_Answer_Box": 70,
+          "Answer_Scroll_Bar": 19,
+          "General_UI": 1
+        }
+      },
+      "n_fixations": 60
+    },
+    {
+      "participant_id": "P02",
+      "trial_id": "T15",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P02_T15_not_eligible.html",
+      "stats": {
+        "n_samples": 20905,
+        "n_valid_xy": 19720,
+        "pct_inside_segment": 81.58722109533468,
+        "pct_inside_panel": 95.95841784989858,
+        "pct_outside_document": 0.055780933062880324,
+        "aoi_label_counts": {
+          "Mark_Scheme": 7528,
+          "Outside": 3496,
+          "Response": 3326,
+          "Question": 2563,
+          "Commentary": 2558,
+          "Answer_Scroll_Bar": 115,
+          "Green_Answer_Box": 81,
+          "General_UI": 31,
+          "Advance": 22
+        }
+      },
+      "n_fixations": 288
+    },
+    {
+      "participant_id": "P02",
+      "trial_id": "T24",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P02_T24_not_eligible.html",
+      "stats": {
+        "n_samples": 30480,
+        "n_valid_xy": 24731,
+        "pct_inside_segment": 86.84646799563302,
+        "pct_inside_panel": 96.4619303707897,
+        "pct_outside_document": 0.11726173628239861,
+        "aoi_label_counts": {
+          "Commentary": 11641,
+          "Response": 4558,
+          "Mark_Scheme": 4091,
+          "Outside": 3169,
+          "Question": 714,
+          "Answer_Scroll_Bar": 215,
+          "Advance": 185,
+          "Green_Answer_Box": 102,
+          "Grey_Answer_Box": 51,
+          "General_UI": 5
+        }
+      },
+      "n_fixations": 348
+    },
+    {
+      "participant_id": "P02",
+      "trial_id": "T29",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P02_T29_not_eligible.html",
+      "stats": {
+        "n_samples": 16356,
+        "n_valid_xy": 15652,
+        "pct_inside_segment": 90.73600817786864,
+        "pct_inside_panel": 97.34219269102991,
+        "pct_outside_document": 0.07666751852798365,
+        "aoi_label_counts": {
+          "Commentary": 5089,
+          "Response": 5082,
+          "Mark_Scheme": 2098,
+          "Outside": 1992,
+          "Question": 1247,
+          "Advance": 77,
+          "Green_Answer_Box": 54,
+          "Answer_Scroll_Bar": 9,
+          "General_UI": 4
+        }
+      },
+      "n_fixations": 229
+    },
+    {
+      "participant_id": "P03",
+      "trial_id": "T05",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P03_T05_not_eligible.html",
+      "stats": {
+        "n_samples": 10945,
+        "n_valid_xy": 9542,
+        "pct_inside_segment": 45.33640746174806,
+        "pct_inside_panel": 77.23747642003774,
+        "pct_outside_document": 0.5868790609935024,
+        "aoi_label_counts": {
+          "Outside": 5427,
+          "Commentary": 1638,
+          "Response": 939,
+          "Question": 569,
+          "Mark_Scheme": 517,
+          "General_UI": 192,
+          "Advance": 182,
+          "Answer_Scroll_Bar": 78
+        }
+      },
+      "n_fixations": 134
+    },
+    {
+      "participant_id": "P03",
+      "trial_id": "T15",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P03_T15_not_eligible.html",
+      "stats": {
+        "n_samples": 30447,
+        "n_valid_xy": 25567,
+        "pct_inside_segment": 79.78253217037587,
+        "pct_inside_panel": 91.37560136112958,
+        "pct_outside_document": 0.2229436382837251,
+        "aoi_label_counts": {
+          "Outside": 15634,
+          "Commentary": 4294,
+          "Mark_Scheme": 2604,
+          "Response": 2189,
+          "Question": 544,
+          "Advance": 201,
+          "Answer_Scroll_Bar": 61,
+          "General_UI": 38,
+          "Commentary_Scroll_Bar": 2
+        }
+      },
+      "n_fixations": 342
+    },
+    {
+      "participant_id": "P03",
+      "trial_id": "T27",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P03_T27_star_on.html",
+      "stats": {
+        "n_samples": 55726,
+        "n_valid_xy": 50168,
+        "pct_inside_segment": 77.51953436453516,
+        "pct_inside_panel": 94.4446659225004,
+        "pct_outside_document": 0.3308882155955988,
+        "aoi_label_counts": {
+          "Outside": 22255,
+          "Mark_Scheme": 7497,
+          "Commentary": 7367,
+          "Star_Chart": 6628,
+          "Response": 3160,
+          "Question": 2893,
+          "Answer_Scroll_Bar": 98,
+          "Green_Answer_Box": 96,
+          "General_UI": 81,
+          "Advance": 76,
+          "Commentary_Scroll_Bar": 17
+        }
+      },
+      "n_fixations": 707
+    },
+    {
+      "participant_id": "P04",
+      "trial_id": "T12",
+      "star_condition": "star_off",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P04_T12_star_off.html",
+      "stats": {
+        "n_samples": 21934,
+        "n_valid_xy": 20360,
+        "pct_inside_segment": 80.35363457760315,
+        "pct_inside_panel": 95.27996070726915,
+        "pct_outside_document": 0.04911591355599214,
+        "aoi_label_counts": {
+          "Mark_Scheme": 9548,
+          "Response": 3947,
+          "Commentary": 2566,
+          "Outside": 2434,
+          "Question": 1263,
+          "Green_Answer_Box": 311,
+          "Answer_Scroll_Bar": 114,
+          "Advance": 92,
+          "Grey_Answer_Box": 46,
+          "Commentary_Scroll_Bar": 31,
+          "General_UI": 8
+        }
+      },
+      "n_fixations": 298
+    },
+    {
+      "participant_id": "P04",
+      "trial_id": "T14",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P04_T14_not_eligible.html",
+      "stats": {
+        "n_samples": 58489,
+        "n_valid_xy": 55288,
+        "pct_inside_segment": 90.24381420923166,
+        "pct_inside_panel": 97.03009694689625,
+        "pct_outside_document": 0.22247142237013456,
+        "aoi_label_counts": {
+          "Mark_Scheme": 18297,
+          "Response": 15218,
+          "Commentary": 10397,
+          "Outside": 9994,
+          "Question": 677,
+          "Green_Answer_Box": 196,
+          "Commentary_Scroll_Bar": 156,
+          "General_UI": 145,
+          "Advance": 121,
+          "Answer_Scroll_Bar": 87
+        }
+      },
+      "n_fixations": 802
+    },
+    {
+      "participant_id": "P04",
+      "trial_id": "T17",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P04_T17_not_eligible.html",
+      "stats": {
+        "n_samples": 4575,
+        "n_valid_xy": 4209,
+        "pct_inside_segment": 62.31884057971014,
+        "pct_inside_panel": 84.36683297695414,
+        "pct_outside_document": 1.4017581373247803,
+        "aoi_label_counts": {
+          "Response": 1864,
+          "Outside": 1033,
+          "Mark_Scheme": 930,
+          "Green_Answer_Box": 149,
+          "Question": 127,
+          "Advance": 97,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 66
+    },
+    {
+      "participant_id": "P05",
+      "trial_id": "T07",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P05_T07_not_eligible.html",
+      "stats": {
+        "n_samples": 9117,
+        "n_valid_xy": 8863,
+        "pct_inside_segment": 57.63285569220354,
+        "pct_inside_panel": 90.48854789574636,
+        "pct_outside_document": 0.045131445334536835,
+        "aoi_label_counts": {
+          "Commentary": 2525,
+          "Mark_Scheme": 2036,
+          "Response": 1297,
+          "Question": 1266,
+          "Outside": 1201,
+          "Green_Answer_Box": 211,
+          "Advance": 170,
+          "General_UI": 148,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 151
+    },
+    {
+      "participant_id": "P05",
+      "trial_id": "T23",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P05_T23_not_eligible.html",
+      "stats": {
+        "n_samples": 6403,
+        "n_valid_xy": 6069,
+        "pct_inside_segment": 52.825836216839676,
+        "pct_inside_panel": 91.41538968528587,
+        "pct_outside_document": 0.08238589553468446,
+        "aoi_label_counts": {
+          "Response": 2298,
+          "Mark_Scheme": 1374,
+          "Question": 1036,
+          "Outside": 883,
+          "Commentary": 185,
+          "General_UI": 113,
+          "Green_Answer_Box": 108,
+          "Advance": 61,
+          "Answer_Scroll_Bar": 11
+        }
+      },
+      "n_fixations": 101
+    },
+    {
+      "participant_id": "P05",
+      "trial_id": "T26",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P05_T26_not_eligible.html",
+      "stats": {
+        "n_samples": 1254,
+        "n_valid_xy": 1096,
+        "pct_inside_segment": 15.784671532846714,
+        "pct_inside_panel": 65.32846715328468,
+        "pct_outside_document": 0.09124087591240876,
+        "aoi_label_counts": {
+          "Commentary": 335,
+          "Mark_Scheme": 229,
+          "Outside": 166,
+          "Advance": 158,
+          "Green_Answer_Box": 97,
+          "Response": 49,
+          "General_UI": 41,
+          "Question": 12,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 17
+    },
+    {
+      "participant_id": "P06",
+      "trial_id": "T11",
+      "star_condition": "star_off",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P06_T11_star_off.html",
+      "stats": {
+        "n_samples": 68778,
+        "n_valid_xy": 52837,
+        "pct_inside_segment": 79.35537596759846,
+        "pct_inside_panel": 93.17902227605656,
+        "pct_outside_document": 0.41826750193992845,
+        "aoi_label_counts": {
+          "Response": 15309,
+          "Mark_Scheme": 14839,
+          "Commentary": 14021,
+          "Outside": 6771,
+          "Question": 884,
+          "Advance": 414,
+          "Green_Answer_Box": 312,
+          "General_UI": 137,
+          "Answer_Scroll_Bar": 95,
+          "Grey_Answer_Box": 55
+        }
+      },
+      "n_fixations": 731
+    },
+    {
+      "participant_id": "P06",
+      "trial_id": "T18",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P06_T18_not_eligible.html",
+      "stats": {
+        "n_samples": 12587,
+        "n_valid_xy": 12137,
+        "pct_inside_segment": 61.160088984098216,
+        "pct_inside_panel": 90.82145505479113,
+        "pct_outside_document": 0.09887122023564307,
+        "aoi_label_counts": {
+          "Mark_Scheme": 5178,
+          "Response": 1908,
+          "Question": 1837,
+          "Outside": 1376,
+          "Commentary": 1198,
+          "Green_Answer_Box": 286,
+          "Advance": 269,
+          "Grey_Answer_Box": 45,
+          "General_UI": 31,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 157
+    },
+    {
+      "participant_id": "P06",
+      "trial_id": "T22",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P06_T22_not_eligible.html",
+      "stats": {
+        "n_samples": 18169,
+        "n_valid_xy": 17715,
+        "pct_inside_segment": 64.89980242732148,
+        "pct_inside_panel": 94.14620378210556,
+        "pct_outside_document": 1.292689810894722,
+        "aoi_label_counts": {
+          "Commentary": 4390,
+          "Mark_Scheme": 4332,
+          "Response": 3286,
+          "Question": 3129,
+          "Outside": 2187,
+          "Green_Answer_Box": 147,
+          "Advance": 122,
+          "Answer_Scroll_Bar": 59,
+          "Grey_Answer_Box": 44,
+          "General_UI": 19
+        }
+      },
+      "n_fixations": 246
+    },
+    {
+      "participant_id": "P09",
+      "trial_id": "T13",
+      "star_condition": "star_off",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P09_T13_star_off.html",
+      "stats": {
+        "n_samples": 34732,
+        "n_valid_xy": 32580,
+        "pct_inside_segment": 84.22958870472682,
+        "pct_inside_panel": 97.33271945979128,
+        "pct_outside_document": 0.018416206261510127,
+        "aoi_label_counts": {
+          "Commentary": 13854,
+          "Response": 5932,
+          "Mark_Scheme": 5269,
+          "Outside": 4504,
+          "Question": 2653,
+          "Green_Answer_Box": 166,
+          "Advance": 77,
+          "Commentary_Scroll_Bar": 69,
+          "Answer_Scroll_Bar": 28,
+          "Grey_Answer_Box": 19,
+          "General_UI": 9
+        }
+      },
+      "n_fixations": 542
+    },
+    {
+      "participant_id": "P09",
+      "trial_id": "T16",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P09_T16_not_eligible.html",
+      "stats": {
+        "n_samples": 96892,
+        "n_valid_xy": 89305,
+        "pct_inside_segment": 90.61530709366777,
+        "pct_inside_panel": 96.77845585353563,
+        "pct_outside_document": 0.892447231398018,
+        "aoi_label_counts": {
+          "Commentary": 39212,
+          "Mark_Scheme": 14540,
+          "Response": 14141,
+          "Outside": 13839,
+          "Question": 5484,
+          "Green_Answer_Box": 747,
+          "Commentary_Scroll_Bar": 364,
+          "General_UI": 355,
+          "Answer_Scroll_Bar": 317,
+          "Advance": 306
+        }
+      },
+      "n_fixations": 1389
+    },
+    {
+      "participant_id": "P09",
+      "trial_id": "T27",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P09_T27_star_on.html",
+      "stats": {
+        "n_samples": 40246,
+        "n_valid_xy": 39026,
+        "pct_inside_segment": 80.11838261671707,
+        "pct_inside_panel": 96.84056782657716,
+        "pct_outside_document": 0.4253574540050223,
+        "aoi_label_counts": {
+          "Response": 12303,
+          "Mark_Scheme": 11167,
+          "Outside": 5272,
+          "Question": 4225,
+          "Star_Chart": 3060,
+          "Commentary": 1881,
+          "Commentary_Scroll_Bar": 445,
+          "Green_Answer_Box": 346,
+          "Answer_Scroll_Bar": 198,
+          "Advance": 126,
+          "General_UI": 3
+        }
+      },
+      "n_fixations": 595
+    },
+    {
+      "participant_id": "P10",
+      "trial_id": "T05",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P10_T05_not_eligible.html",
+      "stats": {
+        "n_samples": 18712,
+        "n_valid_xy": 17841,
+        "pct_inside_segment": 48.53427498458607,
+        "pct_inside_panel": 89.56897034919568,
+        "pct_outside_document": 0.577321898996693,
+        "aoi_label_counts": {
+          "Mark_Scheme": 6430,
+          "Commentary": 4388,
+          "Outside": 2917,
+          "Response": 1891,
+          "Question": 1458,
+          "General_UI": 688,
+          "Green_Answer_Box": 55,
+          "Answer_Scroll_Bar": 13,
+          "Commentary_Scroll_Bar": 1
+        }
+      },
+      "n_fixations": 274
+    },
+    {
+      "participant_id": "P10",
+      "trial_id": "T10",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P10_T10_not_eligible.html",
+      "stats": {
+        "n_samples": 28739,
+        "n_valid_xy": 28072,
+        "pct_inside_segment": 73.82801367911085,
+        "pct_inside_panel": 93.37418067825591,
+        "pct_outside_document": 0.0,
+        "aoi_label_counts": {
+          "Commentary": 13495,
+          "Outside": 4597,
+          "Mark_Scheme": 4026,
+          "Response": 3709,
+          "Question": 1945,
+          "Advance": 153,
+          "Answer_Scroll_Bar": 107,
+          "Green_Answer_Box": 33,
+          "General_UI": 7
+        }
+      },
+      "n_fixations": 482
+    },
+    {
+      "participant_id": "P10",
+      "trial_id": "T16",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P10_T16_not_eligible.html",
+      "stats": {
+        "n_samples": 62439,
+        "n_valid_xy": 61339,
+        "pct_inside_segment": 81.13924256997996,
+        "pct_inside_panel": 93.6728671807496,
+        "pct_outside_document": 0.15813756337729667,
+        "aoi_label_counts": {
+          "Response": 21218,
+          "Mark_Scheme": 13487,
+          "Commentary": 11137,
+          "Outside": 7729,
+          "Question": 6599,
+          "Green_Answer_Box": 447,
+          "Commentary_Scroll_Bar": 342,
+          "General_UI": 180,
+          "Answer_Scroll_Bar": 103,
+          "Advance": 97
+        }
+      },
+      "n_fixations": 962
+    },
+    {
+      "participant_id": "P11",
+      "trial_id": "T10",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P11_T10_not_eligible.html",
+      "stats": {
+        "n_samples": 13331,
+        "n_valid_xy": 12375,
+        "pct_inside_segment": 56.468686868686866,
+        "pct_inside_panel": 88.04848484848485,
+        "pct_outside_document": 0.0808080808080808,
+        "aoi_label_counts": {
+          "Mark_Scheme": 3738,
+          "Response": 3379,
+          "Outside": 2338,
+          "Commentary": 1736,
+          "General_UI": 501,
+          "Question": 346,
+          "Advance": 229,
+          "Green_Answer_Box": 85,
+          "Answer_Scroll_Bar": 18,
+          "Commentary_Scroll_Bar": 5
+        }
+      },
+      "n_fixations": 163
+    },
+    {
+      "participant_id": "P11",
+      "trial_id": "T27",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P11_T27_star_on.html",
+      "stats": {
+        "n_samples": 58691,
+        "n_valid_xy": 57795,
+        "pct_inside_segment": 72.75715892378234,
+        "pct_inside_panel": 92.37823341119474,
+        "pct_outside_document": 0.2889523315165672,
+        "aoi_label_counts": {
+          "Response": 23540,
+          "Mark_Scheme": 12300,
+          "Outside": 10061,
+          "Star_Chart": 9119,
+          "Commentary": 885,
+          "Question": 586,
+          "General_UI": 419,
+          "Green_Answer_Box": 342,
+          "Advance": 206,
+          "Answer_Scroll_Bar": 145,
+          "Grey_Answer_Box": 135,
+          "Commentary_Scroll_Bar": 57
+        }
+      },
+      "n_fixations": 658
+    },
+    {
+      "participant_id": "P11",
+      "trial_id": "T29",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P11_T29_not_eligible.html",
+      "stats": {
+        "n_samples": 19066,
+        "n_valid_xy": 18211,
+        "pct_inside_segment": 62.01197078688705,
+        "pct_inside_panel": 90.23117895777277,
+        "pct_outside_document": 0.10433254626324749,
+        "aoi_label_counts": {
+          "Response": 7917,
+          "Mark_Scheme": 2908,
+          "Question": 2594,
+          "Outside": 2346,
+          "General_UI": 1637,
+          "Grey_Answer_Box": 244,
+          "Green_Answer_Box": 227,
+          "Commentary": 214,
+          "Advance": 108,
+          "Answer_Scroll_Bar": 16
+        }
+      },
+      "n_fixations": 232
+    },
+    {
+      "participant_id": "P12",
+      "trial_id": "T02",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P12_T02_not_eligible.html",
+      "stats": {
+        "n_samples": 2011,
+        "n_valid_xy": 1816,
+        "pct_inside_segment": 8.920704845814978,
+        "pct_inside_panel": 51.76211453744494,
+        "pct_outside_document": 0.4955947136563877,
+        "aoi_label_counts": {
+          "Outside": 395,
+          "Mark_Scheme": 335,
+          "Green_Answer_Box": 311,
+          "Question": 301,
+          "Advance": 295,
+          "Response": 174,
+          "Answer_Scroll_Bar": 4,
+          "General_UI": 1
+        }
+      },
+      "n_fixations": 27
+    },
+    {
+      "participant_id": "P12",
+      "trial_id": "T07",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P12_T07_not_eligible.html",
+      "stats": {
+        "n_samples": 8138,
+        "n_valid_xy": 7618,
+        "pct_inside_segment": 64.91205040693096,
+        "pct_inside_panel": 90.60120766605408,
+        "pct_outside_document": 0.2100288789708585,
+        "aoi_label_counts": {
+          "Mark_Scheme": 1735,
+          "Commentary": 1703,
+          "Response": 1592,
+          "Outside": 1233,
+          "Question": 923,
+          "Advance": 174,
+          "Green_Answer_Box": 124,
+          "Grey_Answer_Box": 116,
+          "Answer_Scroll_Bar": 13,
+          "General_UI": 5
+        }
+      },
+      "n_fixations": 121
+    },
+    {
+      "participant_id": "P12",
+      "trial_id": "T21",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P12_T21_star_on.html",
+      "stats": {
+        "n_samples": 29789,
+        "n_valid_xy": 28505,
+        "pct_inside_segment": 70.92089107174179,
+        "pct_inside_panel": 90.7770566567269,
+        "pct_outside_document": 1.613751973338011,
+        "aoi_label_counts": {
+          "Mark_Scheme": 9965,
+          "Response": 5877,
+          "Outside": 4481,
+          "Question": 3307,
+          "Star_Chart": 2649,
+          "Commentary": 1315,
+          "Green_Answer_Box": 476,
+          "Advance": 179,
+          "Answer_Scroll_Bar": 141,
+          "Grey_Answer_Box": 49,
+          "Commentary_Scroll_Bar": 40,
+          "General_UI": 26
+        }
+      },
+      "n_fixations": 420
+    },
+    {
+      "participant_id": "P15",
+      "trial_id": "T03",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P15_T03_not_eligible.html",
+      "stats": {
+        "n_samples": 12868,
+        "n_valid_xy": 12749,
+        "pct_inside_segment": 88.91677778649306,
+        "pct_inside_panel": 95.96831124009726,
+        "pct_outside_document": 0.18040630637697075,
+        "aoi_label_counts": {
+          "Question": 5716,
+          "Mark_Scheme": 2082,
+          "Commentary": 1739,
+          "Response": 1379,
+          "Outside": 1340,
+          "Advance": 213,
+          "Green_Answer_Box": 183,
+          "General_UI": 84,
+          "Answer_Scroll_Bar": 13
+        }
+      },
+      "n_fixations": 200
+    },
+    {
+      "participant_id": "P15",
+      "trial_id": "T23",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P15_T23_not_eligible.html",
+      "stats": {
+        "n_samples": 12178,
+        "n_valid_xy": 11980,
+        "pct_inside_segment": 82.7212020033389,
+        "pct_inside_panel": 93.68948247078464,
+        "pct_outside_document": 0.325542570951586,
+        "aoi_label_counts": {
+          "Response": 3476,
+          "Question": 2171,
+          "Mark_Scheme": 2149,
+          "Commentary": 2002,
+          "Outside": 1669,
+          "Advance": 215,
+          "Grey_Answer_Box": 143,
+          "Green_Answer_Box": 106,
+          "General_UI": 43,
+          "Answer_Scroll_Bar": 6
+        }
+      },
+      "n_fixations": 199
+    },
+    {
+      "participant_id": "P15",
+      "trial_id": "T27",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P15_T27_star_on.html",
+      "stats": {
+        "n_samples": 49978,
+        "n_valid_xy": 49681,
+        "pct_inside_segment": 82.95525452386224,
+        "pct_inside_panel": 97.05923793804473,
+        "pct_outside_document": 0.821239508061432,
+        "aoi_label_counts": {
+          "Response": 14528,
+          "Star_Chart": 12340,
+          "Mark_Scheme": 9794,
+          "Outside": 5245,
+          "Commentary": 3745,
+          "Question": 3161,
+          "Green_Answer_Box": 355,
+          "Advance": 205,
+          "Commentary_Scroll_Bar": 155,
+          "Grey_Answer_Box": 102,
+          "Answer_Scroll_Bar": 36,
+          "General_UI": 15
+        }
+      },
+      "n_fixations": 764
+    },
+    {
+      "participant_id": "P16",
+      "trial_id": "T04",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P16_T04_not_eligible.html",
+      "stats": {
+        "n_samples": 8047,
+        "n_valid_xy": 7685,
+        "pct_inside_segment": 69.06961613532856,
+        "pct_inside_panel": 86.54521795705921,
+        "pct_outside_document": 0.16916070266753416,
+        "aoi_label_counts": {
+          "Response": 2370,
+          "Outside": 1868,
+          "Commentary": 1440,
+          "Mark_Scheme": 1389,
+          "Advance": 190,
+          "Question": 174,
+          "Green_Answer_Box": 166,
+          "General_UI": 43,
+          "Answer_Scroll_Bar": 25,
+          "Grey_Answer_Box": 20
+        }
+      },
+      "n_fixations": 123
+    },
+    {
+      "participant_id": "P16",
+      "trial_id": "T24",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P16_T24_not_eligible.html",
+      "stats": {
+        "n_samples": 38516,
+        "n_valid_xy": 35351,
+        "pct_inside_segment": 86.7245622471783,
+        "pct_inside_panel": 94.00016972645753,
+        "pct_outside_document": 4.149811886509576,
+        "aoi_label_counts": {
+          "Commentary": 12472,
+          "Mark_Scheme": 9207,
+          "Outside": 5454,
+          "Response": 4311,
+          "Question": 3701,
+          "Green_Answer_Box": 89,
+          "Advance": 72,
+          "Answer_Scroll_Bar": 26,
+          "General_UI": 11,
+          "Commentary_Scroll_Bar": 8
+        }
+      },
+      "n_fixations": 471
+    },
+    {
+      "participant_id": "P16",
+      "trial_id": "T29",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P16_T29_not_eligible.html",
+      "stats": {
+        "n_samples": 30224,
+        "n_valid_xy": 27771,
+        "pct_inside_segment": 86.61913506895682,
+        "pct_inside_panel": 95.1424147491988,
+        "pct_outside_document": 0.13683338734651254,
+        "aoi_label_counts": {
+          "Commentary": 7493,
+          "Response": 7020,
+          "Mark_Scheme": 5971,
+          "Outside": 4248,
+          "Question": 2489,
+          "Advance": 235,
+          "Green_Answer_Box": 173,
+          "Grey_Answer_Box": 79,
+          "Answer_Scroll_Bar": 31,
+          "General_UI": 31,
+          "Commentary_Scroll_Bar": 1
+        }
+      },
+      "n_fixations": 413
+    },
+    {
+      "participant_id": "P17",
+      "trial_id": "T12",
+      "star_condition": "star_off",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P17_T12_star_off.html",
+      "stats": {
+        "n_samples": 61361,
+        "n_valid_xy": 55086,
+        "pct_inside_segment": 76.48585847583777,
+        "pct_inside_panel": 93.64448317176777,
+        "pct_outside_document": 0.49740405910757723,
+        "aoi_label_counts": {
+          "Mark_Scheme": 15123,
+          "Response": 14076,
+          "Commentary": 11240,
+          "Outside": 10575,
+          "General_UI": 3048,
+          "Green_Answer_Box": 413,
+          "Advance": 191,
+          "Grey_Answer_Box": 167,
+          "Question": 112,
+          "Commentary_Scroll_Bar": 102,
+          "Answer_Scroll_Bar": 39
+        }
+      },
+      "n_fixations": 911
+    },
+    {
+      "participant_id": "P17",
+      "trial_id": "T20",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P17_T20_not_eligible.html",
+      "stats": {
+        "n_samples": 5908,
+        "n_valid_xy": 4793,
+        "pct_inside_segment": 60.63008554141456,
+        "pct_inside_panel": 84.95722929271855,
+        "pct_outside_document": 0.0,
+        "aoi_label_counts": {
+          "Mark_Scheme": 1683,
+          "Response": 1524,
+          "Outside": 849,
+          "Advance": 324,
+          "Commentary": 126,
+          "Question": 99,
+          "Green_Answer_Box": 85,
+          "General_UI": 60,
+          "Answer_Scroll_Bar": 43
+        }
+      },
+      "n_fixations": 75
+    },
+    {
+      "participant_id": "P17",
+      "trial_id": "T25",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P17_T25_not_eligible.html",
+      "stats": {
+        "n_samples": 10929,
+        "n_valid_xy": 10032,
+        "pct_inside_segment": 64.21451355661883,
+        "pct_inside_panel": 87.77910685805422,
+        "pct_outside_document": 0.11961722488038277,
+        "aoi_label_counts": {
+          "Response": 5219,
+          "Mark_Scheme": 1636,
+          "Outside": 1515,
+          "Question": 804,
+          "Advance": 539,
+          "Green_Answer_Box": 284,
+          "Answer_Scroll_Bar": 19,
+          "General_UI": 16
+        }
+      },
+      "n_fixations": 150
+    },
+    {
+      "participant_id": "P18",
+      "trial_id": "T12",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P18_T12_star_on.html",
+      "stats": {
+        "n_samples": 49199,
+        "n_valid_xy": 43364,
+        "pct_inside_segment": 72.02057005811272,
+        "pct_inside_panel": 93.06337053777327,
+        "pct_outside_document": 0.9939120007379393,
+        "aoi_label_counts": {
+          "Commentary": 14358,
+          "Mark_Scheme": 9590,
+          "Outside": 6890,
+          "Response": 5371,
+          "Star_Chart": 3198,
+          "Question": 2282,
+          "General_UI": 1362,
+          "Commentary_Scroll_Bar": 257,
+          "Answer_Scroll_Bar": 56
+        }
+      },
+      "n_fixations": 503
+    },
+    {
+      "participant_id": "P18",
+      "trial_id": "T18",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P18_T18_not_eligible.html",
+      "stats": {
+        "n_samples": 13234,
+        "n_valid_xy": 12882,
+        "pct_inside_segment": 70.8197484862599,
+        "pct_inside_panel": 92.3691973296072,
+        "pct_outside_document": 0.00776276975624903,
+        "aoi_label_counts": {
+          "Commentary": 4859,
+          "Mark_Scheme": 3617,
+          "Question": 1848,
+          "Outside": 990,
+          "Response": 913,
+          "Advance": 292,
+          "Green_Answer_Box": 264,
+          "Grey_Answer_Box": 61,
+          "General_UI": 29,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 147
+    },
+    {
+      "participant_id": "P18",
+      "trial_id": "T25",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P18_T25_not_eligible.html",
+      "stats": {
+        "n_samples": 2892,
+        "n_valid_xy": 2455,
+        "pct_inside_segment": 46.395112016293275,
+        "pct_inside_panel": 75.72301425661915,
+        "pct_outside_document": 0.0,
+        "aoi_label_counts": {
+          "Mark_Scheme": 815,
+          "Outside": 528,
+          "Response": 475,
+          "Question": 346,
+          "Advance": 83,
+          "Green_Answer_Box": 75,
+          "General_UI": 72,
+          "Grey_Answer_Box": 57,
+          "Answer_Scroll_Bar": 4
+        }
+      },
+      "n_fixations": 38
+    },
+    {
+      "participant_id": "P19",
+      "trial_id": "T06",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P19_T06_not_eligible.html",
+      "stats": {
+        "n_samples": 4786,
+        "n_valid_xy": 3997,
+        "pct_inside_segment": 48.01100825619214,
+        "pct_inside_panel": 77.10783087315487,
+        "pct_outside_document": 0.32524393294971227,
+        "aoi_label_counts": {
+          "Outside": 1602,
+          "Commentary": 843,
+          "Question": 746,
+          "Response": 303,
+          "Mark_Scheme": 192,
+          "Green_Answer_Box": 186,
+          "Advance": 81,
+          "Answer_Scroll_Bar": 28,
+          "General_UI": 16
+        }
+      },
+      "n_fixations": 71
+    },
+    {
+      "participant_id": "P19",
+      "trial_id": "T14",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P19_T14_not_eligible.html",
+      "stats": {
+        "n_samples": 39731,
+        "n_valid_xy": 36032,
+        "pct_inside_segment": 86.0401865008881,
+        "pct_inside_panel": 98.32093694493783,
+        "pct_outside_document": 0.20814831261101244,
+        "aoi_label_counts": {
+          "Commentary": 10579,
+          "Mark_Scheme": 9569,
+          "Response": 8614,
+          "Outside": 5772,
+          "Question": 735,
+          "General_UI": 479,
+          "Answer_Scroll_Bar": 105,
+          "Green_Answer_Box": 82,
+          "Commentary_Scroll_Bar": 62,
+          "Advance": 35
+        }
+      },
+      "n_fixations": 532
+    },
+    {
+      "participant_id": "P19",
+      "trial_id": "T29",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P19_T29_not_eligible.html",
+      "stats": {
+        "n_samples": 17229,
+        "n_valid_xy": 15919,
+        "pct_inside_segment": 81.80162070481815,
+        "pct_inside_panel": 96.43821848106036,
+        "pct_outside_document": 0.23242665996607825,
+        "aoi_label_counts": {
+          "Commentary": 4793,
+          "Outside": 3614,
+          "Response": 3462,
+          "Mark_Scheme": 2377,
+          "Question": 1420,
+          "Advance": 128,
+          "Green_Answer_Box": 71,
+          "Commentary_Scroll_Bar": 28,
+          "General_UI": 13,
+          "Answer_Scroll_Bar": 13
+        }
+      },
+      "n_fixations": 244
+    },
+    {
+      "participant_id": "P20",
+      "trial_id": "T02",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P20_T02_not_eligible.html",
+      "stats": {
+        "n_samples": 1802,
+        "n_valid_xy": 1652,
+        "pct_inside_segment": 35.77481840193705,
+        "pct_inside_panel": 51.69491525423729,
+        "pct_outside_document": 0.6053268765133172,
+        "aoi_label_counts": {
+          "Outside": 495,
+          "Question": 285,
+          "Mark_Scheme": 218,
+          "Advance": 218,
+          "Green_Answer_Box": 163,
+          "General_UI": 140,
+          "Response": 112,
+          "Answer_Scroll_Bar": 21
+        }
+      },
+      "n_fixations": 20
+    },
+    {
+      "participant_id": "P20",
+      "trial_id": "T11",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P20_T11_star_on.html",
+      "stats": {
+        "n_samples": 27753,
+        "n_valid_xy": 27370,
+        "pct_inside_segment": 81.07782243332116,
+        "pct_inside_panel": 94.56704420898794,
+        "pct_outside_document": 0.21191085129704054,
+        "aoi_label_counts": {
+          "Response": 12262,
+          "Mark_Scheme": 6409,
+          "Outside": 2776,
+          "Star_Chart": 2131,
+          "Question": 1901,
+          "Commentary": 835,
+          "Green_Answer_Box": 437,
+          "Advance": 172,
+          "Commentary_Scroll_Bar": 166,
+          "Answer_Scroll_Bar": 148,
+          "Grey_Answer_Box": 132,
+          "General_UI": 1
+        }
+      },
+      "n_fixations": 403
+    },
+    {
+      "participant_id": "P20",
+      "trial_id": "T28",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P20_T28_not_eligible.html",
+      "stats": {
+        "n_samples": 3888,
+        "n_valid_xy": 3523,
+        "pct_inside_segment": 75.58898665909736,
+        "pct_inside_panel": 79.10871416406472,
+        "pct_outside_document": 0.9934714731762702,
+        "aoi_label_counts": {
+          "Question": 1479,
+          "Mark_Scheme": 451,
+          "Response": 442,
+          "Outside": 426,
+          "Advance": 381,
+          "Commentary": 159,
+          "Green_Answer_Box": 157,
+          "General_UI": 26,
+          "Answer_Scroll_Bar": 2
+        }
+      },
+      "n_fixations": 49
+    },
+    {
+      "participant_id": "P21",
+      "trial_id": "T11",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P21_T11_star_on.html",
+      "stats": {
+        "n_samples": 57652,
+        "n_valid_xy": 50934,
+        "pct_inside_segment": 75.74900852083087,
+        "pct_inside_panel": 92.04657007107237,
+        "pct_outside_document": 1.1937016531197235,
+        "aoi_label_counts": {
+          "Response": 15121,
+          "Commentary": 11818,
+          "Mark_Scheme": 8249,
+          "Outside": 6847,
+          "Star_Chart": 4937,
+          "Question": 2906,
+          "Green_Answer_Box": 339,
+          "Advance": 215,
+          "Answer_Scroll_Bar": 190,
+          "General_UI": 160,
+          "Commentary_Scroll_Bar": 152
+        }
+      },
+      "n_fixations": 651
+    },
+    {
+      "participant_id": "P21",
+      "trial_id": "T13",
+      "star_condition": "star_off",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P21_T13_star_off.html",
+      "stats": {
+        "n_samples": 23255,
+        "n_valid_xy": 19820,
+        "pct_inside_segment": 84.03632694248235,
+        "pct_inside_panel": 95.62563067608477,
+        "pct_outside_document": 0.050454086781029264,
+        "aoi_label_counts": {
+          "Commentary": 7391,
+          "Mark_Scheme": 4011,
+          "Response": 3359,
+          "Outside": 2643,
+          "Question": 1983,
+          "Green_Answer_Box": 129,
+          "Grey_Answer_Box": 129,
+          "Advance": 85,
+          "General_UI": 47,
+          "Answer_Scroll_Bar": 43
+        }
+      },
+      "n_fixations": 255
+    },
+    {
+      "participant_id": "P21",
+      "trial_id": "T20",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P21_T20_not_eligible.html",
+      "stats": {
+        "n_samples": 24519,
+        "n_valid_xy": 16752,
+        "pct_inside_segment": 91.52936962750717,
+        "pct_inside_panel": 95.70200573065902,
+        "pct_outside_document": 0.10148042024832855,
+        "aoi_label_counts": {
+          "Commentary": 10135,
+          "Mark_Scheme": 2214,
+          "Outside": 1881,
+          "Response": 1677,
+          "Question": 234,
+          "Advance": 197,
+          "Green_Answer_Box": 188,
+          "Grey_Answer_Box": 100,
+          "General_UI": 89,
+          "Answer_Scroll_Bar": 37
+        }
+      },
+      "n_fixations": 216
+    },
+    {
+      "participant_id": "P23",
+      "trial_id": "T05",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P23_T05_not_eligible.html",
+      "stats": {
+        "n_samples": 7908,
+        "n_valid_xy": 7294,
+        "pct_inside_segment": 67.93254729914999,
+        "pct_inside_panel": 92.7063339731286,
+        "pct_outside_document": 0.027419797093501508,
+        "aoi_label_counts": {
+          "Mark_Scheme": 2785,
+          "Commentary": 1285,
+          "Outside": 1179,
+          "Response": 1013,
+          "Question": 721,
+          "Advance": 142,
+          "Answer_Scroll_Bar": 87,
+          "Green_Answer_Box": 77,
+          "General_UI": 3,
+          "Commentary_Scroll_Bar": 2
+        }
+      },
+      "n_fixations": 120
+    },
+    {
+      "participant_id": "P23",
+      "trial_id": "T10",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P23_T10_not_eligible.html",
+      "stats": {
+        "n_samples": 14032,
+        "n_valid_xy": 13347,
+        "pct_inside_segment": 77.33573087585225,
+        "pct_inside_panel": 92.9347418895632,
+        "pct_outside_document": 0.02247696111485727,
+        "aoi_label_counts": {
+          "Response": 4439,
+          "Commentary": 3063,
+          "Mark_Scheme": 2727,
+          "Outside": 2362,
+          "Question": 400,
+          "General_UI": 200,
+          "Green_Answer_Box": 93,
+          "Advance": 55,
+          "Answer_Scroll_Bar": 8
+        }
+      },
+      "n_fixations": 210
+    },
+    {
+      "participant_id": "P23",
+      "trial_id": "T22",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P23_T22_not_eligible.html",
+      "stats": {
+        "n_samples": 14880,
+        "n_valid_xy": 13721,
+        "pct_inside_segment": 70.61438670650827,
+        "pct_inside_panel": 93.15647547554843,
+        "pct_outside_document": 0.08016908388601414,
+        "aoi_label_counts": {
+          "Response": 4221,
+          "Mark_Scheme": 3185,
+          "Outside": 2369,
+          "Question": 2059,
+          "Commentary": 1219,
+          "Green_Answer_Box": 225,
+          "General_UI": 186,
+          "Advance": 138,
+          "Grey_Answer_Box": 60,
+          "Answer_Scroll_Bar": 59
+        }
+      },
+      "n_fixations": 221
+    },
+    {
+      "participant_id": "P24",
+      "trial_id": "T07",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P24_T07_not_eligible.html",
+      "stats": {
+        "n_samples": 4932,
+        "n_valid_xy": 4735,
+        "pct_inside_segment": 68.4688489968321,
+        "pct_inside_panel": 85.04751847940865,
+        "pct_outside_document": 0.021119324181626188,
+        "aoi_label_counts": {
+          "Outside": 1250,
+          "Question": 1165,
+          "Mark_Scheme": 1141,
+          "Response": 892,
+          "Green_Answer_Box": 199,
+          "General_UI": 48,
+          "Commentary": 32,
+          "Answer_Scroll_Bar": 8
+        }
+      },
+      "n_fixations": 82
+    },
+    {
+      "participant_id": "P24",
+      "trial_id": "T15",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P24_T15_not_eligible.html",
+      "stats": {
+        "n_samples": 48649,
+        "n_valid_xy": 46074,
+        "pct_inside_segment": 87.43542996049834,
+        "pct_inside_panel": 97.90988409949212,
+        "pct_outside_document": 0.15627034770152362,
+        "aoi_label_counts": {
+          "Response": 14200,
+          "Commentary": 13133,
+          "Outside": 7261,
+          "Mark_Scheme": 6912,
+          "Question": 4246,
+          "Answer_Scroll_Bar": 109,
+          "Green_Answer_Box": 95,
+          "General_UI": 73,
+          "Grey_Answer_Box": 45
+        }
+      },
+      "n_fixations": 709
+    },
+    {
+      "participant_id": "P24",
+      "trial_id": "T19",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P24_T19_not_eligible.html",
+      "stats": {
+        "n_samples": 2691,
+        "n_valid_xy": 2509,
+        "pct_inside_segment": 59.067357512953365,
+        "pct_inside_panel": 69.70904742925468,
+        "pct_outside_document": 0.0,
+        "aoi_label_counts": {
+          "Response": 1017,
+          "Outside": 537,
+          "Green_Answer_Box": 353,
+          "Mark_Scheme": 333,
+          "General_UI": 94,
+          "Grey_Answer_Box": 89,
+          "Question": 77,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 43
+    },
+    {
+      "participant_id": "P25",
+      "trial_id": "T04",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P25_T04_not_eligible.html",
+      "stats": {
+        "n_samples": 7511,
+        "n_valid_xy": 6979,
+        "pct_inside_segment": 52.91589052872905,
+        "pct_inside_panel": 73.39160338157329,
+        "pct_outside_document": 6.161341166356212,
+        "aoi_label_counts": {
+          "Outside": 2880,
+          "Response": 1665,
+          "Mark_Scheme": 1222,
+          "General_UI": 353,
+          "Green_Answer_Box": 242,
+          "Advance": 214,
+          "Question": 211,
+          "Answer_Scroll_Bar": 130,
+          "Grey_Answer_Box": 34,
+          "Commentary_Scroll_Bar": 28
+        }
+      },
+      "n_fixations": 107
+    },
+    {
+      "participant_id": "P25",
+      "trial_id": "T12",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P25_T12_star_on.html",
+      "stats": {
+        "n_samples": 12044,
+        "n_valid_xy": 10690,
+        "pct_inside_segment": 70.46772684752105,
+        "pct_inside_panel": 90.24321796071094,
+        "pct_outside_document": 0.8793264733395697,
+        "aoi_label_counts": {
+          "Outside": 4617,
+          "Response": 2518,
+          "Mark_Scheme": 1437,
+          "Question": 1351,
+          "General_UI": 265,
+          "Answer_Scroll_Bar": 132,
+          "Star_Chart": 119,
+          "Advance": 97,
+          "Commentary": 57,
+          "Green_Answer_Box": 50,
+          "Commentary_Scroll_Bar": 47
+        }
+      },
+      "n_fixations": 160
+    },
+    {
+      "participant_id": "P25",
+      "trial_id": "T19",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P25_T19_not_eligible.html",
+      "stats": {
+        "n_samples": 3518,
+        "n_valid_xy": 3221,
+        "pct_inside_segment": 70.69233157404533,
+        "pct_inside_panel": 83.73176032288109,
+        "pct_outside_document": 0.9003415088481838,
+        "aoi_label_counts": {
+          "Response": 1426,
+          "Outside": 798,
+          "Question": 406,
+          "Mark_Scheme": 301,
+          "Advance": 148,
+          "Green_Answer_Box": 88,
+          "Commentary_Scroll_Bar": 28,
+          "General_UI": 25,
+          "Answer_Scroll_Bar": 1
+        }
+      },
+      "n_fixations": 52
+    },
+    {
+      "participant_id": "P26",
+      "trial_id": "T07",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P26_T07_not_eligible.html",
+      "stats": {
+        "n_samples": 15460,
+        "n_valid_xy": 15275,
+        "pct_inside_segment": 85.59738134206219,
+        "pct_inside_panel": 96.45826513911621,
+        "pct_outside_document": 0.28805237315875615,
+        "aoi_label_counts": {
+          "Commentary": 4121,
+          "Response": 3896,
+          "Mark_Scheme": 3336,
+          "Outside": 2115,
+          "Question": 1643,
+          "Green_Answer_Box": 107,
+          "Answer_Scroll_Bar": 27,
+          "Advance": 26,
+          "General_UI": 2,
+          "Commentary_Scroll_Bar": 2
+        }
+      },
+      "n_fixations": 231
+    },
+    {
+      "participant_id": "P26",
+      "trial_id": "T24",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P26_T24_not_eligible.html",
+      "stats": {
+        "n_samples": 12041,
+        "n_valid_xy": 11831,
+        "pct_inside_segment": 87.15239624714732,
+        "pct_inside_panel": 96.095004648804,
+        "pct_outside_document": 0.025357112670103966,
+        "aoi_label_counts": {
+          "Mark_Scheme": 3581,
+          "Response": 3458,
+          "Question": 1748,
+          "Outside": 1513,
+          "Commentary": 1207,
+          "Advance": 217,
+          "Green_Answer_Box": 56,
+          "Answer_Scroll_Bar": 42,
+          "General_UI": 9
+        }
+      },
+      "n_fixations": 190
+    },
+    {
+      "participant_id": "P26",
+      "trial_id": "T28",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P26_T28_not_eligible.html",
+      "stats": {
+        "n_samples": 6828,
+        "n_valid_xy": 3196,
+        "pct_inside_segment": 28.035043804755944,
+        "pct_inside_panel": 59.44931163954944,
+        "pct_outside_document": 19.461827284105134,
+        "aoi_label_counts": {
+          "Outside": 2676,
+          "Commentary": 147,
+          "Advance": 129,
+          "General_UI": 94,
+          "Commentary_Scroll_Bar": 67,
+          "Answer_Scroll_Bar": 42,
+          "Question": 28,
+          "Mark_Scheme": 13
+        }
+      },
+      "n_fixations": 17
+    },
+    {
+      "participant_id": "P27",
+      "trial_id": "T05",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P27_T05_not_eligible.html",
+      "stats": {
+        "n_samples": 8286,
+        "n_valid_xy": 4965,
+        "pct_inside_segment": 62.860020140986904,
+        "pct_inside_panel": 84.83383685800604,
+        "pct_outside_document": 0.9264853977844915,
+        "aoi_label_counts": {
+          "Mark_Scheme": 1529,
+          "Question": 1156,
+          "Outside": 826,
+          "Commentary": 602,
+          "Response": 481,
+          "Advance": 155,
+          "Green_Answer_Box": 134,
+          "General_UI": 64,
+          "Answer_Scroll_Bar": 18
+        }
+      },
+      "n_fixations": 72
+    },
+    {
+      "participant_id": "P27",
+      "trial_id": "T13",
+      "star_condition": "star_off",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P27_T13_star_off.html",
+      "stats": {
+        "n_samples": 7916,
+        "n_valid_xy": 7693,
+        "pct_inside_segment": 65.47510724034838,
+        "pct_inside_panel": 89.19797218250358,
+        "pct_outside_document": 0.31197192252697253,
+        "aoi_label_counts": {
+          "Response": 2604,
+          "Mark_Scheme": 2320,
+          "Outside": 1097,
+          "Commentary": 1089,
+          "General_UI": 174,
+          "Question": 166,
+          "Green_Answer_Box": 133,
+          "Answer_Scroll_Bar": 62,
+          "Advance": 48
+        }
+      },
+      "n_fixations": 105
+    },
+    {
+      "participant_id": "P27",
+      "trial_id": "T23",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P27_T23_not_eligible.html",
+      "stats": {
+        "n_samples": 10493,
+        "n_valid_xy": 9618,
+        "pct_inside_segment": 79.55915990850488,
+        "pct_inside_panel": 96.79767103347889,
+        "pct_outside_document": 0.1455604075691412,
+        "aoi_label_counts": {
+          "Question": 3595,
+          "Mark_Scheme": 2505,
+          "Response": 1340,
+          "Outside": 1054,
+          "Commentary": 1016,
+          "General_UI": 55,
+          "Green_Answer_Box": 48,
+          "Answer_Scroll_Bar": 5
+        }
+      },
+      "n_fixations": 141
+    },
+    {
+      "participant_id": "P28",
+      "trial_id": "T15",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P28_T15_not_eligible.html",
+      "stats": {
+        "n_samples": 30758,
+        "n_valid_xy": 29599,
+        "pct_inside_segment": 86.44886651576067,
+        "pct_inside_panel": 95.98635089023277,
+        "pct_outside_document": 0.22973749113145717,
+        "aoi_label_counts": {
+          "Mark_Scheme": 8818,
+          "Response": 7169,
+          "Question": 6279,
+          "Commentary": 3683,
+          "Outside": 3088,
+          "Grey_Answer_Box": 209,
+          "Advance": 115,
+          "General_UI": 99,
+          "Answer_Scroll_Bar": 85,
+          "Green_Answer_Box": 54
+        }
+      },
+      "n_fixations": 413
+    },
+    {
+      "participant_id": "P28",
+      "trial_id": "T17",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P28_T17_not_eligible.html",
+      "stats": {
+        "n_samples": 8740,
+        "n_valid_xy": 8263,
+        "pct_inside_segment": 74.65811448626407,
+        "pct_inside_panel": 91.21384485053855,
+        "pct_outside_document": 0.10891927871233209,
+        "aoi_label_counts": {
+          "Mark_Scheme": 2854,
+          "Response": 2416,
+          "Outside": 1225,
+          "Commentary": 754,
+          "Question": 727,
+          "Green_Answer_Box": 139,
+          "Advance": 134,
+          "Answer_Scroll_Bar": 8,
+          "General_UI": 6
+        }
+      },
+      "n_fixations": 129
+    },
+    {
+      "participant_id": "P28",
+      "trial_id": "T30",
+      "star_condition": "star_on",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P28_T30_star_on.html",
+      "stats": {
+        "n_samples": 25568,
+        "n_valid_xy": 25156,
+        "pct_inside_segment": 75.357767530609,
+        "pct_inside_panel": 91.88265224996024,
+        "pct_outside_document": 2.226109079344888,
+        "aoi_label_counts": {
+          "Star_Chart": 8052,
+          "Response": 5144,
+          "Mark_Scheme": 3542,
+          "Outside": 3018,
+          "Question": 2995,
+          "Commentary": 1223,
+          "Answer_Scroll_Bar": 345,
+          "Green_Answer_Box": 329,
+          "Grey_Answer_Box": 162,
+          "General_UI": 125,
+          "Commentary_Scroll_Bar": 116,
+          "Advance": 105
+        }
+      },
+      "n_fixations": 343
+    },
+    {
+      "participant_id": "P30",
+      "trial_id": "T04",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P30_T04_not_eligible.html",
+      "stats": {
+        "n_samples": 17881,
+        "n_valid_xy": 16821,
+        "pct_inside_segment": 68.11723440936925,
+        "pct_inside_panel": 93.9183163902265,
+        "pct_outside_document": 0.38642173473634145,
+        "aoi_label_counts": {
+          "Outside": 4821,
+          "Response": 3628,
+          "Question": 3219,
+          "Commentary": 3167,
+          "Mark_Scheme": 1701,
+          "General_UI": 157,
+          "Answer_Scroll_Bar": 128
+        }
+      },
+      "n_fixations": 309
+    },
+    {
+      "participant_id": "P30",
+      "trial_id": "T15",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P30_T15_not_eligible.html",
+      "stats": {
+        "n_samples": 42969,
+        "n_valid_xy": 39746,
+        "pct_inside_segment": 89.28445629748906,
+        "pct_inside_panel": 96.9103809188346,
+        "pct_outside_document": 0.2515976450460424,
+        "aoi_label_counts": {
+          "Mark_Scheme": 13294,
+          "Outside": 8359,
+          "Commentary": 7836,
+          "Question": 7670,
+          "Response": 2110,
+          "Answer_Scroll_Bar": 381,
+          "General_UI": 95,
+          "Commentary_Scroll_Bar": 1
+        }
+      },
+      "n_fixations": 705
+    },
+    {
+      "participant_id": "P30",
+      "trial_id": "T28",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P30_T28_not_eligible.html",
+      "stats": {
+        "n_samples": 7166,
+        "n_valid_xy": 6843,
+        "pct_inside_segment": 53.26611135466901,
+        "pct_inside_panel": 86.36562911003945,
+        "pct_outside_document": 0.23381557796288177,
+        "aoi_label_counts": {
+          "Outside": 2343,
+          "Question": 2038,
+          "Mark_Scheme": 1727,
+          "Commentary": 582,
+          "Answer_Scroll_Bar": 122,
+          "General_UI": 31
+        }
+      },
+      "n_fixations": 118
+    },
+    {
+      "participant_id": "P31",
+      "trial_id": "T01",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P31_T01_not_eligible.html",
+      "stats": {
+        "n_samples": 4995,
+        "n_valid_xy": 2666,
+        "pct_inside_segment": 49.287321830457614,
+        "pct_inside_panel": 68.45461365341336,
+        "pct_outside_document": 0.2625656414103526,
+        "aoi_label_counts": {
+          "Response": 942,
+          "Outside": 690,
+          "Advance": 316,
+          "Mark_Scheme": 300,
+          "Green_Answer_Box": 179,
+          "Question": 132,
+          "Answer_Scroll_Bar": 42,
+          "General_UI": 39,
+          "Grey_Answer_Box": 26
+        }
+      },
+      "n_fixations": 47
+    },
+    {
+      "participant_id": "P31",
+      "trial_id": "T05",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P31_T05_not_eligible.html",
+      "stats": {
+        "n_samples": 3771,
+        "n_valid_xy": 3656,
+        "pct_inside_segment": 65.59080962800876,
+        "pct_inside_panel": 87.74617067833698,
+        "pct_outside_document": 0.19146608315098468,
+        "aoi_label_counts": {
+          "Mark_Scheme": 1633,
+          "Outside": 732,
+          "Response": 574,
+          "Question": 241,
+          "Commentary": 149,
+          "Advance": 143,
+          "Green_Answer_Box": 94,
+          "General_UI": 81,
+          "Answer_Scroll_Bar": 9
+        }
+      },
+      "n_fixations": 64
+    },
+    {
+      "participant_id": "P31",
+      "trial_id": "T07",
+      "star_condition": "not_eligible",
+      "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\P31_T07_not_eligible.html",
+      "stats": {
+        "n_samples": 18399,
+        "n_valid_xy": 17635,
+        "pct_inside_segment": 82.95435214062942,
+        "pct_inside_panel": 95.25942727530479,
+        "pct_outside_document": 0.13609299688120216,
+        "aoi_label_counts": {
+          "Response": 5460,
+          "Commentary": 5278,
+          "Mark_Scheme": 3091,
+          "Outside": 2886,
+          "Question": 438,
+          "Green_Answer_Box": 275,
+          "Advance": 89,
+          "General_UI": 80,
+          "Answer_Scroll_Bar": 38
+        }
+      },
+      "n_fixations": 283
+    }
+  ],
+  "summary": {
+    "data_version": "v0_p0",
+    "out_dir": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1",
+    "n_reports": 75,
+    "n_sample": 75,
+    "n_participants": 25,
+    "min_trials_per_participant": 3,
+    "star_on_trials_covered": [
+      "T11",
+      "T12",
+      "T13",
+      "T21",
+      "T27",
+      "T30"
+    ],
+    "eligible_star_coverage_ok": true,
+    "errors": [],
+    "ok": true,
+    "sign_off": "PENDING owner review in reports/DECISIONS.md — do not start P5 until signed off."
+  }
+}

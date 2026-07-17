@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "checks": {
+    "has_plotly": true,
+    "has_samples_button": true,
+    "has_fixations_button": true,
+    "has_aoi_counts": true,
+    "has_injection_qc": true,
+    "has_alignment_summary": true,
+    "has_star_panel": true
+  },
+  "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate1\\smoke_P99_T99_star_on.html",
+  "stats": {
+    "n_samples": 50,
+    "n_valid_xy": 50,
+    "pct_inside_segment": 80.0,
+    "pct_inside_panel": 66.0,
+    "pct_outside_document": 0.0,
+    "aoi_label_counts": {
+      "Mark_Scheme": 30,
+      "Question": 10,
+      "Star_Chart": 10
+    }
+  },
+  "smoke": true
+}
