@@ -82,7 +82,7 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 **Built**
 - `src/data/aoi_injection.py`: star-chart override (star_on only) + additive UI one-hots/labels; smaller-region label priority; columns on all episodes.
 - `scripts/run_p3_aoi_injection.py`; `tests/test_aoi_injection.py`.
-- Canonical outputs: `data_processed/v0_p0/gaze_canonical/pXX.parquet` (+ `injection_qc.*`, `p3_summary.json`). Downstream P4–P7 read these, not P1 pruned.
+- Canonical outputs: `data_processed/v0_p0/gaze_canonical/pXX.parquet` **and** `pXX.tsv` (UTF-8 companions; parquet remains pipeline-canonical) (+ `injection_qc.*`, `p3_summary.json`). Downstream P4–P7 read parquet, not P1 pruned.
 
 **Accept**
 - Unit tests: inside/outside/boundary; UI never overrides content labels; star overrides commentary; star_off untouched — green.

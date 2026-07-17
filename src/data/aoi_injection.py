@@ -19,6 +19,21 @@ STAR_COL = "aoi__star_chart"
 STAR_LABEL = "Star_Chart"
 
 
+def write_gaze_table(stem_path: Path, df: pd.DataFrame) -> None:
+    """Write parquet + UTF-8 TSV side by side (parquet remains pipeline canonical)."""
+    stem_path = Path(stem_path)
+    stem_path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_parquet(stem_path.with_suffix(".parquet"), index=False)
+    # Tab-separated companion for inspection / external tools
+    df.to_csv(
+        stem_path.with_suffix(".tsv"),
+        sep="\t",
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+
+
 def _strict_inside(
     x: np.ndarray,
     y: np.ndarray,
@@ -217,13 +232,12 @@ def run_p3(repo_root: Optional[Path] = None) -> dict[str, Any]:
         out = out.sort_values(
             ["participant_id", "trial_id", "recording_timestamp"]
         ).reset_index(drop=True)
-        out.to_parquet(out_dir / f"{path.stem}.parquet", index=False)
+        write_gaze_table(out_dir / path.stem, out)
         n_participants += 1
 
     qc_df = pd.DataFrame(qc_rows)
-    qc_path = out_dir / "injection_qc.parquet"
     if len(qc_df):
-        qc_df.to_parquet(qc_path, index=False)
+        write_gaze_table(out_dir / "injection_qc", qc_df)
         uio.write_json(out_dir / "injection_qc.json", qc_df.to_dict(orient="records"))
 
     star_eps = qc_df[qc_df["star_condition"] == "star_on"] if len(qc_df) else qc_df
@@ -253,8 +267,10 @@ def run_p3(repo_root: Optional[Path] = None) -> dict[str, Any]:
         and len(star_eps) == int(data_cfg.expected.n_participants)
         * int(data_cfg.expected.star_on_per_participant)
         and not any("missing panels" in e for e in errors),
+        "formats": ["parquet", "tsv"],
         "note": (
-            "Scrollbar hit rates are indicative: regions are thin relative to gaze precision."
+            "Scrollbar hit rates are indicative: regions are thin relative to gaze precision. "
+            "Parquet is the pipeline canonical format; TSV is a UTF-8 companion for inspection."
         ),
     }
     uio.write_json(out_dir / "p3_summary.json", summary)

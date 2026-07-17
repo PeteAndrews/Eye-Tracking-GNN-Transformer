@@ -39,7 +39,7 @@ Accumulating preprocessing QC notes (P0–P7).
 - Episodes: **750**; star_on: **75**; star hit/relabel samples: **408526**.
 - UI hit samples: answer_scroll_bar **59470**, commentary_scroll_bar **21217**, general_ui **115006**.
 - Note: scrollbar regions are thin vs gaze precision — hit rates are indicative.
-- Outputs: `data_processed/v0_p0/gaze_canonical/` (canonical gaze from P3 onward).
+- Outputs: `data_processed/v0_p0/gaze_canonical/` (parquet + UTF-8 TSV companions; parquet is pipeline-canonical from P3 onward).
 
 ## P0 correspondence (M3-C1)
 

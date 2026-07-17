@@ -8,7 +8,7 @@ import pytest
 from omegaconf import OmegaConf
 from pathlib import Path
 
-from src.data.aoi_injection import inject_episode
+from src.data.aoi_injection import inject_episode, write_gaze_table
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -168,3 +168,25 @@ def test_all_new_columns_present(inj_cfg: dict) -> None:
         "aoi__general_ui",
     ):
         assert col in out.columns
+
+
+def test_write_gaze_table_writes_parquet_and_tsv(tmp_path: Path) -> None:
+    df = pd.DataFrame(
+        {
+            "participant_id": ["P01", "P01"],
+            "trial_id": ["T01", "T01"],
+            "aoi_label": ["Outside", "Question"],
+            "aoi__star_chart": [0, 0],
+        }
+    )
+    stem = tmp_path / "p01"
+    write_gaze_table(stem, df)
+    assert stem.with_suffix(".parquet").is_file()
+    tsv = stem.with_suffix(".tsv")
+    assert tsv.is_file()
+    text = tsv.read_text(encoding="utf-8")
+    assert "aoi__star_chart" in text
+    assert "\t" in text.splitlines()[0]
+    reloaded = pd.read_csv(tsv, sep="\t", encoding="utf-8")
+    assert list(reloaded.columns) == list(df.columns)
+    assert len(reloaded) == 2
