@@ -227,9 +227,9 @@ Starts only after the P7 sign-off. Same discipline: one milestone at a time, tes
 
 - `src/graph/build.py`: node features = concat[TextEncoderV1 embedding (L2-normalised, cached under `data_processed/embeddings/{graph_version}/`), categoricals (segment type, role, panel, level band, question type), booleans, formatting, normalised geometry, segment order]. Abstract panel nodes: learned type embedding + zeroed text slot.
 - `src/graph/edges.py`, one function per edge type: `NEXT_SEGMENT`/`PREVIOUS_SEGMENT` (panel-grouped `segment_order`, geometry cross-check); `BELONGS_TO`; `SPATIAL_NEIGHBOUR` (n nearest within panel; attrs: distance, same-column, dx/dy); `SEMANTIC_CANDIDATE` (cross-panel only; allowed pairs from config; **response↔mark_scheme prioritised: k=3 + per-bullet coverage floor — every mark-scheme bullet gets ≥1 best response edge even below threshold, flagged `below_threshold`**; other pairs k=2 with threshold; attrs: cosine, rank, panel pair, below_threshold). `SAME_MARK_POINT` and `SAME_STAR` edges are **removed** — do not implement.
-- **Star variants = base + overlay, never two independent builds.** Regression test: non-star subgraph of `star_on` identical (nodes, features, edges, attrs) to `star_off` for every eligible trial.
+- **Star variants = per-variant construction** (DECISIONS.md M3-C1). Each S/NS graph is built from its own metadata/geometry. Regression = NS↔S node-correspondence on panel + normalised `corrected_text` + relative order within panel (geometry excluded). S-only allowlisted star-conditional segments (`configs/preprocessing.yaml` `star_conditional_text_patterns`) are flagged `is_star_conditional=true` and excluded from the correspondence requirement.
 - `src/graph/diagnostics.py`: per-trial node/edge counts by type, degree distributions, similarity histograms, HTML/PNG per trial.
-- **Accept:** per-edge-type unit tests incl. negative cases (same-panel semantic pairs excluded); all 36 graphs serialised under a `graph_version` tag as `data_processed/graphs/{graph_version}/{trial_id}__{star_condition}.pt`; diagnostics reviewed and summarised in `reports/`.
+- **Accept:** per-edge-type unit tests incl. negative cases (same-panel semantic pairs excluded); all 36 graphs serialised under a `graph_version` tag as `data_processed/graphs/{graph_version}/{trial_id}__{star_condition}.pt`; NS↔S correspondence tests green for all eligible trials; diagnostics reviewed and summarised in `reports/`.
 
 ## S2-T3 · M4 — Compact GNN, standalone (dev plan §7)
 
@@ -300,7 +300,7 @@ Deviations, if ever needed, are proposed in `reports/DECISIONS.md` and approved 
 8. **Scroll features input-only** (never targets), with p=0.3 episode-level dropout.
 9. **Visual gates P4 and P7 end with owner sign-off** recorded in `reports/DECISIONS.md`; no downstream work before sign-off (P5+ blocked by P4; all model code blocked by P7).
 10. **HMM comparison deferred**; only the posterior export hook is built.
-11. **Star variants built as base + overlay** with the regression check, at both metadata (P0.4) and graph (M3) level.
+11. **Star variants: per-variant construction + verified non-star correspondence** (amended M3-C1, 2026-07-17). Each `(trial, star_condition)` graph is built from that variant’s own metadata/geometry. M3 regression = NS↔S correspondence on panel + normalised text + within-panel order (geometry excluded); S-only star-instruction segments are config-allowlisted (`is_star_conditional=true`), not required to match. **Supersedes** the earlier “base + overlay with identical non-star subgraph” wording.
 
 # Resolved questions log (do not re-litigate)
 

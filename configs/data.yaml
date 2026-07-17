@@ -5,8 +5,10 @@ data_version: "v0_p0"
 
 paths:
   # READ-ONLY inputs — never write here
-  metadata_dir: "_data/annotations-audited/complete"
-  metadata_audit_script: "_data/annotations-audited/audit_metadata.py"
+  # Owner reorganised: current audited JSONs live one level deeper after re-export.
+  # Legacy copy kept at annotations-audited-legacy/ (includes audit_metadata.py).
+  metadata_dir: "_data/annotations-audited/annotations-audited/complete"
+  metadata_audit_script: "_data/annotations-audited-legacy/audit_metadata.py"
   gaze_dir: "_data/eye-tracking-data-doc-space"
   document_images_dir: "_data/document-space-images"
   # Pipeline outputs (gitignored)

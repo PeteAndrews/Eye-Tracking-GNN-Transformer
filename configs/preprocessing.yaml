@@ -42,6 +42,18 @@ gaze_aoi_panel_map:
 # Document normalisation (P5)
 normalisation: docnorm  # docnorm | isotropic
 
+# S-only segments allowed under NS↔S correspondence (M3-C1). Matched by
+# case-insensitive substring on normalised corrected_text. Flagged
+# is_star_conditional=true at graph build; excluded from correspondence requirement.
+star_conditional_text_patterns:
+  - "enter a level"
+  - "put stars on the left"
+  - "put a star on the left"
+  - "put a star on the right"
+  - "using the system of stars"
+  - "system of stars described"
+  - "you may find it easier to put stars"
+
 # Loop detector (P6 / M5) — thresholds provisional until corpus frequencies land
 loops:
   max_loop_gap_events: 20

@@ -45,3 +45,18 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 **Accept**
 - Unit tests: keep/drop/rename column-by-column, correction_false counts, Trial Raw disagreement — green.
 - Real data: all 25 participant TSVs pruned; QC appended to `reports/data_qc.md`.
+
+---
+
+## P0 rebuild + P2.6 re-audit + M3-C1 (2026-07-17 afternoon)
+
+**Done**
+- Document-dimension registry rebuilt after NS image/metadata fix.
+- P2.6 audit re-run: bbox overflows cleared; **T11NS** still fails (`ann_segment_060` empty text).
+- P0-V1 / T30: correspondence **PASS** (asymmetry was annotation artefact).
+- M3-C1 logged: per-variant construction + NS↔S correspondence (amends frozen #11). PLAN.md + `.cursorrules` updated.
+- Config paths point at nested audited JSONs + legacy `audit_metadata.py`.
+
+**Blocked on owner**
+- Fix T11NS `ann_segment_060` empty text (and align T11 commentary splits, or allowlist if intentional).
+- Optional: flatten `_data/annotations-audited/annotations-audited/complete` → `complete`; rename `T10-completee.json`.

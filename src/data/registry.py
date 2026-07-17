@@ -400,16 +400,121 @@ def _canonical_json(obj: Any) -> Any:
     return json.loads(json.dumps(obj, sort_keys=True, ensure_ascii=False))
 
 
+def _norm_text(text: Any) -> str:
+    if text is None:
+        return ""
+    s = str(text)
+    # Strip curly/smart quotes and similar so allowlist patterns like
+    # "enter a level" still match "enter" / "enter".
+    for ch in (
+        "\u2018",
+        "\u2019",
+        "\u201c",
+        "\u201d",
+        "\u00b4",
+        "`",
+        "'",
+        '"',
+    ):
+        s = s.replace(ch, "")
+    return " ".join(s.split()).casefold()
+
+
+def _aoi_type_multiset(data: dict[str, Any]) -> dict[str, int]:
+    from collections import Counter
+
+    types = [
+        a.get("aoi_type")
+        for a in data.get("aoi_annotations", [])
+        if a.get("aoi_type") and a.get("aoi_type") != "star_chart"
+    ]
+    return dict(Counter(types))
+
+
+def _is_star_conditional_text(text: str, patterns: Iterable[str]) -> bool:
+    t = _norm_text(text)
+    return any(_norm_text(p) in t for p in patterns)
+
+
 def check_variant_consistency(
     metadata_dir: Path,
     eligible: Iterable[str],
+    *,
+    star_conditional_patterns: Optional[Iterable[str]] = None,
+    panel_map: Optional[dict[str, str]] = None,
 ) -> list[dict[str, Any]]:
-    """Compare S vs NS non-star content for each eligible trial.
+    """NS↔S non-star correspondence check (DECISIONS.md M3-C1 / amended #11).
 
-    Identity mismatches (AOI id/type sets, segment identity fields) are hard
-    failures. AOI geometry / text-box coordinate drift is reported as a warning
-    (star_on layouts can shift panels by a few pixels) and does not fail P0.
+    Per-variant construction: geometry and AOI ids may differ. Every NS non-star
+    segment must map 1:1 to an S segment on (canonical panel, normalised text,
+    relative order within panel). S-only segments whose text matches the
+    star-conditional allowlist are recorded (not failures). AOI *type* multisets
+    should match; id/geometry drift is soft.
     """
+    from collections import Counter, defaultdict
+
+    patterns = list(
+        star_conditional_patterns
+        or [
+            "enter a level",
+            "enter' a level",
+            "put stars on the left",
+            "put a star on the left",
+            "put a star on the right",
+            "using the system of stars",
+            "system of stars described",
+        ]
+    )
+    pmap = panel_map or {
+        "question": "question",
+        "response": "response",
+        "mark_scheme": "mark_scheme",
+        "mark_scheme_answers": "mark_scheme",
+        "mark_scheme_extra_information": "mark_scheme",
+        "level_descriptor": "mark_scheme",
+        "commentary": "commentary",
+        "star_chart": "star_chart",
+        "general_ui": "ui",
+        "answer_scroll_bar": "ui",
+        "commentary_scroll_bar": "ui",
+    }
+
+    def panel_of(seg: dict[str, Any]) -> str:
+        at = seg.get("aoi_type") or ""
+        return pmap.get(at, at or "unknown")
+
+    def nonstar_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+        rows = []
+        for s in data.get("segments", []):
+            if _is_star_segment(s):
+                continue
+            rows.append(
+                {
+                    "segment_id": s.get("segment_id"),
+                    "panel": panel_of(s),
+                    "text": _norm_text(s.get("corrected_text")),
+                    "segment_order": s.get("segment_order"),
+                }
+            )
+        return rows
+
+    def panel_text_seq(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
+        by_panel: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        for r in rows:
+            by_panel[r["panel"]].append(r)
+        out: dict[str, list[str]] = {}
+        for panel, items in by_panel.items():
+            items = sorted(
+                items,
+                key=lambda r: (
+                    r["segment_order"] is None,
+                    r["segment_order"] if r["segment_order"] is not None else 0,
+                    r["segment_id"] or "",
+                ),
+            )
+            out[panel] = [r["text"] for r in items]
+        return out
+
     reports: list[dict[str, Any]] = []
     files = {parse_filename_identity(p.name).stem: p for p in list_metadata_files(metadata_dir)}
     for tid in eligible:
@@ -427,50 +532,117 @@ def check_variant_consistency(
             continue
         s_data = uio.read_json(s_path)
         ns_data = uio.read_json(ns_path)
+        s_rows = nonstar_rows(s_data)
+        ns_rows = nonstar_rows(ns_data)
+
+        s_bag = Counter((r["panel"], r["text"]) for r in s_rows)
+        ns_bag = Counter((r["panel"], r["text"]) for r in ns_rows)
+
+        unmatched_ns = []
+        remaining_s = s_bag.copy()
+        for k, n in ns_bag.items():
+            have = remaining_s.get(k, 0)
+            if have < n:
+                unmatched_ns.append(
+                    {
+                        "panel": k[0],
+                        "text_preview": k[1][:120],
+                        "needed": n,
+                        "have_in_s": have,
+                    }
+                )
+            remaining_s[k] = have - n
+
+        star_conditional = []
+        unexpected_s = []
+        for k, n in list(remaining_s.items()):
+            if n <= 0:
+                continue
+            panel, text = k
+            if text == "" or _is_star_conditional_text(text, patterns):
+                star_conditional.append(
+                    {
+                        "panel": panel,
+                        "text_preview": text[:120],
+                        "count": n,
+                        "is_star_conditional": True,
+                    }
+                )
+            else:
+                unexpected_s.append(
+                    {"panel": panel, "text_preview": text[:120], "count": n}
+                )
+
+        # Within-panel order among shared texts (exclude star-conditional S extras)
+        rem = ns_bag.copy()
+        s_shared = []
+        for r in sorted(
+            s_rows,
+            key=lambda x: (
+                x["segment_order"] is None,
+                x["segment_order"] if x["segment_order"] is not None else 0,
+                x["segment_id"] or "",
+            ),
+        ):
+            key = (r["panel"], r["text"])
+            if rem.get(key, 0) > 0:
+                s_shared.append(r)
+                rem[key] -= 1
+        order_mismatch_panels = []
+        s_seq = panel_text_seq(s_shared)
+        ns_seq = panel_text_seq(ns_rows)
+        for panel in sorted(set(s_seq) | set(ns_seq)):
+            if s_seq.get(panel, []) != ns_seq.get(panel, []):
+                order_mismatch_panels.append(panel)
+
+        s_types = _aoi_type_multiset(s_data)
+        ns_types = _aoi_type_multiset(ns_data)
+        aoi_type_ok = s_types == ns_types
+
         s_core = _strip_star_content(s_data)
         ns_core = _strip_star_content(ns_data)
+        soft_diffs = [
+            k
+            for k in ("aoi_geometry", "text_boxes", "aoi_id_types")
+            if s_core[k] != ns_core[k]
+        ]
 
-        identity_keys = ("aoi_id_types", "segments")
-        soft_keys = ("aoi_geometry", "text_boxes")
-        hard_diffs = [k for k in identity_keys if s_core[k] != ns_core[k]]
-        soft_diffs = [k for k in soft_keys if s_core[k] != ns_core[k]]
-
-        # AOI id/type set mismatches are hard failures. Segment-set asymmetries
-        # between S/NS are known in this corpus (star-instruction commentary and
-        # renumbered response bullets) — reported as triage items, not P0 blockers.
-        # See reports/DECISIONS.md entry P0-V1. M3 base+overlay still requires an
-        # owner decision on how to define the shared non-star base.
-        aoi_hard = "aoi_id_types" in hard_diffs
-        segment_triage = "segments" in hard_diffs
-        identity_hard_diffs = ["aoi_id_types"] if aoi_hard else []
-        triage_diffs = ["segments"] if segment_triage else []
-
-        ok = not aoi_hard
-        if ok and not soft_diffs and not triage_diffs:
-            message = "identical non-star identity and geometry"
-        elif ok and triage_diffs and not soft_diffs:
-            message = f"AOI identity OK; segment asymmetry triaged: {triage_diffs}"
-        elif ok and triage_diffs:
-            message = (
-                f"AOI identity OK; segment asymmetry triaged: {triage_diffs}; "
-                f"soft geometry drift in {soft_diffs}"
-            )
-        elif ok:
-            message = f"identity OK; soft geometry drift in {soft_diffs}"
-        else:
-            message = f"AOI identity differ in {identity_hard_diffs}" + (
-                f"; segment triage {triage_diffs}" if triage_diffs else ""
-            ) + (f"; soft drift in {soft_diffs}" if soft_diffs else "")
+        hard_fail = (
+            bool(unmatched_ns)
+            or bool(unexpected_s)
+            or bool(order_mismatch_panels)
+            or (not aoi_type_ok)
+        )
+        ok = not hard_fail
+        parts = []
+        if ok:
+            parts.append("NS↔S correspondence OK")
+        if unmatched_ns:
+            parts.append(f"{len(unmatched_ns)} unmatched NS segments")
+        if unexpected_s:
+            parts.append(f"{len(unexpected_s)} unexpected S-only segments")
+        if star_conditional:
+            n_sc = sum(x["count"] for x in star_conditional)
+            parts.append(f"{n_sc} allowlisted star-conditional S-only")
+        if order_mismatch_panels:
+            parts.append(f"within-panel order mismatch: {order_mismatch_panels}")
+        if not aoi_type_ok:
+            parts.append(f"AOI type multiset differ S={s_types} NS={ns_types}")
+        if soft_diffs:
+            parts.append(f"soft drift in {soft_diffs}")
 
         reports.append(
             {
                 "trial_id": tid,
                 "ok": ok,
-                "hard_fail": aoi_hard,
-                "hard_diffs": identity_hard_diffs,
-                "triage_diffs": triage_diffs,
+                "hard_fail": hard_fail,
+                "unmatched_ns": unmatched_ns,
+                "unexpected_s_only": unexpected_s,
+                "star_conditional_s_only": star_conditional,
+                "order_mismatch_panels": order_mismatch_panels,
+                "aoi_type_multiset_ok": aoi_type_ok,
                 "soft_diffs": soft_diffs,
-                "message": message,
+                "message": "; ".join(parts),
             }
         )
     return reports
@@ -514,15 +686,24 @@ def run_p0(repo_root: Optional[Path] = None) -> dict[str, Any]:
             }
         )
 
-    variant_report = check_variant_consistency(metadata_dir, eligible)
+    pre_cfg = OmegaConf.load(repo_root / "configs" / "preprocessing.yaml")
+    panel_map = dict(pre_cfg.canonical_panel_map)
+    sc_patterns = list(pre_cfg.get("star_conditional_text_patterns", []) or [])
+    variant_report = check_variant_consistency(
+        metadata_dir,
+        eligible,
+        star_conditional_patterns=sc_patterns or None,
+        panel_map=panel_map,
+    )
     soft_warnings: list[str] = []
     for vr in variant_report:
         if vr.get("hard_fail"):
             all_errors.append(f"Variant consistency {vr['trial_id']}: {vr['message']}")
         else:
             notes = []
-            if vr.get("triage_diffs"):
-                notes.append("segment asymmetry triaged")
+            if vr.get("star_conditional_s_only"):
+                n_sc = sum(x["count"] for x in vr["star_conditional_s_only"])
+                notes.append(f"{n_sc} star-conditional S-only")
             if vr.get("soft_diffs"):
                 notes.append(f"soft drift in {vr['soft_diffs']}")
             if notes:

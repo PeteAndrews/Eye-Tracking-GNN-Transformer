@@ -81,8 +81,12 @@ and approved by the owner first — it never goes silently into code:
   are node metadata only.
 - Scroll features are input-only, never prediction targets; scroll-feature
   dropout p=0.3 per episode during training.
-- Star-condition graph variants are built as base + overlay, with a
-  regression test that the non-star subgraph is identical across variants.
+- Star-condition graph variants use per-variant construction (each S/NS
+  graph from its own metadata/geometry). M3 regression is an NS↔S
+  correspondence test on panel + normalised text + within-panel order
+  (geometry excluded); S-only star-conditional segments are config-
+  allowlisted and flagged is_star_conditional=true. See DECISIONS.md M3-C1.
+  (Amends the earlier base+overlay / identical-subgraph wording.)
 - Loop annotations come from the single deterministic detector
   (src/data/loops.py); it is the only source for loop features, attention
   biases, and D2 probe labels.
@@ -103,7 +107,10 @@ and approved by the owner first — it never goes silently into code:
 ## Reuse constraints
 
 - `_data\annotations-audited\audit_metadata.py` is the P2.6 metadata audit
-  tool. It exists and works. INVOKE it (subprocess via scripts/run_audit.py);
+  tool. Current locations after owner re-export: script at
+  `_data\annotations-audited-legacy\audit_metadata.py`, JSONs at
+  `_data\annotations-audited\annotations-audited\complete\` (paths in
+  configs/data.yaml). INVOKE it (subprocess via scripts/run_audit.py);
   do not rewrite, fork, or "improve" it. Its non-zero exit on ERROR gates P2.
 - `legacy/gaze-feature-engineering.py` is the HMM study's feature script:
   the porting reference for P6 event aggregation. Port its core unchanged,
