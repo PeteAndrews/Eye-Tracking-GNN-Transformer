@@ -177,3 +177,9 @@ gate1:
     - answer_scroll_bar
     - commentary_scroll_bar
     - general_ui
+
+# P7 Visual Gate 2 — assignment validation (same stratified sample + P6 QC flags)
+gate2:
+  flag_pct_empty_space: 40
+  flag_pct_ambiguous: 40
+  flag_mean_confidence_below: 0.2

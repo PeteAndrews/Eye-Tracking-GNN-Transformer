@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "checks": {
+    "has_plotly": true,
+    "has_assigned": true,
+    "has_empty": true,
+    "has_ambiguous": true,
+    "has_qc": true,
+    "has_edge_hist": true,
+    "has_panel_compare": true,
+    "has_play": true
+  },
+  "html": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\gaze_checks\\gate2\\smoke_P99_T99_not_eligible.html",
+  "smoke": true
+}

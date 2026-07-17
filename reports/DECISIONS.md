@@ -91,3 +91,18 @@ indicative, not precise.
 
 Reviewed stratified Gate 1 sample (75 episodes). Alignment acceptable.
 Signed off for P5. — Peter Andrews
+
+---
+
+## P7 — Visual Gate 2 sign-off (PENDING)
+
+**Status:** tooling + stratified/QC sample generated (`reports/gaze_checks/gate2/`, 117 reports).
+**Owner action required:** review `gate2/index.html`; triage systematic assignment misalignment
+upstream if needed; then replace this section with an explicit sign-off before Stage 2 / M2+.
+
+```
+# Owner fills in after review — example:
+# ## P7 — Visual Gate 2 sign-off (YYYY-MM-DD)
+# Reviewed Gate 2 sample (stratified + P6 QC flags). Assignment acceptable.
+# Signed off for Stage 2. — <name>
+```

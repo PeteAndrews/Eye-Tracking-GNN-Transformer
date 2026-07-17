@@ -135,3 +135,23 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - Empty-space ~**14.0%**; ambiguous ~**13.7%**; mean confidence ~**0.45**.
 - All 6 loop templates ≥50 corpus count (none dropped for D2).
 - Outputs: `data_processed/v0_p0/fixations/{Pxx}/{trial}__{star}.parquet` + QC/sensitivity tables.
+
+---
+
+## P7 — Visual Gate 2 (2026-07-17) — HARD STOP for owner sign-off
+
+**Built**
+- Extended `scripts/gaze_overlay_check.py --gate 2` via `src/viz/gate2_overlay.py`: assigned/empty/ambiguous layers, current-fixation highlight + ε rings + alt boxes, assignment QC sidebar, distance-to-edge histogram, panel vs export-AOI counts.
+- Sample = Gate 1 stratified set **plus** P6 QC flags (empty>40% / ambig>40% / conf<0.2).
+- Tests: `tests/test_gate2_overlay.py`.
+
+**Accept (tooling)**
+- Smoke HTML green; batch **117** reports (`n_flagged_qc_added=46`); star_on covers all 6 eligible trials; `reports/gaze_checks/gate2/index.html`.
+
+**STOP:** Owner reviews Gate 2 and records sign-off in `reports/DECISIONS.md`. **No Stage 2 / model code (M2+) until then.** Do not self-certify.
+
+---
+
+## Stage 1 consolidation (pending P7 sign-off)
+
+Pipeline complete through P7 tooling: P0 registries → P1 prune → P2 metadata → P3 AOI injection → P4 Gate 1 (signed) → P5 coords → P6 fixations → P7 Gate 2 (awaiting sign-off). After owner sign-off, Stage 1 ends and Stage 2 (M2 text encoder) may begin.

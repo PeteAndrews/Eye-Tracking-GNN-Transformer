@@ -62,6 +62,11 @@ Accumulating preprocessing QC notes (P0–P7).
 - Loop corpus counts: all templates ≥50 (none dropped).
 - Outputs: `data_processed/v0_p0/fixations/`.
 
+## P7 — Visual Gate 2
+
+- Stratified + P6 QC flags: **117** HTML reports under `reports/gaze_checks/gate2/` (46 QC-flagged episodes included).
+- Sign-off: **PENDING** in `DECISIONS.md` (blocks Stage 2 / M2+).
+
 ## P0 correspondence (M3-C1)
 
 - All six eligible trials PASS after allowlisting remaining T11 star-instruction commentary fragments.
