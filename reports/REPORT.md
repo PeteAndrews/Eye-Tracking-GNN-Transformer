@@ -32,3 +32,16 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - Unit tests: parser (T / TS / TNS + rejection), strip/star rules, hard vs soft vs triage variant cases — all green (with M0: 21 passed).
 - Real data: 36 variants, 36 images, 750 star assignments, 30 question types; star-on = 3/participant validated.
 - Variant segment asymmetries **triaged** in `reports/DECISIONS.md` P0-V1 (M3 base definition still needs owner choice).
+
+---
+
+## P1 — Gaze prune/tidy (2026-07-17)
+
+**Built**
+- `src/data/gaze_load.py`: Sensor filter, keep/drop lists, snake_case rename map, episode QC, DACSmm→ε input extraction before drop.
+- `scripts/run_p1_gaze_prune.py`; `tests/test_gaze_load.py`.
+- Outputs: `data_processed/v0_p0/gaze_pruned/pXX.parquet` + `episode_qc.parquet` + `epsilon_inputs.parquet`.
+
+**Accept**
+- Unit tests: keep/drop/rename column-by-column, correction_false counts, Trial Raw disagreement — green.
+- Real data: all 25 participant TSVs pruned; QC appended to `reports/data_qc.md`.

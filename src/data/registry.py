@@ -520,13 +520,14 @@ def run_p0(repo_root: Optional[Path] = None) -> dict[str, Any]:
         if vr.get("hard_fail"):
             all_errors.append(f"Variant consistency {vr['trial_id']}: {vr['message']}")
         else:
+            notes = []
             if vr.get("triage_diffs"):
-                soft_warnings.append(
-                    f"Variant triage {vr['trial_id']}: {vr['message']}"
-                )
+                notes.append("segment asymmetry triaged")
             if vr.get("soft_diffs"):
+                notes.append(f"soft drift in {vr['soft_diffs']}")
+            if notes:
                 soft_warnings.append(
-                    f"Variant soft drift {vr['trial_id']}: {vr['message']}"
+                    f"Variant {vr['trial_id']}: {'; '.join(notes)} — {vr['message']}"
                 )
 
     # Star-condition schema document

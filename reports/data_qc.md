@@ -13,3 +13,11 @@ Accumulating preprocessing QC notes (P0–P7).
 - `question_id` stored as `trial_id` (one response per question).
 - Variant consistency: see `reports/DECISIONS.md` **P0-V1** (segment asymmetries triaged; geometry soft-drift expected).
 - Outputs: `data_processed/v0_p0/registry/`.
+
+## P1 — Gaze prune/tidy
+
+- Participants written: 25/25
+- Episodes: 750
+- Rows with correction_applied=False (trusted, counted): 8601268
+- Outputs: `D:\Projects\GNN-Transformer-Eye-Tracking\data_processed\v0_p0\gaze_pruned`
+
