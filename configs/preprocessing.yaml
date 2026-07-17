@@ -64,17 +64,29 @@ gaze_aoi_panel_map:
   Commentary_Scroll_Bar: commentary_scroll_bar
   General_UI: ui_general
 
-# P3 AOI injection (additive UI hits + star-chart override)
+# P3 AOI injection (additive UI hits + star-chart override).
+# Column names match P1 snake_case gaze tables. Labels stay Tobii-style.
 aoi_injection:
+  star_column: aoi__star_chart
+  star_label: Star_Chart
+  # Existing one-hots zeroed when star-chart injection fires
+  existing_aoi_onehots:
+    - aoi__advance
+    - aoi__commentary
+    - aoi__green_answer_box
+    - aoi__grey_answer_box
+    - aoi__mark_scheme
+    - aoi__question
+    - aoi__response
   ui_regions:
     - aoi_type: answer_scroll_bar
-      column: AOI__Answer_Scroll_Bar
+      column: aoi__answer_scroll_bar
       label: Answer_Scroll_Bar
     - aoi_type: commentary_scroll_bar
-      column: AOI__Commentary_Scroll_Bar
+      column: aoi__commentary_scroll_bar
       label: Commentary_Scroll_Bar
     - aoi_type: general_ui
-      column: AOI__General_UI
+      column: aoi__general_ui
       label: General_UI
   # Content labels that block additive UI AOI_label overwrite
   content_aoi_labels:
@@ -85,6 +97,12 @@ aoi_injection:
     - Star_Chart
     - Green_Answer_Box
     - Grey_Answer_Box
+  # Labels treated as empty for UI overwrite (NoAOI / outside / blank)
+  empty_aoi_labels:
+    - ""
+    - NoAOI
+    - Outside
+    - "None"
 
 # Document normalisation (P5)
 normalisation: docnorm  # docnorm | isotropic

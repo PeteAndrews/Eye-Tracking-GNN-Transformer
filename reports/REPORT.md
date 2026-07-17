@@ -74,3 +74,17 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - Compile: **36/36** variants; schema validation clean; `n_unclaimed_boxes_total=0`.
 - Fallback totals: `segment_role_derived=1206`, `segment_order_tiebreak=168` (no spatial `aoi_id` needed).
 - `pytest`: 35 passed (includes geometry/panel/fallback unit tests + updated fixtures).
+
+---
+
+## P3 — AOI hit injection (2026-07-17)
+
+**Built**
+- `src/data/aoi_injection.py`: star-chart override (star_on only) + additive UI one-hots/labels; smaller-region label priority; columns on all episodes.
+- `scripts/run_p3_aoi_injection.py`; `tests/test_aoi_injection.py`.
+- Canonical outputs: `data_processed/v0_p0/gaze_canonical/pXX.parquet` (+ `injection_qc.*`, `p3_summary.json`). Downstream P4–P7 read these, not P1 pruned.
+
+**Accept**
+- Unit tests: inside/outside/boundary; UI never overrides content labels; star overrides commentary; star_off untouched — green.
+- Real data: 25 participants, **750** episodes, **75** star_on; star hits/relabels **408526**; UI hits answer_scroll_bar **59470**, commentary_scroll_bar **21217**, general_ui **115006** (scrollbar rates indicative).
+- `p3_summary.json` `ok: true`.
