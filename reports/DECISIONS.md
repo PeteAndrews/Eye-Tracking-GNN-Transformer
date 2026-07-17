@@ -87,16 +87,7 @@ indicative, not precise.
 
 ---
 
-## P4 — Visual Gate 1 sign-off (PENDING)
+## P4 — Visual Gate 1 sign-off (2026-07-17)
 
-**Status:** tooling + stratified sample generated (`reports/gaze_checks/gate1/`).
-**Owner action required:** review `index.html` and the episode HTMLs; triage any
-misalignment (metadata / identity / coordinates); then replace this section with
-an explicit sign-off (or a punch-list of fixes) before P5 may start.
-
-```
-# Owner fills in after review — example:
-# ## P4 — Visual Gate 1 sign-off (YYYY-MM-DD)
-# Reviewed stratified Gate 1 sample (75 episodes). Alignment acceptable.
-# Signed off for P5. — <name>
-```
+Reviewed stratified Gate 1 sample (75 episodes). Alignment acceptable.
+Signed off for P5. — Peter Andrews

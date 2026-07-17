@@ -103,3 +103,17 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - Index: `reports/gaze_checks/gate1/index.html` (generated HTMLs gitignored — regenerate with `python scripts/gaze_overlay_check.py`).
 
 **STOP:** Owner reviews the stratified sample and records sign-off in `reports/DECISIONS.md`. **P5 must not start until that entry exists.** Do not self-certify.
+
+---
+
+## P5 — Coordinate finalisation (2026-07-17)
+
+**Built**
+- `src/data/coords.py`: DOCnorm (`x_docnorm`, `y_docnorm`) from P0 `W_doc`/`H_doc`; isotropic switch; viewport features (`y_screen`, `viewport_doc_position`, `gaze_viewport_y`); `H_screen_px=1080` in config.
+- `scripts/run_p5_coords.py`; `tests/test_coords.py` (hand-computed + real episode).
+- Outputs: `data_processed/v0_p0/gaze_coords/` (parquet + TSV; raw doc coords preserved).
+
+**Accept**
+- Unit tests green; 25/25 participants enriched (**16 179 675** rows); required columns present; `p5_summary.json` `ok: true`.
+- P4 sign-off recorded in `DECISIONS.md` (Peter Andrews, 2026-07-17).
+- Note: assignment still uses raw `gaze_point_*_doc`; DOCnorm/viewport feed P6 only.

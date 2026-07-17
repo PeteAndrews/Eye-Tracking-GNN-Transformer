@@ -104,8 +104,17 @@ aoi_injection:
     - Outside
     - "None"
 
-# Document normalisation (P5)
+# Document normalisation (P5).
+# Working space for assignment / geometry / Gate checks remains raw document px.
+# DOCnorm columns are stored for model features only — never used for assignment.
+# Default docnorm mirrors Tobii MCSnorm (÷ media size) for HMM continuity; caveat:
+# per-trial H_doc makes y-distances trial-relative. isotropic divides both axes by
+# W_doc so vertical distances stay comparable across documents of different length.
+# Never substitute export MCSnorm columns (screen-relative, scroll-unaware).
 normalisation: docnorm  # docnorm | isotropic
+viewport:
+  # Visible screen height in document-space px (Tobii media viewport).
+  H_screen_px: 1080
 
 # S-only segments allowed under NS↔S correspondence (M3-C1). Matched by
 # case-insensitive substring on normalised corrected_text. Flagged

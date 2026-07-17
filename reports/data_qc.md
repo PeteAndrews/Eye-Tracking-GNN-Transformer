@@ -45,7 +45,14 @@ Accumulating preprocessing QC notes (P0–P7).
 
 - Stratified sample: **75** HTML reports under `reports/gaze_checks/gate1/` (25 participants × ≥3 trials; all 6 eligible star_on trials covered).
 - P2 audit ERROR flags added to sample: **0** (clean audit).
-- Regenerated via `python scripts/gaze_overlay_check.py`. Sign-off: **PENDING** in `DECISIONS.md`.
+- Regenerated via `python scripts/gaze_overlay_check.py`. Sign-off: **DONE** (2026-07-17, Peter Andrews).
+
+## P5 — Coordinate finalisation
+
+- Mode: **docnorm**; `H_screen_px=1080`.
+- Participants: **25/25**; rows: **16 179 675**.
+- New columns: `x_docnorm`, `y_docnorm`, `y_screen`, `viewport_doc_position`, `gaze_viewport_y`, plus `w_doc`/`h_doc`/`h_screen`/`normalisation_mode`.
+- Outputs: `data_processed/v0_p0/gaze_coords/` (parquet + TSV). P6+ should read these.
 
 ## P0 correspondence (M3-C1)
 
