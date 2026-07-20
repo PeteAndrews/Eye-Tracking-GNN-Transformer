@@ -78,9 +78,10 @@ def test_fx01_multi_relation_pair_documented() -> None:
     pairs = edges["multi_relation_pairs"]
     assert len(pairs) >= 1
     pair = pairs[0]
-    assert set(pair["relations"]) >= {"SPATIAL_NEIGHBOUR", "SEMANTIC_CANDIDATE"}
+    # Within-panel consecutive segments: NEXT + SPATIAL (M3 spatial is within-panel only)
+    assert set(pair["relations"]) >= {"NEXT_SEGMENT", "SPATIAL_NEIGHBOUR"}
+    assert [pair["source"], pair["target"]] in edges["NEXT_SEGMENT"]
     assert [pair["source"], pair["target"]] in edges["SPATIAL_NEIGHBOUR"]
-    assert [pair["source"], pair["target"]] in edges["SEMANTIC_CANDIDATE"]
 
 
 def test_fx01_expected_edge_types_present() -> None:

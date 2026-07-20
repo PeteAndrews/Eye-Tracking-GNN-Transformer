@@ -212,3 +212,28 @@ Pipeline: P0 registries → P1 prune → P2 metadata → P3 AOI → P4 Gate 1 �
 
 **Note:** Implemented without importing `torch_geometric` (Windows import crash via
 pyarrow/PyG LLM extras). Layer is GATv2-style message passing as specified in §7.
+
+---
+
+## M5 — Fixation tokens and episode dataset (2026-07-20)
+
+**Built**
+- `configs/dataset.yaml`: empty-space mode (`panel_specific`), ranking 8 easy + 4 hard,
+  scroll dropout documented (applied in M6), panel class list.
+- `src/models/tokens.py`: side features (timing, saccade, scroll, visit/return, loop_role,
+  assignment confidence) + `EmptySpaceEmbedding` + `assemble_token` → concat[`x_v`,`h_v`,side].
+- `src/data/targets.py`: multi-hot next-relation over graph relations +
+  `NO_DIRECT_RELATION` / `EMPTY_SPACE_TRANSITION`; ranking candidate sampler.
+- `src/data/episode_dataset.py`: `EpisodeDataset` + `collate_episodes`; optional CompactGNN
+  for `x_v`/`h_v` (tests use feature-slice placeholder); fixture + real loaders.
+- `scripts/run_m5_relation_freq.py`: full-corpus label frequency table for M6 BCE weights.
+
+**Accept**
+- Fixture multi-hot unit tests (hand-computed NEXT, multi-relation, NO_DIRECT, empty-space)
+  + fixture integration (q1→q2 NEXT; empty-space label; lookup consistency).
+- Relation frequencies on **750** episodes / **218292** transitions
+  (`reports/relation_frequencies_m5.md`): dominant `NO_DIRECT_RELATION` (0.62),
+  then SPATIAL (0.23), EMPTY_SPACE (0.10), NEXT (0.10). `BELONGS_TO` = 0 on consecutive
+  fixations (panel abstract nodes are not gaze targets — expected).
+- Throughput: **45.4** real episodes/s (freq script); fixture Dataset ≥20 ep/s sanity.
+- `pytest` green (incl. fixture multi-relation doc updated to NEXT+SPATIAL within-panel).

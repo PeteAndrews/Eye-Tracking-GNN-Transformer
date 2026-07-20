@@ -1,0 +1,53 @@
+{
+  "n_episodes": 750,
+  "n_skipped": 0,
+  "n_transitions": 218292,
+  "n_graphs_cached": 36,
+  "elapsed_s": 16.531,
+  "episodes_per_s": 45.37,
+  "labels": [
+    {
+      "relation": "NEXT_SEGMENT",
+      "count": 22003,
+      "freq": 0.100796,
+      "inv_freq_weight": 9.921
+    },
+    {
+      "relation": "PREVIOUS_SEGMENT",
+      "count": 16408,
+      "freq": 0.075165,
+      "inv_freq_weight": 13.304
+    },
+    {
+      "relation": "BELONGS_TO",
+      "count": 0,
+      "freq": 0.0,
+      "inv_freq_weight": null
+    },
+    {
+      "relation": "SPATIAL_NEIGHBOUR",
+      "count": 50571,
+      "freq": 0.231667,
+      "inv_freq_weight": 4.3165
+    },
+    {
+      "relation": "SEMANTIC_CANDIDATE",
+      "count": 8418,
+      "freq": 0.038563,
+      "inv_freq_weight": 25.9316
+    },
+    {
+      "relation": "NO_DIRECT_RELATION",
+      "count": 134831,
+      "freq": 0.617663,
+      "inv_freq_weight": 1.619
+    },
+    {
+      "relation": "EMPTY_SPACE_TRANSITION",
+      "count": 22876,
+      "freq": 0.104795,
+      "inv_freq_weight": 9.5424
+    }
+  ],
+  "graph_version": "g1_bge1024"
+}

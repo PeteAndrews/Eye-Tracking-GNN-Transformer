@@ -1,0 +1,43 @@
+# M5 episode dataset + fixation tokens (PLAN S2-T4).
+
+graph_version: "g1_bge1024"
+gnn_hidden_dim: 128
+gnn_out_dim: 128
+
+empty_space:
+  # panel-specific | generic | drop
+  mode: panel_specific
+  embedding_dim: 128  # used when mode != drop; replaces x_v/h_v slots for empty-space
+
+targets:
+  # Multi-hot next-relation vocabulary = graph relations + extras
+  include_no_direct_relation: true
+  empty_space_transition_label: EMPTY_SPACE_TRANSITION
+  # Exclude EMPTY_SPACE_TRANSITION from counting as "something else" for NO_DIRECT_RELATION
+  no_direct_only_when_no_graph_relation: true
+
+ranking:
+  n_easy: 8
+  n_hard: 4
+  # Hard = top-cosine among unvisited segment nodes (using cached text emb / x slice)
+
+scroll:
+  # Applied at train time in M6; documented here for token layout
+  dropout_p: 0.3
+  input_only: true
+
+paths:
+  graphs_root: "data_processed/graphs"
+  fixations_root: "data_processed/v0_p0/fixations"
+  relation_freq_report: "reports/relation_frequencies_m5.md"
+  relation_freq_json: "reports/relation_frequencies_m5.json"
+
+# Panel label → class id (matches PANEL_VOCAB + empty categories mapped to parent panel)
+panel_classes:
+  - question
+  - response
+  - mark_scheme
+  - commentary
+  - star_chart
+  - ui
+  - outside_document

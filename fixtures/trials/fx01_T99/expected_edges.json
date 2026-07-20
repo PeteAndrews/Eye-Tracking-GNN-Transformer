@@ -125,6 +125,12 @@
       "seg_c1"
     ]
   ],
-  "multi_relation_pairs": [],
-  "_note": "SPATIAL_NEIGHBOUR is within-panel only (PLAN S2-T2); cross-panel r2–ms1 removed from spatial (was demo multi-relation)."
+  "multi_relation_pairs": [
+    {
+      "source": "seg_r1",
+      "target": "seg_r2",
+      "relations": ["NEXT_SEGMENT", "SPATIAL_NEIGHBOUR"]
+    }
+  ],
+  "_note": "SPATIAL_NEIGHBOUR is within-panel only (PLAN S2-T2); multi-relation demo is NEXT+SPATIAL on consecutive response segments (cross-panel r2–ms1 spatial removed)."
 }
