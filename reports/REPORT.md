@@ -134,7 +134,7 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 - ε sensitivity mean % changed: ×0.5 → **5.84%**, ×1.5 → **3.85%**.
 - Empty-space ~**14.0%**; ambiguous ~**13.7%**; mean confidence ~**0.45**.
 - All 6 loop templates ≥50 corpus count (none dropped for D2).
-- Outputs: `data_processed/v0_p0/fixations/{Pxx}/{trial}__{star}.parquet` + QC/sensitivity tables.
+- Outputs: `data_processed/v0_p0/fixations/{Pxx}/{trial}__{star}.parquet` **and** `.tsv` (parquet pipeline-canonical) + QC/sensitivity tables.
 
 ---
 

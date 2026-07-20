@@ -5,6 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+from src.data.aoi_injection import write_gaze_table
 from src.data.fixations import attach_prev_saccade, build_event_table, compute_sample_period_ms
 
 
@@ -121,3 +122,21 @@ def test_legacy_comparability_event_count_on_type_index_runs() -> None:
             prev = key
     ev = build_event_table(df, sample_period_ms=4.0)
     assert len(ev) == n
+
+
+def test_write_gaze_table_used_for_fixations_export(tmp_path) -> None:
+    df = pd.DataFrame(
+        {
+            "fixation_id": ["fix_0000", "fix_0001"],
+            "trial_id": ["T01", "T01"],
+            "x_doc": [10.0, 20.0],
+        }
+    )
+    stem = tmp_path / "T01__not_eligible"
+    write_gaze_table(stem, df)
+    assert stem.with_suffix(".parquet").is_file()
+    tsv = stem.with_suffix(".tsv")
+    assert tsv.is_file()
+    text = tsv.read_text(encoding="utf-8")
+    assert "fixation_id" in text
+    assert "\t" in text.splitlines()[0]

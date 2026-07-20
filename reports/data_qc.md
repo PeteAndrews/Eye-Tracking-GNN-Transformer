@@ -60,7 +60,7 @@ Accumulating preprocessing QC notes (P0–P7).
 - Mean empty-space **14.0%**; ambiguous **13.7%**; mean assignment confidence **0.45**.
 - ε sensitivity (assignment change): ×0.5 **5.84%**, ×1.5 **3.85%**.
 - Loop corpus counts: all templates ≥50 (none dropped).
-- Outputs: `data_processed/v0_p0/fixations/`.
+- Outputs: `data_processed/v0_p0/fixations/` (parquet + UTF-8 TSV companions).
 
 ## P7 — Visual Gate 2
 

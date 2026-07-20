@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 from omegaconf import OmegaConf
 
+from src.data.aoi_injection import write_gaze_table
 from src.data.epsilon import derive_epsilon
 from src.data.gaze_assignment import assign_fixations
 from src.data.loops import annotate_loops
@@ -476,7 +477,7 @@ def run_p6(repo_root: Optional[Path] = None, *, max_participants: Optional[int] 
             for tid_key, c in (qc.get("loop_counts") or {}).items():
                 corpus_loops[tid_key] = corpus_loops.get(tid_key, 0) + int(c)
 
-            # Flatten for parquet
+            # Flatten for parquet + TSV (parquet remains pipeline canonical)
             flat_rows = []
             for f in fixations:
                 flat = {k: v for k, v in f.items() if k not in ("scroll", "prev_saccade")}
@@ -489,8 +490,7 @@ def run_p6(repo_root: Optional[Path] = None, *, max_participants: Optional[int] 
 
             ep_dir = out_dir / pid
             ep_dir.mkdir(parents=True, exist_ok=True)
-            out_path = ep_dir / f"{tid}__{sc}.parquet"
-            pd.DataFrame(flat_rows).to_parquet(out_path, index=False)
+            write_gaze_table(ep_dir / f"{tid}__{sc}", pd.DataFrame(flat_rows))
 
             # Validate a sample against schema (nested form)
             if flat_rows:
@@ -527,10 +527,10 @@ def run_p6(repo_root: Optional[Path] = None, *, max_participants: Optional[int] 
 
     qc_df = pd.DataFrame(qc_rows)
     if len(qc_df):
-        qc_df.to_parquet(out_dir / "episode_qc.parquet", index=False)
+        write_gaze_table(out_dir / "episode_qc", qc_df)
     sens_df = pd.DataFrame(sens_rows)
     if len(sens_df):
-        sens_df.to_parquet(out_dir / "epsilon_sensitivity.parquet", index=False)
+        write_gaze_table(out_dir / "epsilon_sensitivity", sens_df)
 
     min_tmpl = int(pre_cfg.loops.min_template_corpus_count)
     dropped = {k: v for k, v in corpus_loops.items() if v < min_tmpl}
@@ -555,8 +555,13 @@ def run_p6(repo_root: Optional[Path] = None, *, max_participants: Optional[int] 
         },
         "errors": errors[:50],
         "n_errors": len(errors),
+        "formats": ["parquet", "tsv"],
         "ok": n_episodes == int(data_cfg.expected.n_participants) * int(data_cfg.expected.n_trials)
         and len(errors) == 0,
+        "note": (
+            "Parquet is pipeline-canonical; UTF-8 TSV companions are written beside each "
+            "episode table and QC export for inspection."
+        ),
     }
     uio.write_json(out_dir / "p6_summary.json", summary)
     return summary
