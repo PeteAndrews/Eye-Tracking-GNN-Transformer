@@ -152,6 +152,63 @@ One short entry per completed milestone: what was built, acceptance evidence, QC
 
 ---
 
-## Stage 1 consolidation (pending P7 sign-off)
+## Stage 1 consolidation (2026-07-20) — complete
 
-Pipeline complete through P7 tooling: P0 registries → P1 prune → P2 metadata → P3 AOI injection → P4 Gate 1 (signed) → P5 coords → P6 fixations → P7 Gate 2 (awaiting sign-off). After owner sign-off, Stage 1 ends and Stage 2 (M2 text encoder) may begin.
+P7 Gate 2 signed off (`reports/DECISIONS.md`). Stage 1 closed.
+
+Pipeline: P0 registries → P1 prune → P2 metadata → P3 AOI → P4 Gate 1 → P5 coords → P6 fixations → P7 Gate 2.
+
+**Unblocked:** Stage 2 / M2 (text encoder selection).
+
+---
+
+## M2 — Text encoder selection (2026-07-20) — complete
+
+**Built**
+- Pair curation (M2-A1/A2): 25 reviewed triples (14 hard / 11 easy).
+- Bake-off via HF mean-pool backend; report `reports/encoder_bakeoff_v1.md`.
+- **TextEncoderV1 (M2-A3 override):** `BAAI/bge-large-en-v1.5` (dim=**1024**,
+  revision `d4aa6901…`, mean pool, L2). Tie on overall+hard broken on
+  `response_mark_scheme` (not a decisive bake-off win) — see DECISIONS.md.
+- `configs/graph.yaml`: `text_embedding_dim: 1024`, `graph_version: g1_bge1024`.
+
+**Accept**
+- Bake-off table present; TextEncoderV1 card + revision + sha256 pinned.
+- Unit tests green; promote gate passed (n=25 ≥ 20).
+
+---
+
+## M3 — Automatic graph parser (2026-07-20) — complete
+
+**Built**
+- `configs/graph.yaml`: `g1_bge1024`, `text_embedding_dim=1024` (TextEncoderV1 = bge).
+- Edge builders + features + `build_graph_dict`; embedding cache; `scripts/run_m3_graphs.py`.
+- **36/36** graphs: `data_processed/graphs/g1_bge1024/{trial}__{star}.pt`.
+- Embeddings: `data_processed/embeddings/g1_bge1024/`.
+- Diagnostics: `reports/graph_diagnostics/g1_bge1024/REPORT.md`.
+
+**Edge totals (directed):** NEXT/PREV 1060 each; BELONGS_TO 1206; SPATIAL 4200; SEMANTIC 5153.
+
+**NS↔S (M3-C1):** all 6 eligible trials **PASS** (0 missing); star-conditional S-only excluded per allowlist.
+
+**Accept**
+- Per-edge unit tests green; dim check vs card green; 36 graphs on disk; correspondence ok.
+
+---
+
+## M4 — Compact GNN, standalone (2026-07-20)
+
+**Built**
+- `configs/gnn.yaml`; `src/models/gnn.py`: pure-torch GATv2-style `CompactGNN`
+  (relation embeddings + numeric edge attrs in attention, residuals, edge dropout);
+  returns `x_v` (projected) and `h_v` (contextualised); attention extractable.
+- Throwaway panel probe (`scripts/run_m4_panel_probe.py`): panel features masked from `x`;
+  classify panel from `h_v` — mean acc **1.0** across seeds {13,42,1337} on 6 graphs
+  (sanity only; model discarded).
+
+**Accept**
+- `pytest tests/test_gnn.py` green (shapes, grads, attention, panel probe, 3-seed stability).
+- Panel-probe dry-run written to `runs/m4_panel_probe/panel_probe_summary.json`.
+
+**Note:** Implemented without importing `torch_geometric` (Windows import crash via
+pyarrow/PyG LLM extras). Layer is GATv2-style message passing as specified in §7.

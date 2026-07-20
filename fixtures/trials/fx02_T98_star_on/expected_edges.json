@@ -39,14 +39,6 @@
       "seg_st2"
     ]
   ],
-  "multi_relation_pairs": [
-    {
-      "source": "seg_r1",
-      "target": "seg_ms1",
-      "relations": [
-        "SPATIAL_NEIGHBOUR",
-        "SEMANTIC_CANDIDATE"
-      ]
-    }
-  ]
+  "multi_relation_pairs": [],
+  "_note": "Cross-panel SPATIAL removed (within-panel only per PLAN); SEMANTIC_CANDIDATE remains for response↔MS / star pairs."
 }

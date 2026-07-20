@@ -94,15 +94,85 @@ Signed off for P5. — Peter Andrews
 
 ---
 
-## P7 — Visual Gate 2 sign-off (PENDING)
+## P7 — Visual Gate 2 sign-off (2026-07-20)
 
-**Status:** tooling + stratified/QC sample generated (`reports/gaze_checks/gate2/`, 117 reports).
-**Owner action required:** review `gate2/index.html`; triage systematic assignment misalignment
-upstream if needed; then replace this section with an explicit sign-off before Stage 2 / M2+.
+Reviewed Gate 2 sample (stratified + P6 QC flags). Assignment acceptable.
+Signed off for Stage 2. — Peter Andrews
 
-```
-# Owner fills in after review — example:
-# ## P7 — Visual Gate 2 sign-off (YYYY-MM-DD)
-# Reviewed Gate 2 sample (stratified + P6 QC flags). Assignment acceptable.
-# Signed off for Stage 2. — <name>
-```
+---
+
+## M2-A1 — Hard + easy negatives in encoder pair set (2026-07-20)
+
+**Owner amendment.** Draft encoder-eval triples use a ~50/50 mix of
+`hard_within_trial` (unrelated from the same trial) and `easy_cross_trial`
+(unrelated from another trial). Bake-off reports ranking accuracy overall and
+by `negative_type`; hard-negative accuracy is the tie-breaker. Promote accepts
+same-trial unrelated and does not enforce the draft hard/easy mix after review.
+
+---
+
+## M2-A2 — Retire command_word / level_descriptor; sampler fixes (2026-07-20)
+
+**Owner amendment after batch-1 review (13/48 kept).**
+
+1. Drop `command_word` — question instructions have no valid related criterion.
+2. Drop `level_descriptor` as anchor/related — near-identical boilerplate across
+   trials (duplicate-detection, not response↔criterion matching).
+3. Sampler fixes: never `anchor==related`; never cross-trial related; exclude
+   rubric-instruction and level-descriptor segments from the **related** slot
+   (they may still be unrelated); prefer Jaccard-matched content MS bullets;
+   diversify relateds (avoid repeated fallback segments).
+
+Batch-2: ~15 new `response_mark_scheme` + `commentary_paraphrase` candidates
+appended to keepers with `reviewed=false`.
+
+---
+
+## M2 — Encoder bake-off complete (2026-07-20)
+
+**Pair set:** 25 reviewed triples (14 hard / 11 easy) promoted to
+`artifacts/encoder_eval_pairs_v1.parquet`.
+
+**Bake-off (ranking accuracy):**
+
+| id | overall | hard | easy |
+|---|---|---|---|
+| mpnet | 0.84 | 0.786 | 0.909 |
+| bge_large | 0.84 | 0.786 | 0.909 |
+| e5_large | 0.80 | 0.714 | 0.909 |
+| mini_baseline | 0.76 | 0.714 | 0.818 |
+
+**Initial freeze:** `mpnet` by config-order tie-break (overall+hard tied with bge).
+
+**Backend note:** bake-off uses `transformers` mean-pooling rather than
+`sentence-transformers` 5.6 (torchcodec/FFmpeg breakage on this machine). Same HF
+checkpoints and pooling convention. `HF_HUB_DISABLE_XET=1` required on this Windows
+host (hf_xet native fetch SIGILL).
+
+---
+
+## M2-A3 — Owner override: TextEncoderV1 = bge_large (2026-07-20)
+
+**Owner decision.** Re-freeze TextEncoderV1 as `bge_large` (`BAAI/bge-large-en-v1.5`,
+dim=1024, revision `d4aa6901d3a41ba39fb536a557fa166f842b0e09`).
+
+**Rationale.** mpnet and bge tied on overall (0.84) and hard (0.786); config-order
+tie-break is arbitrary at this sample size. bge is stronger on
+`response_mark_scheme` (0.82 vs 0.73) — the sub-task that maps to
+`SEMANTIC_CANDIDATE` edges and Phase 2 retrieval — and is the stronger public
+retrieval encoder. **This is a tie broken on the highest-stakes sub-score, not a
+decisive bake-off win.**
+
+**Propagated:** `configs/graph.yaml` → `text_embedding_dim: 1024`,
+`graph_version: g1_bge1024`; card at `artifacts/text_encoder_v1_card.json`.
+
+---
+
+## M4-A1 — Pure-torch edge-aware GAT (no PyG import) (2026-07-20)
+
+**Decision.** M4 `CompactGNN` is implemented as a pure-PyTorch GATv2-style layer
+(relation embeddings + edge attributes in attention), not `torch_geometric.nn.GATv2Conv`.
+
+**Rationale.** `import torch_geometric` currently fails on this Windows host
+(WinError 6714 via PyG→pandas→pyarrow filesystem transaction). Semantics match
+research plan §7; PyG can be swapped later if the env is cleaned up.

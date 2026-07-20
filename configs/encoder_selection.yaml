@@ -1,0 +1,49 @@
+# M2 text-encoder bake-off (PLAN S2-T1 / research plan §4.4).
+# Metric: ranking accuracy — related scored above unrelated for the same anchor.
+
+candidates:
+  - id: mpnet
+    model_name: sentence-transformers/all-mpnet-base-v2
+  - id: e5_large
+    model_name: intfloat/e5-large-v2
+    # e5 models expect "query: " / "passage: " prefixes; we use passage: for all nodes
+    text_prefix: "passage: "
+  - id: bge_large
+    model_name: BAAI/bge-large-en-v1.5
+  - id: mini_baseline
+    model_name: sentence-transformers/all-MiniLM-L6-v2
+
+# Frozen TextEncoderV1 (owner override M2-A3, 2026-07-20): bge_large
+frozen_encoder_id: bge_large
+
+pooling: mean  # documented for TextEncoderV1 card
+normalise_l2: true
+batch_size: 32
+seed: 13
+
+# Paths relative to repo root
+paths:
+  draft_pairs: reports/encoder_pairs/draft_pairs_v1.csv
+  reviewed_pairs: artifacts/encoder_eval_pairs_v1.parquet
+  bakeoff_report: reports/encoder_bakeoff_v1.md
+  encoder_card: artifacts/text_encoder_v1_card.json
+
+# Draft pair proposal (owner reviews → promote to reviewed_pairs)
+# Active categories only (M2-A2): response_mark_scheme + commentary_paraphrase.
+# ~hard_fraction within-trial hard negatives; remainder easy cross-trial.
+draft:
+  max_pairs_per_category: 12
+  hard_fraction: 0.5
+  min_text_chars: 12
+  categories:
+    - response_mark_scheme
+    - commentary_paraphrase
+  negative_types:
+    - hard_within_trial
+    - easy_cross_trial
+  # Paths for batch-2 append workflow
+  keepers_default: reports/encoder_pairs/draft_pairs_v1_reviewed.csv
+  batch2_n_new: 15
+
+# Bake-off will not score until reviewed_pairs exists and reviewed=true rows ≥ this
+min_reviewed_triples: 20

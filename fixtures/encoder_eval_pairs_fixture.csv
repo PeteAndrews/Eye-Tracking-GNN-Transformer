@@ -1,0 +1,7 @@
+pair_id,category,negative_type,anchor_trial,unrelated_trial,anchor_text,related_text,unrelated_text,reviewed
+fix_001,response_mark_scheme,hard_within_trial,T99,T99,Student discusses coastal erosion and longshore drift.,Award 1 mark for correctly identifying longshore drift as a process.,Award 1 mark for naming a hard engineering strategy.,true
+fix_002,response_mark_scheme,easy_cross_trial,T99,T98,Candidate names two push factors for migration.,Push factors include war famine and lack of jobs (1).,Describe the distribution of tropical rainforests.,true
+fix_003,commentary_paraphrase,hard_within_trial,T99,T99,Examiner notes: clear understanding of tectonic processes.,Commentary: student shows secure grasp of plate tectonics.,Commentary: weak use of case-study detail on volcanism.,true
+fix_004,commentary_paraphrase,easy_cross_trial,T99,T98,Examiner notes clear method improvements.,Credit larger sample size or bigger bucket.,Weather systems are poorly understood in this response.,true
+fix_005,response_mark_scheme,hard_within_trial,T99,T99,Answer mentions deforestation reducing biodiversity.,Credit reference to habitat loss or biodiversity decline.,Credit naming of a coastal management strategy.,true
+fix_006,response_mark_scheme,easy_cross_trial,T99,T98,Candidate describes plate boundary types.,Destructive plate boundary where plates collide (1).,Candidates should label the axes of the climate graph.,true

@@ -109,10 +109,6 @@
     [
       "seg_ms2",
       "seg_ld1"
-    ],
-    [
-      "seg_r2",
-      "seg_ms1"
     ]
   ],
   "SEMANTIC_CANDIDATE": [
@@ -129,14 +125,6 @@
       "seg_c1"
     ]
   ],
-  "multi_relation_pairs": [
-    {
-      "source": "seg_r2",
-      "target": "seg_ms1",
-      "relations": [
-        "SPATIAL_NEIGHBOUR",
-        "SEMANTIC_CANDIDATE"
-      ]
-    }
-  ]
+  "multi_relation_pairs": [],
+  "_note": "SPATIAL_NEIGHBOUR is within-panel only (PLAN S2-T2); cross-panel r2–ms1 removed from spatial (was demo multi-relation)."
 }

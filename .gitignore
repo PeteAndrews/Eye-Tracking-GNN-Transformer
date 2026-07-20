@@ -1,6 +1,9 @@
 # Raw data (read-only inputs; never commit)
 _data/
 
+# Planning / research docs kept local (owner source-of-truth; not pushed)
+docs/
+
 # Pipeline and experiment outputs
 data_processed/
 runs/

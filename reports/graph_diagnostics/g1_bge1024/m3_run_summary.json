@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "n_graphs": 36,
+  "graph_version": "g1_bge1024",
+  "graphs_dir": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\data_processed\\graphs\\g1_bge1024",
+  "diagnostics": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\graph_diagnostics\\g1_bge1024\\REPORT.md",
+  "correspondence_all_ok": true,
+  "n_correspondence_fail": 0,
+  "encoder": {
+    "ok": true,
+    "embedding_dim": 1024,
+    "model_name": "BAAI/bge-large-en-v1.5",
+    "model_revision": "d4aa6901d3a41ba39fb536a557fa166f842b0e09",
+    "graph_version": "g1_bge1024"
+  }
+}

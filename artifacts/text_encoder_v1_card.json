@@ -1,0 +1,24 @@
+{
+  "name": "TextEncoderV1",
+  "model_name": "BAAI/bge-large-en-v1.5",
+  "text_prefix": "",
+  "pooling": "mean",
+  "normalise_l2": true,
+  "embedding_dim": 1024,
+  "batch_size": 32,
+  "backend": "transformers.AutoModel+mean_pool",
+  "bakeoff_winner_id": "bge_large",
+  "model_revision": "d4aa6901d3a41ba39fb536a557fa166f842b0e09",
+  "metric": "ranking_accuracy",
+  "tie_breaker": "ranking_accuracy_hard",
+  "selection_note": "Owner override M2-A3: tie on overall+hard broken on response_mark_scheme (0.82 vs 0.73) — highest-stakes sub-score for SEMANTIC_CANDIDATE / Phase 2 retrieval; not a decisive bake-off win.",
+  "bakeoff_ranking_accuracy": 0.84,
+  "bakeoff_ranking_accuracy_hard": 0.7857142857142857,
+  "bakeoff_ranking_accuracy_easy": 0.9090909090909091,
+  "bakeoff_per_category": {
+    "commentary_paraphrase": 0.8571428571428571,
+    "response_mark_scheme": 0.8181818181818182
+  },
+  "bakeoff_n_triples": 25,
+  "card_sha256": "3d2f77d8635454f1771dbd730a1bf6e3142d2d586619f6684123ccfcce6238ad"
+}

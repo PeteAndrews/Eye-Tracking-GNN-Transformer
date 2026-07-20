@@ -1,0 +1,66 @@
+# M3 graph construction (PLAN S2-T2).
+# text_embedding_dim must match frozen TextEncoderV1 (artifacts/text_encoder_v1_card.json).
+
+graph_version: "g1_bge1024"
+
+paths:
+  encoder_card: artifacts/text_encoder_v1_card.json
+  embeddings_root: "data_processed/embeddings"   # /{graph_version}/
+  graphs_root: "data_processed/graphs"           # /{graph_version}/
+  diagnostics_root: "reports/graph_diagnostics"
+
+# Synced from TextEncoderV1 card on freeze / build (assert match).
+text_embedding_dim: 1024
+text_normalise_l2: true
+pooling: mean
+
+# Abstract panel nodes: learned type emb size (GNN side); text slot zeroed to text_embedding_dim.
+panel_type_embedding_dim: 32
+
+# Node feature assembly switches
+node_features:
+  include_text_embedding: true
+  include_categoricals: true
+  include_bools: true
+  include_formatting: true
+  include_geometry: true
+  include_segment_order: true
+
+# Edge construction
+edges:
+  next_previous:
+    enabled: true
+    geometry_order_check: true  # warn if segment_order disagrees with y-order
+  belongs_to:
+    enabled: true
+  spatial_neighbour:
+    enabled: true
+    k: 3
+    within_panel_only: true
+  semantic_candidate:
+    enabled: true
+    cross_panel_only: true
+    min_similarity: 0.25
+    allowed_panel_pairs:
+      - [question, response]
+      - [response, mark_scheme]
+      - [response, commentary]
+      - [response, star_chart]
+      - [mark_scheme, commentary]
+    # Prioritised pair: response ↔ mark_scheme
+    response_mark_scheme:
+      k: 3
+      coverage_floor: true  # every mark-scheme content bullet ≥1 best response edge
+    other_pairs:
+      k: 2
+
+# Removed edge types (do not implement): SAME_MARK_POINT, SAME_STAR
+
+# NS↔S correspondence (M3-C1)
+correspondence:
+  match_on:
+    - panel_label
+    - normalised_text
+    - relative_order_within_panel
+  exclude_geometry: true
+  star_conditional_from_preprocessing: true

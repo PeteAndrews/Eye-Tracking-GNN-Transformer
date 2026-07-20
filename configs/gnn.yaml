@@ -1,0 +1,31 @@
+# M4 compact GNN (PLAN S2-T3 / research plan §7).
+# Pure-torch GATv2-style edge-aware attention (relation emb + numeric edge attrs).
+
+graph_version: "g1_bge1024"  # must match configs/graph.yaml
+
+model:
+  in_dim: 1051          # text 1024 + side features (from M3 graphs)
+  text_dim: 1024        # leading slice of x = TextEncoderV1 embedding
+  panel_vocab_size: 6   # panel one-hot starts at index text_dim
+  hidden_dim: 128
+  out_dim: 128
+  n_layers: 2
+  n_heads: 4
+  n_relations: 5
+  relation_emb_dim: 16
+  edge_attr_dim: 5      # cosine/distance, rank, below_threshold, dx, dy
+  dropout: 0.1
+  edge_dropout: 0.2
+  residual: true
+
+panel_probe:
+  # Throwaway sanity task — discarded after M4 acceptance
+  mask_panel_features: true
+  lr: 0.001
+  weight_decay: 0.0
+  epochs: 40
+  seeds: [13, 42, 1337]
+
+paths:
+  graphs_root: "data_processed/graphs"
+  runs_root: "runs/m4_panel_probe"

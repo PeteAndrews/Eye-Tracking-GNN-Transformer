@@ -1,0 +1,112 @@
+{
+  "ok": true,
+  "blocked": false,
+  "n_triples": 25,
+  "n_hard_within_trial": 14,
+  "n_easy_cross_trial": 11,
+  "metric": "ranking_accuracy",
+  "tie_breaker": "ranking_accuracy_hard",
+  "results": [
+    {
+      "id": "mpnet",
+      "model_name": "sentence-transformers/all-mpnet-base-v2",
+      "text_prefix": "",
+      "ranking_accuracy": 0.84,
+      "ranking_accuracy_hard": 0.7857142857142857,
+      "ranking_accuracy_easy": 0.9090909090909091,
+      "n_triples": 25,
+      "per_category": {
+        "commentary_paraphrase": 0.9285714285714286,
+        "response_mark_scheme": 0.7272727272727273
+      },
+      "per_negative_type": {
+        "easy_cross_trial": {
+          "ranking_accuracy": 0.9090909090909091,
+          "n": 11
+        },
+        "hard_within_trial": {
+          "ranking_accuracy": 0.7857142857142857,
+          "n": 14
+        }
+      },
+      "embedding_dim": 768
+    },
+    {
+      "id": "bge_large",
+      "model_name": "BAAI/bge-large-en-v1.5",
+      "text_prefix": "",
+      "ranking_accuracy": 0.84,
+      "ranking_accuracy_hard": 0.7857142857142857,
+      "ranking_accuracy_easy": 0.9090909090909091,
+      "n_triples": 25,
+      "per_category": {
+        "commentary_paraphrase": 0.8571428571428571,
+        "response_mark_scheme": 0.8181818181818182
+      },
+      "per_negative_type": {
+        "easy_cross_trial": {
+          "ranking_accuracy": 0.9090909090909091,
+          "n": 11
+        },
+        "hard_within_trial": {
+          "ranking_accuracy": 0.7857142857142857,
+          "n": 14
+        }
+      },
+      "embedding_dim": 1024
+    },
+    {
+      "id": "e5_large",
+      "model_name": "intfloat/e5-large-v2",
+      "text_prefix": "passage: ",
+      "ranking_accuracy": 0.8,
+      "ranking_accuracy_hard": 0.7142857142857143,
+      "ranking_accuracy_easy": 0.9090909090909091,
+      "n_triples": 25,
+      "per_category": {
+        "commentary_paraphrase": 0.8571428571428571,
+        "response_mark_scheme": 0.7272727272727273
+      },
+      "per_negative_type": {
+        "easy_cross_trial": {
+          "ranking_accuracy": 0.9090909090909091,
+          "n": 11
+        },
+        "hard_within_trial": {
+          "ranking_accuracy": 0.7142857142857143,
+          "n": 14
+        }
+      },
+      "embedding_dim": 1024
+    },
+    {
+      "id": "mini_baseline",
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "text_prefix": "",
+      "ranking_accuracy": 0.76,
+      "ranking_accuracy_hard": 0.7142857142857143,
+      "ranking_accuracy_easy": 0.8181818181818182,
+      "n_triples": 25,
+      "per_category": {
+        "commentary_paraphrase": 0.7857142857142857,
+        "response_mark_scheme": 0.7272727272727273
+      },
+      "per_negative_type": {
+        "easy_cross_trial": {
+          "ranking_accuracy": 0.8181818181818182,
+          "n": 11
+        },
+        "hard_within_trial": {
+          "ranking_accuracy": 0.7142857142857143,
+          "n": 14
+        }
+      },
+      "embedding_dim": 384
+    }
+  ],
+  "winner_id": "mpnet",
+  "winner_model": "sentence-transformers/all-mpnet-base-v2",
+  "winner_accuracy": 0.84,
+  "winner_accuracy_hard": 0.7857142857142857,
+  "winner_accuracy_easy": 0.9090909090909091
+}
