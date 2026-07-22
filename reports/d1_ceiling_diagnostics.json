@@ -1,0 +1,42 @@
+{
+  "checkpoint": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\runs\\m6_fullseq_graphbias_return_aux\\fold0_seed13\\checkpoint_best.pt",
+  "fold": 0,
+  "seed": 13,
+  "horizon_events": 20,
+  "n_train": 160326,
+  "n_val": 41736,
+  "auc_return_head": 0.7343453328278231,
+  "auc_embedding_probe": 0.7318528578076294,
+  "auc_feature_probe": 0.6904707544194458,
+  "margin_probe": 0.0413821033881836,
+  "auc_gbm_feat_plus_history": 0.7454200374518761,
+  "auc_gbm_feat_only": 0.7354811999201059,
+  "auc_gbm_history_only": 0.6804128365106314,
+  "alignment": {
+    "return_head_input": "per-token transformer output y = encode(batch) [B,T,d_model]",
+    "d1_probe_input": "same per-token y (collected as emb); no pooling",
+    "return_head": "Linear(d_model -> 1) on y",
+    "d1_probe": "StandardScaler + LogisticRegression(class_weight=balanced) on y",
+    "same_layer": true,
+    "same_pooling": true,
+    "pooling": "none (token-level)",
+    "val_score_corr_head_vs_probe": 0.9900948184975819
+  },
+  "balance": {
+    "return_aux_enabled": true,
+    "weight": 0.5,
+    "pos_weight": 0.23,
+    "horizon_events": 20,
+    "val_pos_rate": 0.814165229058846,
+    "train_pos_rate": 0.8128188815288849,
+    "expected_balance_pos_weight": 0.2283,
+    "fix_balance_ok": true
+  },
+  "decision_hint": {
+    "head_near_probe": true,
+    "probe_near_ceiling": true,
+    "margin_vs_050": 0.0413821033881836,
+    "ceiling_minus_feat": 0.054949283032430296,
+    "050_exceeds_ceiling_margin": false
+  }
+}

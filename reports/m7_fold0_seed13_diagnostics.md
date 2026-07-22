@@ -1,6 +1,6 @@
 # M7 diagnostic gate (frozen M6 embeddings)
 
-- Checkpoint: `runs\m6_fullseq_graphbias\fold0_seed13\checkpoint_best.pt`
+- Checkpoint: `runs\m6_fullseq_graphbias_return_aux\fold0_seed13\checkpoint_best.pt`
 - Fold **0** · seed **13**
 - Val participants: P03, P06, P10, P12, P21
 - Episodes: train 600 / val 150
@@ -11,9 +11,9 @@ FAIL — enable return/loop aux losses and retrain (see DECISIONS)
 
 | gate | pass | metric |
 |---|---|---|
-| D1 return | False | emb AUC=0.7231 · feat=0.6905 · margin=0.0326 (need ≥ 0.05) |
-| D2 loop template | True | macro-F1=0.6025 · shuffled=0.1810 · margin=0.4215 (need ≥ 0.05) |
-| D3 subsequence | True | AUC=0.5803564527634191 · acc=0.5544142389090587 |
+| D1 return | False | emb AUC=0.7319 · feat=0.6905 · margin=0.0414 (need ≥ 0.05) |
+| D2 loop template | True | macro-F1=0.5942 · shuffled=0.1824 · margin=0.4118 (need ≥ 0.05) |
+| D3 subsequence | True | AUC=0.5789976196455837 · acc=0.5551669175595502 |
 
 ## D2 templates
 

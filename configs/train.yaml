@@ -21,10 +21,12 @@ losses:
     n_easy: 8   # must match configs/dataset.yaml ranking
     n_hard: 4
 
-  # Aux OFF until M7 re-gate on the final architecture (full seq + graph bias).
+  # M7-G1c remedy on final architecture (full seq + graph bias): return_aux only.
+  # pos_weight = n_neg/n_pos at H=20 (~0.187/0.813); keeps D1 horizon fixed (DECISIONS M7-G2).
   return_aux:
-    enabled: false
+    enabled: true
     weight: 0.5
+    pos_weight: 0.23
   loop_aux:
     enabled: false
     weight: 0.0
@@ -110,5 +112,5 @@ diagnostics:
 tracking:
   backend: mlflow  # local sqlite under run out-root
   tags:
-    milestone: M6
-    ablation_id: baseline_fullseq_1536_graphbias
+    milestone: M7
+    ablation_id: baseline_fullseq_1536_graphbias_return_aux

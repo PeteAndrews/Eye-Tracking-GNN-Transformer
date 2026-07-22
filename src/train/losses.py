@@ -121,11 +121,18 @@ def return_aux_loss(
     mask: torch.Tensor,
     *,
     horizon: int,
+    pos_weight: float = 1.0,
 ) -> torch.Tensor:
     tgt, valid = return_within_horizon_targets(node_index, mask, horizon=horizon)
     if not valid.any():
         return logits.new_zeros(())
-    return F.binary_cross_entropy_with_logits(logits[valid], tgt[valid])
+    pw = float(pos_weight)
+    weight = None
+    if abs(pw - 1.0) > 1e-12:
+        weight = logits.new_tensor(pw)
+    return F.binary_cross_entropy_with_logits(
+        logits[valid], tgt[valid], pos_weight=weight
+    )
 
 
 def loop_role_aux_loss(
@@ -198,11 +205,13 @@ def compute_three_losses(
             horizon = int(
                 getattr(train_cfg.diagnostics.D1_return_probe, "horizon_events", 20)
             )
+            pos_w = float(getattr(losses_cfg.return_aux, "pos_weight", 1.0) or 1.0)
             l_ret = return_aux_loss(
                 outputs["return_logits"],
                 batch["node_index"],
                 batch["mask"],
                 horizon=horizon,
+                pos_weight=pos_w,
             )
             w_ret = float(losses_cfg.return_aux.weight)
             out["loss_return_aux"] = l_ret

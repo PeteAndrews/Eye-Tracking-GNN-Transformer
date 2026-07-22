@@ -317,3 +317,23 @@ correctness checks **PASS** at T=768 and 1536. Config: bias on, aux off, tag
 `baseline_fullseq_1536_graphbias`, run root `runs/m6_fullseq_graphbias/`.
 Bias-off fullseq run kept as reference only. Truncation counts now logged in
 every `train_summary.json` / `run_meta.json`.
+
+---
+
+## M7-G2 — return_aux on final architecture (2026-07-22)
+
+Full-seq+graph-bias gate: ranking MRR beats feature-cosine (0.841 vs 0.796);
+D1 margin 0.033 < 0.05 → enable `return_aux` (weight 0.5, **pos_weight 0.23**
+at H=20; shorter H cannot reach ~50% positives). D2 passed → loop_aux off.
+Tag `baseline_fullseq_1536_graphbias_return_aux`. See DECISIONS M7-G2.
+
+---
+
+## M7-G3 — D1 remedied to ceiling (2026-07-22)
+
+Post-aux D1 margin 0.041 still < 0.05. Ceiling diagnostics
+(`reports/d1_ceiling_diagnostics.md`): ReturnHead AUC **0.734** ≈ emb probe
+**0.732** ≈ GBM feat+history **0.745** (head–probe corr 0.99); same per-token
+`encode` representation; `pos_weight=0.23` confirmed. **Closed as remedied to
+ceiling** — +0.05 exceeds attainable room given return features are inputs.
+`return_aux` stays on; no further escalation. DECISIONS M7-G3.

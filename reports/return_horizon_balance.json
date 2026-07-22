@@ -1,0 +1,44 @@
+[
+  {
+    "horizon": 5,
+    "n": 202062,
+    "pos_rate": 0.7271,
+    "balance_pos_weight": 0.3754
+  },
+  {
+    "horizon": 8,
+    "n": 202062,
+    "pos_rate": 0.7607,
+    "balance_pos_weight": 0.3145
+  },
+  {
+    "horizon": 10,
+    "n": 202062,
+    "pos_rate": 0.775,
+    "balance_pos_weight": 0.2903
+  },
+  {
+    "horizon": 12,
+    "n": 202062,
+    "pos_rate": 0.7857,
+    "balance_pos_weight": 0.2727
+  },
+  {
+    "horizon": 15,
+    "n": 202062,
+    "pos_rate": 0.7982,
+    "balance_pos_weight": 0.2529
+  },
+  {
+    "horizon": 20,
+    "n": 202062,
+    "pos_rate": 0.8131,
+    "balance_pos_weight": 0.2299
+  },
+  {
+    "horizon": 30,
+    "n": 202062,
+    "pos_rate": 0.8319,
+    "balance_pos_weight": 0.2021
+  }
+]
