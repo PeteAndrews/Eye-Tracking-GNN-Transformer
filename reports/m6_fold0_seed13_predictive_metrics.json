@@ -1,0 +1,249 @@
+{
+  "n_relation_steps": 26240,
+  "relation_per_label": [
+    {
+      "relation": "NEXT_SEGMENT",
+      "n_pos": 2392,
+      "n_steps": 26240,
+      "base_rate": 0.091159,
+      "ap": 0.19158,
+      "ap_baseline": 0.091159,
+      "ap_minus_baseline": 0.100421,
+      "precision@thr": 0.156304,
+      "recall@thr": 0.713629,
+      "threshold": 0.5
+    },
+    {
+      "relation": "PREVIOUS_SEGMENT",
+      "n_pos": 1643,
+      "n_steps": 26240,
+      "base_rate": 0.062614,
+      "ap": 0.18172,
+      "ap_baseline": 0.062614,
+      "ap_minus_baseline": 0.119106,
+      "precision@thr": 0.144596,
+      "recall@thr": 0.665247,
+      "threshold": 0.5
+    },
+    {
+      "relation": "SPATIAL_NEIGHBOUR",
+      "n_pos": 5393,
+      "n_steps": 26240,
+      "base_rate": 0.205526,
+      "ap": 0.347345,
+      "ap_baseline": 0.205526,
+      "ap_minus_baseline": 0.141819,
+      "precision@thr": 0.296241,
+      "recall@thr": 0.812535,
+      "threshold": 0.5
+    },
+    {
+      "relation": "SEMANTIC_CANDIDATE",
+      "n_pos": 972,
+      "n_steps": 26240,
+      "base_rate": 0.037043,
+      "ap": 0.164535,
+      "ap_baseline": 0.037043,
+      "ap_minus_baseline": 0.127493,
+      "precision@thr": 0.135998,
+      "recall@thr": 0.556584,
+      "threshold": 0.5
+    },
+    {
+      "relation": "NO_DIRECT_RELATION",
+      "n_pos": 15798,
+      "n_steps": 26240,
+      "base_rate": 0.602058,
+      "ap": 0.784665,
+      "ap_baseline": 0.602058,
+      "ap_minus_baseline": 0.182608,
+      "precision@thr": 0.680973,
+      "recall@thr": 0.983226,
+      "threshold": 0.5
+    },
+    {
+      "relation": "EMPTY_SPACE_TRANSITION",
+      "n_pos": 3909,
+      "n_steps": 26240,
+      "base_rate": 0.148971,
+      "ap": 0.861311,
+      "ap_baseline": 0.148971,
+      "ap_minus_baseline": 0.71234,
+      "precision@thr": 0.552627,
+      "recall@thr": 0.831415,
+      "threshold": 0.5
+    }
+  ],
+  "semantic_candidate_gate": {
+    "ap": 0.164535,
+    "ap_baseline": 0.037043,
+    "at_or_below_baseline": false
+  },
+  "go_nogo": "GO",
+  "ranking": {
+    "model": {
+      "n_ranked_steps": 23433.0,
+      "mrr": 0.7890710848206687,
+      "hits@1": 0.6762258353603892,
+      "hits@3": 0.8789740963598344,
+      "hits@5": 0.9401698459437545
+    },
+    "transition_frequency_baseline": {
+      "n_ranked_steps": 23433.0,
+      "mrr": 0.45692309037591333,
+      "hits@1": 0.27730124183843297,
+      "hits@3": 0.5120129731575129,
+      "hits@5": 0.6809627448470106
+    },
+    "feature_only_cosine_probe": {
+      "n_ranked_steps": 23433.0,
+      "mrr": 0.7885894173821454,
+      "hits@1": 0.7251312251952375,
+      "hits@3": 0.8026287713907737,
+      "hits@5": 0.8644646438782913
+    }
+  },
+  "next_panel": {
+    "n": 26240,
+    "macro_f1": 0.7776577002551851,
+    "accuracy": 0.8270960365853659,
+    "per_class_f1": {
+      "question": 0.829537,
+      "response": 0.8075,
+      "mark_scheme": 0.794054,
+      "commentary": 0.919741,
+      "star_chart": 0.705882,
+      "ui": 0.0,
+      "outside_document": 0.609233
+    },
+    "confusion_matrix": [
+      [
+        3168,
+        239,
+        197,
+        46,
+        11,
+        0,
+        163
+      ],
+      [
+        192,
+        4759,
+        573,
+        62,
+        27,
+        0,
+        138
+      ],
+      [
+        244,
+        710,
+        5288,
+        351,
+        13,
+        0,
+        144
+      ],
+      [
+        44,
+        78,
+        326,
+        7254,
+        45,
+        0,
+        148
+      ],
+      [
+        3,
+        15,
+        16,
+        16,
+        198,
+        0,
+        8
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        163,
+        235,
+        169,
+        150,
+        11,
+        0,
+        1036
+      ]
+    ],
+    "classes": [
+      "question",
+      "response",
+      "mark_scheme",
+      "commentary",
+      "star_chart",
+      "ui",
+      "outside_document"
+    ]
+  },
+  "operating_threshold": 0.5,
+  "checkpoint": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\runs\\m6\\fold0_seed13\\checkpoint_best.pt",
+  "fold_meta": {
+    "fold": 0,
+    "seed": 13,
+    "train_participants": [
+      "P01",
+      "P02",
+      "P04",
+      "P05",
+      "P09",
+      "P11",
+      "P15",
+      "P16",
+      "P17",
+      "P18",
+      "P19",
+      "P20",
+      "P23",
+      "P24",
+      "P25",
+      "P26",
+      "P27",
+      "P28",
+      "P30",
+      "P31"
+    ],
+    "val_participants": [
+      "P03",
+      "P06",
+      "P10",
+      "P12",
+      "P21"
+    ],
+    "n_train": 600,
+    "n_val": 150,
+    "panel_classes": [
+      "question",
+      "response",
+      "mark_scheme",
+      "commentary",
+      "star_chart",
+      "ui",
+      "outside_document"
+    ],
+    "gnn_out_dim": 128
+  },
+  "relation_weights": {
+    "NEXT_SEGMENT": 9.921,
+    "PREVIOUS_SEGMENT": 12.0,
+    "SPATIAL_NEIGHBOUR": 4.3165,
+    "SEMANTIC_CANDIDATE": 12.0,
+    "NO_DIRECT_RELATION": 1.619,
+    "EMPTY_SPACE_TRANSITION": 9.5424
+  }
+}

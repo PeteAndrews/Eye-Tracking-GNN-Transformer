@@ -1,0 +1,42 @@
+{
+  "T": 1536,
+  "device": "cuda",
+  "results": {
+    "causal_leak_b1": {
+      "pass": true,
+      "max_past_diff": 0.0
+    },
+    "causal_leak_batched": {
+      "pass": true,
+      "past_diff": 0.0,
+      "other_diff": 0.0
+    },
+    "loss_padding_invariance": {
+      "pass": true,
+      "details": {
+        "loss_panel": {
+          "d_ab": 0.0,
+          "d_ac": 0.0,
+          "d_bc": 0.0
+        },
+        "loss_relation": {
+          "d_ab": 0.0,
+          "d_ac": 0.0,
+          "d_bc": 0.0
+        },
+        "loss_ranking": {
+          "d_ab": 0.0,
+          "d_ac": 0.0,
+          "d_bc": 0.0
+        }
+      }
+    },
+    "padded_batch_no_nan_inf": {
+      "pass": true,
+      "nan_out": false,
+      "nan_loss": false,
+      "nan_grad": false
+    }
+  },
+  "all_pass": true
+}

@@ -168,6 +168,342 @@ decisive bake-off win.**
 
 ---
 
+## M6-PRE — Pre-M6 locks: semantic pairs, relation weights, three-loss scope (2026-07-20)
+
+### 1) SEMANTIC_CANDIDATE allowed panel pairs (read-only on `g1_bge1024`)
+
+Diagnostic: `scripts/diag_semantic_panel_pairs.py` →
+`reports/graph_diagnostics/g1_bge1024/semantic_panel_pairs.md`.
+
+| panel pair | directed edges | graphs ≥1 |
+|---|---:|---:|
+| question ↔ response | 636 | 36/36 |
+| response ↔ mark_scheme | 1624 | 36/36 |
+| response ↔ commentary | 1051 | 32/36 |
+| response ↔ star_chart | 312 | 6/36 |
+| mark_scheme ↔ commentary | 1530 | 32/36 |
+
+**Verdict.** All five `graph.yaml` pairs are represented. None near-empty when both
+panels exist. Gaps explained: commentary pairs absent on 4 tiny trials with no
+commentary segments (T01/T02/T19/T25); `response↔star_chart` only on the 6
+`star_on` graphs (star segments absent elsewhere). No unexpected pairs outside
+the allowlist. **No rebuild.**
+
+### 2) Relation BCE weights (M6-W1)
+
+**Decision.** Use the frozen M5 corpus table
+`reports/relation_frequencies_m5.json` directly — **do not recompute per fold/split**.
+Scheme: inverse-frequency (`n_trans / count`), then **clip at `clip_max`**.
+Resolved clipped weights are **computed at load time** from the M5 JSON +
+`clip_max` via `src/train/relation_weights.py`.
+
+**Amendment (2026-07-22).** Ceiling locked at **`clip_max: 12.0`** (not 8.0 / 10.0).
+Rationale: inverse-frequency chosen over sqrt-inverse; clip at 8.0 was rejected
+because it collapsed four of six active labels onto the same weight mass.
+At 12.0, PREVIOUS (raw 13.3) and SEMANTIC (raw 25.9) clip; NEXT (9.92) and
+EMPTY (9.54) stay below the ceiling and remain differentiated.
+
+**Zero-count labels.** `exclude_zero_count: true`. `BELONGS_TO` (0 consecutive-
+fixation transitions) is **excluded** from the BCE head/target set — not given
+weight 0 on a dead sigmoid. Active labels (6): NEXT, PREVIOUS, SPATIAL,
+SEMANTIC, NO_DIRECT, EMPTY_SPACE. Recorded in `configs/train.yaml`.
+
+### 3) Three-loss scope (frozen)
+
+M6 trains **exactly** three losses, equal objective weights (1,1,1):
+1. next-panel softmax CE
+2. multi-label next-relation BCE (per-label clipped weights above)
+3. candidate next-node ranking (softmax over candidates; 8 easy + 4 hard)
+
+Return / loop auxiliary and contrastive objectives remain behind
+`losses.return_aux` / `loop_aux` / `contrastive` with `enabled: false` until an
+M7 diagnostic gate failure + DECISIONS entry. Confirmed in `configs/train.yaml`.
+
+---
+
+### 4) Windows CPU access violation workaround (M6-W2) (2026-07-20)
+
+**Symptom.** `run_m6_train.py` dies with `Windows fatal exception: access violation`
+(exit `0xC0000005`) after ~400–500 training steps — no Python traceback. Stack
+frames jump around (backward, Linear, even numpy in `__getitem__`), consistent
+with heap corruption.
+
+**Context.** This host runs `torch 2.6.0+cu126` with `cuda.is_available() == False`
+(CUDA wheel, no visible GPU).
+
+**Mitigations locked in config/code:**
+- Lazy episode loading + shared ≤36 graph cache (earlier OOM fix).
+- `max_seq_len: 256`; `biases.graph_relation.enabled: false`.
+- Empty-space emb applied in `BehaviourModel`, not Dataset `__getitem__`.
+**Also.** Cursor/IDE shells may set `CUDA_VISIBLE_DEVICES=-1`, which hides a
+working GPU from PyTorch even when `nvidia-smi` shows the card. `run_m6_train.py`
+now clears that sentinel before importing torch and accepts `--device cuda`.
+
+**Also (2026-07-22).** Stale `checkpoint_last.pt` with `global_step=555` from B=1
+chunked training caused a silent hang when restarting with `--batch-size 8`
+(only ~75 batches/epoch): the loop skipped every batch with no progress prints.
+Fix: mid-epoch step skip only in `--max-steps` chunked mode; full-epoch runs
+restore weights but start at batch 0. Add `--fresh` to ignore last checkpoint.
+Checkpoints now store `batch_size`.
+
+**Also (2026-07-22, M6-W4).** Windows + CUDA torch: any `torch.cuda.*` call
+*before* the first pandas/pyarrow parquet read hard-crashes with `0xC0000005`
+on smoke/`__getitem__` (reproduced: CUDA API → then `pd.read_parquet` → AV;
+parquet-first → then CUDA → OK). `run_m6_train.py` warms parquet via
+`src/utils/arrow_cuda.py` before any CUDA device call, and defers GPU init
+until after the smoke item. Dataset reads go through `read_parquet`.
+
+---
+
+### 5) ReduceLROnPlateau (M6-W3) (2026-07-22)
+
+**Decision.** Add `torch.optim.lr_scheduler.ReduceLROnPlateau` on grouped-val
+`loss_total`, config under `optim.scheduler` in `configs/train.yaml`
+(default: factor 0.5, patience 3, min_lr 1e-6). LR is logged in `metrics.jsonl`
+and restored from `checkpoint_last.pt`. Scheduler patience is kept below
+`early_stopping.patience` (10) so LR can decay before stop. Disable with
+`optim.scheduler.name: none`.
+
+---
+
+### 6) Diagnostic run profile → full-matrix schedule (M6-W5) (2026-07-22)
+
+**Diagnostic.** `runs/m6/fold0_seed13` (B=8, lr 3e-4, clip_max 12, fold 0, seed 13):
+best grouped-val total **2.4496 @ epoch 64**; ReduceLROnPlateau stepped LR at
+epochs **47 / 62 / 68 / 72**; stopped by ES patience 10 at epoch **74** with
+train/val gap **0.62**. Per-label go/no-go on `checkpoint_best.pt`:
+SEMANTIC_CANDIDATE AP **0.165** vs base-rate **0.037** → **GO** (see
+`reports/m6_fold0_seed13_predictive_metrics.md`).
+
+**Schedule lock for 15-run matrix.** `max_epochs: 100` (ceiling only — ES fires
+well before); `early_stopping.patience: 10` retained. Train/val gap noted as a
+known property; **no extra regularisation** before the matrix — revisit only if
+per-fold results look unstable.
+
+**Tracking.** `tracking.backend: mlflow` (local file store) with tags
+`{milestone, ablation_id, fold, seed}`; `ablation_id: baseline` for this matrix.
+
+---
+
+### 7) M7 diagnostic gate on fold0 seed13 best ckpt (M7-G1) (2026-07-22)
+
+**Status.** The numbers in this subsection are the *first* diagnostic run and are
+**superseded** by §7c (corrected labels). Kept for audit trail only.
+
+**Run.** Frozen embeddings from `runs/m6/fold0_seed13/checkpoint_best.pt`
+(grouped-val participants P03/P06/P10/P12/P21). Report:
+`reports/m7_fold0_seed13_diagnostics.md` (buggy D2 re-detect).
+
+| Gate | Result | Detail |
+|---|---|---|
+| D1 return probe | **FAIL** | emb AUC 0.700 · feat 0.680 · margin **0.021** < 0.05 |
+| D2 loop template | PASS† | macro-F1 0.707 vs shuffled 0.275 · margin 0.432 |
+| D3 subsequence | PASS | AUC 0.631 |
+
+†D2 active set was only **four** templates; LD and star were falsely zeroed — see §7b.
+
+**D1 failure shape (not a null result).** Embeddings *did* outperform the
+feature-only baseline (0.700 vs 0.680) but fell short of the pre-committed
+**+0.05** AUC margin. The feature-only probe is strong because return-related
+fields (`is_return`, `visit_count`, `time_since_prev_visit` / gap features) are
+already model *inputs*, so the baseline has near-direct access to return
+history. **Threshold not changed** — remedy applied as pre-registered.
+
+**Decision (scoped to the failed gate only — owner 2026-07-22; confirmed on
+corrected labels in §7c).** The pre-registered rule adds the loss for the
+construct whose gate failed. Corrected D2 still passes, so loop-template
+structure is already encoded without supervision; adding `LoopRoleHead` would
+inflate the objective set for no measured benefit.
+
+- `losses.return_aux.enabled: true`, weight **0.5** — `ReturnHead`,
+  return-within-horizon BCE, H=20.
+- `losses.loop_aux.enabled: false` (and contrastive off).
+- Tracking: `ablation_id: baseline_m7_return_aux`, milestone M7.
+
+**Overnight matrix** must use this return-aux-only config (`--fresh`). Do not
+treat the pre-aux diagnostic checkpoint as the matrix reference.
+
+### 7b) Loop-detector bug scope (M7-G1b) (2026-07-22)
+
+**Verdict: diagnostic re-detect only — training annotations are clean.
+No M5 rebuild / no `data_version` bump.**
+
+| Path | What happened |
+|---|---|
+| **P6 → episode parquet → training** | `loop_role`, `loop_template_id`, `loop_origin_index` already written. `EpisodeDataset` uses those columns when present and does **not** re-annotate. Model training therefore saw correct loop features / attention bias origins (including star and level-descriptor). |
+| **M7 D2 first re-detect** | Rebuilt templates from `panel_id` alone → stripped `segment_role` → LD template forced to 0 and absorbed into plain `response→mark_scheme→response`. |
+| **M7 D2 star still 0 after parquet reload** | `collate_episodes` omitted `star_condition`, so every episode defaulted to `not_eligible`, star templates were skipped, and star-on parquet paths missed. Fixed: collate now passes `star_condition`. |
+
+Corpus-wide behavioural counts (full-length P6 `annotate_loops`, not truncated):
+level-descriptor template **~2310**; star template **~1001** across 75 `star_on`
+episodes. The star figure is a real behavioural signal for M8 star-chart
+analysis — the first diagnostic’s 0 was an artefact, not absence.
+
+Fold 0 train∪val = 750 episodes = the full corpus, so a correct re-detect on
+that set *must* find star loops; finding 0 proved the diagnostic path (not the
+shared training detector) was broken.
+
+### 7c) Corrected M7 gate re-run (M7-G1c) (2026-07-22)
+
+**Fixes applied before re-run:** D2 attach reloads full parquet rows (role);
+`collate_episodes` includes `star_condition`. Shared M5/P6 detector unchanged.
+
+**Report:** `reports/m7_fold0_seed13_diagnostics_corrected.md` (also under
+`runs/m6/fold0_seed13/m7_diagnostics_corrected/`). Same frozen pre-aux ckpt.
+
+| Gate | Result | Detail |
+|---|---|---|
+| D1 return probe | **FAIL** | emb AUC **0.682** · feat **0.680** · margin **0.003** < 0.05 |
+| D2 loop template | **PASS** | macro-F1 **0.533** vs shuffled ~0.214 · margin **0.318** (harder 6-class) |
+| D3 subsequence | **PASS** | AUC **0.872** |
+
+**Corrected D2 template counts** (fold0 train∪val, truncated to `max_seq_len`):
+
+| Template | Count |
+|---|---|
+| `response→mark_scheme→response` | 16909 |
+| `mark_scheme→response→mark_scheme` | 11665 |
+| `question→response→question` | 3250 |
+| `response→commentary→response` | 1620 |
+| `response→mark_scheme_level_descriptor→response` | 907 |
+| `response→star_chart→response` | **346** (full-length corpus ≈ **1001**) |
+
+All six templates active (none dropped <50). D2 still clears the +0.05
+macro-F1 margin cleanly under the harder label set.
+
+**Auxiliary-loss config (from corrected gates).** Unchanged from §7:
+`return_aux` on (0.5); `loop_aux` off. D1 still fails the margin (now even
+tighter vs feature-only); D2/D3 still pass → no loop_aux activation.
+
+**Supersession.** Original M7-G1 gate metrics (§7 / `m7_fold0_seed13_diagnostics.md`)
+are **not** the decision basis. Corrected §7c is authoritative for gate
+outcomes; the return-aux-only remedy still stands.
+
+**Next (superseded by M6-W6).** Do **not** lock `return_aux` or launch the
+matrix until fold0/seed13 is retrained at `max_seq_len=1536` and M7 is
+re-gated. Truncation may have been the D1 failure mode.
+
+---
+
+### 8) Full-sequence lift — truncation validity (M6-W6) (2026-07-22)
+
+**Problem.** `max_seq_len: 256` (M6-W2) discarded **40.2%** of all fixations
+and truncated **43.1%** of episodes. Marking-phase structure lives in episode
+tails; relative trial-time features and long-range returns/loops were
+systematically cut. Full table: `reports/truncation_analysis_m6w6.md`.
+
+| Overall | |
+|---|---|
+| Mean / median / max length | 292 / 207 / **1520** |
+| % episodes > 256 | 43.1% |
+| % fixations discarded @ 256 | **40.2%** |
+
+| By condition | median | % eps >256 | % fix lost |
+|---|---:|---:|---:|
+| `star_on` (n=75) | 526 | 89.3% | 56.8% |
+| `star_off` (n=75) | 526 | 89.3% | 55.8% |
+| `not_eligible` (n=600) | 155 | 31.5% | 29.8% |
+
+Star/LD decomposition (annotated template **rows**):
+
+| | % abs index ≥ 256 | % rel `t/T` ≥ 0.5 |
+|---|---:|---:|
+| Star (n=1283) | 64.2% | **74.8%** |
+| Level-descriptor (n=2929) | 59.1% | 58.7% |
+
+`star_on` mean length **580** vs other **260**. Both “star_on episodes are
+long” and “star loops are late in relative time” are true.
+
+**What M6-W2 actually constrained.** Not a 16 GB CUDA OOM. Host was running
+the CUDA torch wheel **without a visible GPU** (`cuda.is_available()==False`);
+training AVed (`0xC0000005`) after ~400–500 CPU steps. Dense
+`biases.graph_relation` (T×T×R `pair_relations`) was a co-factor and remains
+**disabled**. The `chunked` flag in checkpoints is only `--max-steps` **resume
+chunking**, not a long-sequence alternative path.
+
+**Memory profile (RTX 3080 Ti Laptop 16 GB, graph_relation OFF, fwd+bwd):**
+`reports/mem_profile_seqlen.json`
+
+| T × B | Peak alloc |
+|---|---|
+| 256 × 8 | 0.33 GB |
+| 512 × 8 | 0.68 GB |
+| 1024 × 8 | 1.62 GB |
+| **1536 × 8** | **2.85 GB** |
+
+**1536 covers 100% of episodes** (max 1520). Constraint lifts on this CUDA
+host at batch 8 with large headroom. Plan budget was ~2048 with M1
+verification; M1 found max ~1520 — the scientific budget was already correct.
+
+**Decision.**
+- `configs/model_transformer.yaml`: `max_seq_len: 1536`.
+- `losses.return_aux.enabled: false` until the full-length M7 gate is re-run
+  (do not lock an aux remedy measured under truncation).
+- Tracking tag: `ablation_id: baseline_fullseq_1536`.
+- Retrain fold0/seed13 `--fresh` under `runs/m6_fullseq/` (keeps the old
+  `runs/m6/fold0_seed13` truncated-regime artefacts intact), then M7 +
+  predictive; only then decide aux and matrix.
+
+**In progress → superseded by M6-W7.** Bias-off full-seq train under
+`runs/m6_fullseq/` was aborted mid-epoch 9; left intact as **reference only**.
+Ship baseline is full-seq **with** graph-relation bias (next section).
+
+**Supersession.** All prior fold0/seed13 results measured at cap 256 are
+**truncated-regime artefacts** and are superseded, including: 74-epoch
+convergence (best val 2.45 @ ep 64), SEMANTIC AP 0.165, ranking MRR ~0.789,
+and both M7 gate reports (original + corrected labels). They remain on disk
+for audit only.
+
+**Lesson.** An engineering workaround (M6-W2 AV mitigation) became a
+methodological constraint without a scientific cost review. Future host-local
+mitigations that change the data the model sees must get an explicit
+validity check before results are treated as binding.
+
+---
+
+### 9) Graph-relation bias restored (M6-W7) (2026-07-22)
+
+**Context.** Research plan §10 specifies three attention biases (temporal,
+graph-relation, loop/return). `graph_relation` was disabled under M6-W2 as a
+Win-CPU AV workaround and never re-enabled after CUDA training became
+available — a second engineering workaround that became an architectural
+constraint (same class of mistake as the 256 cap).
+
+With the bias off, graph structure reaches the transformer only via node
+embeddings inside each token; there is no path for attention to prefer tokens
+whose nodes share a SEMANTIC/SPATIAL/… edge. That plausibly explains the
+ranking tie vs the feature-only cosine probe and is directly relevant to M7.
+
+**Pre-flight (RTX 3080 Ti Laptop 16 GB).**
+
+Memory with graph bias ON (`reports/mem_profile_seqlen_graphbias.json`):
+
+| T × B | Peak alloc |
+|---|---|
+| 1536 × 8 | **3.20 GB** |
+| 1536 × 4 | 1.62 GB |
+
+Batch **8** remains safe.
+
+Correctness with bias ON on CUDA (`reports/graphbias_long_t_checks.json`):
+all four checks **PASS** at T=768 and T=1536 — causal leak (B=1 and B=2
+padded), loss padding invariance, padded-batch NaN/Inf+grad.
+
+**Decision.**
+- `biases.graph_relation.enabled: true`
+- `max_seq_len: 1536`; `return_aux` / `loop_aux` / contrastive **off** until
+  M7 on this architecture
+- Tracking: `ablation_id: baseline_fullseq_1536_graphbias`
+- New run root: `runs/m6_fullseq_graphbias/` (do not overwrite
+  `runs/m6_fullseq/fold0_seed13`)
+- Standing guard: every run’s `run_meta.json` / `train_summary.json` records
+  truncated episode + fixation counts (`src/train/truncation_stats.py`)
+
+**Supersession.** Metrics from bias-off runs (including aborted
+`baseline_fullseq_1536`) are **reference-only**, not the Phase-1 baseline.
+
+---
+
 ## M4-A1 — Pure-torch edge-aware GAT (no PyG import) (2026-07-20)
 
 **Decision.** M4 `CompactGNN` is implemented as a pure-PyTorch GATv2-style layer

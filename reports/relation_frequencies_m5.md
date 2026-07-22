@@ -15,5 +15,5 @@
 | `NO_DIRECT_RELATION` | 134831 | 0.6177 | 1.619 |
 | `EMPTY_SPACE_TRANSITION` | 22876 | 0.1048 | 9.5424 |
 
-Weights are raw inverse frequency (n_trans / count) for M6 BCE class weighting; normalize/clip in `configs/train.yaml` before training.
+Weights above are raw inverse frequency (`n_trans / count`). **M6 locked (DECISIONS M6-PRE / M6-W1):** use this table as-is (no per-fold recompute); clip at `clip_max: 10.0` in `configs/train.yaml`; exclude zero-count labels (`BELONGS_TO`) from the BCE head.
 

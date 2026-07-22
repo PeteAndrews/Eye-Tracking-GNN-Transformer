@@ -1,0 +1,86 @@
+[
+  {
+    "T": 256,
+    "B": 8,
+    "ok": true,
+    "peak_alloc_gb": 0.327,
+    "peak_reserved_gb": 0.436
+  },
+  {
+    "T": 256,
+    "B": 4,
+    "ok": true,
+    "peak_alloc_gb": 0.183,
+    "peak_reserved_gb": 0.209
+  },
+  {
+    "T": 256,
+    "B": 2,
+    "ok": true,
+    "peak_alloc_gb": 0.105,
+    "peak_reserved_gb": 0.139
+  },
+  {
+    "T": 512,
+    "B": 8,
+    "ok": true,
+    "peak_alloc_gb": 0.684,
+    "peak_reserved_gb": 0.826
+  },
+  {
+    "T": 512,
+    "B": 4,
+    "ok": true,
+    "peak_alloc_gb": 0.366,
+    "peak_reserved_gb": 0.471
+  },
+  {
+    "T": 512,
+    "B": 2,
+    "ok": true,
+    "peak_alloc_gb": 0.201,
+    "peak_reserved_gb": 0.246
+  },
+  {
+    "T": 1024,
+    "B": 8,
+    "ok": true,
+    "peak_alloc_gb": 1.623,
+    "peak_reserved_gb": 1.895
+  },
+  {
+    "T": 1024,
+    "B": 4,
+    "ok": true,
+    "peak_alloc_gb": 0.832,
+    "peak_reserved_gb": 0.971
+  },
+  {
+    "T": 1024,
+    "B": 2,
+    "ok": true,
+    "peak_alloc_gb": 0.438,
+    "peak_reserved_gb": 0.553
+  },
+  {
+    "T": 1536,
+    "B": 8,
+    "ok": true,
+    "peak_alloc_gb": 2.847,
+    "peak_reserved_gb": 3.033
+  },
+  {
+    "T": 1536,
+    "B": 4,
+    "ok": true,
+    "peak_alloc_gb": 1.446,
+    "peak_reserved_gb": 1.676
+  },
+  {
+    "T": 1536,
+    "B": 2,
+    "ok": true,
+    "peak_alloc_gb": 0.744,
+    "peak_reserved_gb": 0.803
+  }
+]

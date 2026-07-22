@@ -237,3 +237,83 @@ pyarrow/PyG LLM extras). Layer is GATv2-style message passing as specified in §
   fixations (panel abstract nodes are not gaze targets — expected).
 - Throughput: **45.4** real episodes/s (freq script); fixture Dataset ≥20 ep/s sanity.
 - `pytest` green (incl. fixture multi-relation doc updated to NEXT+SPATIAL within-panel).
+
+---
+
+## M6 — Causal loop-aware transformer + three losses (2026-07-20)
+
+**Built**
+- `configs/model_transformer.yaml` (d_model=192, 4 layers, 4 heads) + `configs/splits.yaml`
+  (grouped 5-fold participants) + relation weights already locked in `configs/train.yaml`.
+- `src/models/{biases,transformer,heads}.py`: causal transformer with temporal /
+  graph-relation / loop-return attention biases; three heads (panel, relation, ranking).
+- `src/train/{losses,loop,sampling}.py`: exactly three losses (CE / weighted BCE /
+  ranking CE); AdamW + grad clip + early stop; scroll-feature dropout p=0.3;
+  run-dir logging (`metrics.jsonl`, configs, git hash, checkpoint).
+- `src/data/splits.py`; `src/utils/tracking.py` (none/mlflow/wandb; never aborts run).
+- Minimal V1+V2 HTML: `src/eval/viz/training.py` → `runs/*/viz/report.html`.
+- Scripts: `scripts/run_m6_dryrun.py` (fixtures); `scripts/run_m6_train.py` (owner full runs).
+
+**Accept (agent)**
+- Causal-mask leakage test green (future token perturbation → past `y_t` unchanged).
+- Fixture overfit path: loss drops >50% and below 1.5 on 2 fixtures (tiny model, 80 steps).
+- BELONGS_TO excluded from active BCE labels; clipped weights from M5 table.
+- Grouped folds: no participant leakage across train/val.
+- Dry-run: `runs/m6_dryrun/` (15 epochs on 2 fixtures) + `viz/report.html`.
+- `pytest` full suite green.
+
+**Owner next:** full grouped 5-fold × seeds {13,42,1337} via `scripts/run_m6_train.py`
+(not run by the agent). Cross-machine fixture-overfit identity check before trusting
+uni-server full runs. Pip lockfile already present (`requirements-lock.txt`).
+
+---
+
+## M6 — Diagnostic go/no-go + matrix launch (2026-07-22)
+
+**Predictive eval** on `runs/m6/fold0_seed13/checkpoint_best.pt` (best val 2.4496 @ ep 64):
+- SEMANTIC_CANDIDATE AP **0.165** vs base-rate **0.037** → **GO**
+  (`reports/m6_fold0_seed13_predictive_metrics.md`).
+- Ranking MRR 0.789 (freq baseline 0.457; feature-cosine 0.789); panel acc 0.827 / macro-F1 0.778.
+- Known: final train/val gap ~0.62 — no extra regularisation before matrix.
+
+**Config lock:** `clip_max: 12`, `max_epochs: 100`, ES patience 10, `tracking.backend: mlflow`,
+`ablation_id: baseline`. DECISIONS M6-W1 amendment + M6-W5.
+
+**Matrix:** `scripts/run_m6_matrix.py` (5×3); V5 `src/eval/viz/compare_runs.py`.
+
+---
+
+## M7 — Diagnostic gate on fold0 seed13 best (2026-07-22)
+
+**Built:** `src/eval/loop_diagnostics.py`, `scripts/run_m7_diagnostics.py`; return/loop
+aux heads + losses for gate-fail retrain.
+
+**Gate result (FAIL overall):** D1 margin 0.021 < 0.05; D2/D3 pass. Logged in
+`reports/m7_fold0_seed13_diagnostics.md` + DECISIONS M7-G1. Remedy scoped to
+**return_aux only** (loop_aux stays off — D2 passed). D2 zero-counts were a
+re-detect bug (M7-G1b): LD template 2310 corpus-wide with role refinement;
+star template 1001 corpus-wide.
+
+---
+
+## M6-W6 — Full-sequence validity lift (2026-07-22)
+
+**Truncation QC** (`reports/truncation_analysis_m6w6.md`): at cap 256, **40.2%** of
+fixations discarded; 43.1% of episodes truncated. Star-eligible median length 526
+(89% truncated). Star loops: 64% abs≥256 and **75%** in second half of episode.
+
+**M6-W2 was CPU AV**, not 16 GB OOM. Mem profile on 3080 Ti: T=1536×B=8 peaks
+**2.85 GB** (`reports/mem_profile_seqlen.json`). Cap raised to **1536**;
+`return_aux` unset pending re-gate. Full-seq train running under
+`runs/m6_fullseq/fold0_seed13` (tag `baseline_fullseq_1536`). Prior cap-256
+results superseded once this run completes (DECISIONS M6-W6).
+
+---
+
+## M6-W7 — Graph-relation bias restored (2026-07-22)
+
+**Pre-flight:** T=1536×B=8 with bias ON peaks **3.20 GB**; four long-T GPU
+correctness checks **PASS** at T=768 and 1536. Config: bias on, aux off, tag
+`baseline_fullseq_1536_graphbias`, run root `runs/m6_fullseq_graphbias/`.
+Bias-off fullseq run kept as reference only. Truncation counts now logged in
+every `train_summary.json` / `run_meta.json`.

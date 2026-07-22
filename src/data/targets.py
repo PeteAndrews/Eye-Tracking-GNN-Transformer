@@ -97,13 +97,19 @@ def sample_ranking_candidates(
     unvisited = [i for i in range(n_segments) if i not in visited and i != positive_node]
     hard: list[int] = []
     if query_emb is not None and len(unvisited) and text_emb.shape[0] >= n_segments:
-        q = query_emb / (np.linalg.norm(query_emb) + 1e-12)
-        sims = []
-        for i in unvisited:
-            v = text_emb[i]
-            sims.append((float(np.dot(q, v / (np.linalg.norm(v) + 1e-12))), i))
-        sims.sort(reverse=True)
-        hard = [i for _, i in sims[:n_hard]]
+        q = np.asarray(query_emb, dtype=np.float32).reshape(-1)
+        q_n = float(np.linalg.norm(q)) + 1e-12
+        q = q / q_n
+        idx = np.asarray(unvisited, dtype=np.int64)
+        mat = np.asarray(text_emb[idx], dtype=np.float32)
+        norms = np.linalg.norm(mat, axis=1, keepdims=True) + 1e-12
+        sims = (mat / norms) @ q
+        # stable top-k without Python loop over dots
+        k = min(n_hard, len(unvisited))
+        if k > 0:
+            top = np.argpartition(-sims, kth=k - 1)[:k]
+            top = top[np.argsort(-sims[top])]
+            hard = [int(idx[j]) for j in top]
     remaining = [i for i in unvisited if i not in hard]
     rng.shuffle(remaining)
     easy = remaining[:n_easy]

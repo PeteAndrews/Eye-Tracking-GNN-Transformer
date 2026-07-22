@@ -157,8 +157,10 @@ def main() -> int:
         lines.append(f"| `{r['relation']}` | {r['count']} | {r['freq']:.4f} | {w} |")
     lines.append("")
     lines.append(
-        "Weights are raw inverse frequency (n_trans / count) for M6 BCE class weighting; "
-        "normalize/clip in `configs/train.yaml` before training."
+        "Weights above are raw inverse frequency (`n_trans / count`). "
+        "**M6 locked (DECISIONS M6-PRE / M6-W1):** use this table as-is (no per-fold "
+        "recompute); clip at `clip_max: 10.0` in `configs/train.yaml`; exclude "
+        "zero-count labels (`BELONGS_TO`) from the BCE head."
     )
     lines.append("")
     uio.write_text(out_md, "\n".join(lines) + "\n")

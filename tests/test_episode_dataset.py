@@ -199,6 +199,10 @@ def test_collate_and_dataloader():
     assert batch["mask"].shape[:2] == batch["tokens"].shape[:2]
     assert batch["next_relation"].shape[-1] == len(RELATION_VOCAB)
     assert batch["tokens"].shape[-1] == 2 * int(cfg.gnn_out_dim) + SIDE_FEATURE_DIM
+    assert batch["rank_candidates"].ndim == 3
+    assert batch["loop_origin_index"].shape[:2] == batch["tokens"].shape[:2]
+    assert batch["node_x_v"].ndim == 3
+    assert batch["star_condition"] == ["not_eligible", "star_on"]
 
 
 def test_throughput_fixture_sanity():

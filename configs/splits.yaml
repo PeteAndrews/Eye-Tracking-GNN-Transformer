@@ -1,0 +1,13 @@
+# Grouped participant splits — sole protocol for train / tune / ablations (PLAN S2-T5).
+
+protocol: grouped_kfold_participants
+n_folds: 5
+seed: 13
+
+# Leave-one-question-out is post-hoc only on the frozen final config — never for tuning.
+leave_one_question_out:
+  enabled: false
+  post_hoc_only: true
+
+paths:
+  participants_from: "data_processed/v0_p0/fixations"  # P*/ directories

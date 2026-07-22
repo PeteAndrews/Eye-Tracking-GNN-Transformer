@@ -25,7 +25,11 @@ SCROLL_KEYS = [
 SCROLL_DIR_VOCAB = ["none", "up", "down", "left", "right", "unknown"]
 
 # Fixed layout of fixation_side_features (keep in sync with that function)
-SIDE_FEATURE_DIM = 11 + 4 + len(SCROLL_DIR_VOCAB) + 7  # base + loop_role + scroll_dir + scroll_num
+# [base 11 | loop_role 4 | scroll_dir 6 | scroll_num 7]
+SIDE_FEATURE_DIM = 11 + 4 + len(SCROLL_DIR_VOCAB) + 7
+# Indices within the side vector that are scroll features (zero-masked by train dropout)
+SCROLL_SIDE_SLICE = slice(11 + 4, SIDE_FEATURE_DIM)  # scroll_dir one-hot + scroll_num
+
 
 
 def _f(row: dict[str, Any], *keys: str, default: float = 0.0) -> float:
@@ -35,9 +39,12 @@ def _f(row: dict[str, Any], *keys: str, default: float = 0.0) -> float:
             if isinstance(v, (bool, np.bool_)):
                 return float(v)
             try:
-                return float(v)
+                out = float(v)
             except (TypeError, ValueError):
                 continue
+            if np.isnan(out) or np.isinf(out):
+                return default
+            return out
     return default
 
 

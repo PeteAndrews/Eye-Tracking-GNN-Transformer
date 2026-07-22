@@ -1,0 +1,114 @@
+# M6 training config (PLAN S2-T5). Losses / weights / optim locked before training.
+# Owner runs full training; agent prepares code + dry-run only.
+
+# ---------------------------------------------------------------------------
+# Three initial losses ONLY (frozen). Equal objective weights baseline.
+# Return / loop / contrastive stay behind flags below — default OFF until M7 gate.
+# ---------------------------------------------------------------------------
+losses:
+  next_panel:
+    enabled: true
+    weight: 1.0
+    type: softmax_ce
+  next_relation:
+    enabled: true
+    weight: 1.0
+    type: multilabel_bce
+  next_node_ranking:
+    enabled: true
+    weight: 1.0
+    type: softmax_ce_over_candidates
+    n_easy: 8   # must match configs/dataset.yaml ranking
+    n_hard: 4
+
+  # Aux OFF until M7 re-gate on the final architecture (full seq + graph bias).
+  return_aux:
+    enabled: false
+    weight: 0.5
+  loop_aux:
+    enabled: false
+    weight: 0.0
+  contrastive:
+    enabled: false
+    weight: 0.0
+
+# ---------------------------------------------------------------------------
+# Next-relation class weights — from frozen M5 corpus table (do NOT recompute
+# per fold / split). Decision M6-W1 in reports/DECISIONS.md.
+# ---------------------------------------------------------------------------
+relation_weights:
+  source: reports/relation_frequencies_m5.json
+  scheme: inverse_frequency
+  # Ceiling on raw inv_freq (n_trans/count). Auto-resolves weights at load
+  # (src/train/relation_weights.py). Locked at 12.0 (DECISIONS M6-W1 amendment).
+  clip_max: 12.0
+  # Labels with count==0 in the M5 table are excluded from the BCE head/targets
+  # (no divide-by-zero, no dead sigmoid). Currently: BELONGS_TO.
+  exclude_zero_count: true
+  # Explicit active target set after exclusion (order = head output dims).
+  # BELONGS_TO omitted — 0 consecutive-fixation transitions in M5 table.
+  active_labels:
+    - NEXT_SEGMENT
+    - PREVIOUS_SEGMENT
+    - SPATIAL_NEIGHBOUR
+    - SEMANTIC_CANDIDATE
+    - NO_DIRECT_RELATION
+    - EMPTY_SPACE_TRANSITION
+
+# ---------------------------------------------------------------------------
+# Optimiser / schedule / regularity
+# ---------------------------------------------------------------------------
+optim:
+  name: adamw
+  lr: 3.0e-4
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  # ReduceLROnPlateau on grouped-val total loss (same monitor as early stopping).
+  # patience here is epochs without improvement before LR *= factor; keep
+  # strictly below early_stopping.patience so LR can decay before stop.
+  scheduler:
+    name: reduce_on_plateau  # reduce_on_plateau | none
+    mode: min
+    factor: 0.5
+    patience: 3
+    threshold: 1.0e-4
+    min_lr: 1.0e-6
+    cooldown: 0
+
+scroll_feature_dropout_p: 0.3  # per episode, train only; input-only features
+
+seeds: [13, 42, 1337]
+
+# Ceiling for owner full runs; early stopping (patience 10) usually fires ~55–70.
+max_epochs: 100
+
+early_stopping:
+  monitor: grouped_val_loss
+  patience: 10
+  min_delta: 0.0
+
+# ---------------------------------------------------------------------------
+# M7 diagnostic gate thresholds — FIXED before inspecting results (PLAN §11.4)
+# ---------------------------------------------------------------------------
+diagnostics:
+  D1_return_probe:
+    min_auc_margin_over_feature_only: 0.05
+    # Predict: return to current segment within the next N fixation events
+    horizon_events: 20
+  D2_loop_template_probe:
+    # margin vs within-episode label-shuffled baseline; set numeric before M7 run
+    min_macro_f1_margin: 0.05
+    min_template_corpus_count: 50  # drop rarer templates (DECISIONS if any dropped)
+  D3_subsequence:
+    enabled: true
+    window: 8
+    n_negatives_per_positive: 1
+  temporal_comparison:
+    # Primary: fixation tokens vs visit-boundary / visit-pooled metrics
+    enabled: true
+
+tracking:
+  backend: mlflow  # local sqlite under run out-root
+  tags:
+    milestone: M6
+    ablation_id: baseline_fullseq_1536_graphbias

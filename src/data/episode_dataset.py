@@ -27,6 +27,7 @@ from src.models.tokens import (
     panel_id_for_row,
 )
 from src.utils import io as uio
+from src.utils.arrow_cuda import read_parquet
 
 
 def _is_empty_segment(row: dict[str, Any]) -> bool:
@@ -104,10 +105,19 @@ class EpisodeDataset(Dataset):
         ep = self.episodes[idx]
         fixes = _as_fixation_dicts(ep["fixations"])
         if fixes and "loop_role" not in fixes[0]:
+            # Fallback only when parquet lacks P6 annotations. Always use the
+            # configured template set — never templates=[] (would zero D2 labels
+            # and mute loop_origin_index / attention bias).
+            from omegaconf import OmegaConf
+            from pathlib import Path as _Path
+
+            pre = OmegaConf.load(
+                _Path(__file__).resolve().parents[2] / "configs" / "preprocessing.yaml"
+            )
             fixes, _ = annotate_loops(
                 fixes,
-                templates=[],
-                max_loop_gap_events=20,
+                templates=[list(t) for t in pre.loops.templates],
+                max_loop_gap_events=int(pre.loops.max_loop_gap_events),
                 star_condition=str(ep.get("star_condition") or "not_eligible"),
             )
 
@@ -141,8 +151,8 @@ class EpisodeDataset(Dataset):
         panel_ids: list[int] = []
         node_indices: list[int] = []
         is_empty_flags: list[bool] = []
-        rank_cands_per_step: list[list[int]] = []
-        rank_labels_per_step: list[list[int]] = []
+        loop_origins: list[int] = []
+        max_rank = int(self.cfg.ranking.n_easy) + int(self.cfg.ranking.n_hard) + 1
 
         for row in fixes:
             empty = _is_empty_segment(row)
@@ -151,28 +161,26 @@ class EpisodeDataset(Dataset):
             panel_ids.append(pid)
             is_empty_flags.append(bool(empty))
             side = fixation_side_features(row, episode_duration_ms=ep_dur)
+            loi = row.get("loop_origin_index")
+            try:
+                if loi is None or (isinstance(loi, float) and np.isnan(loi)):
+                    loop_origins.append(-1)
+                else:
+                    loop_origins.append(int(loi))
+            except (TypeError, ValueError):
+                loop_origins.append(-1)
 
             if empty or sid not in id_to_idx:
                 node_indices.append(-1)
-                with torch.no_grad():
-                    ev = self.empty_emb(torch.tensor([pid])).numpy()[0]
                 d = int(self.cfg.gnn_out_dim)
-                if str(self.cfg.empty_space.mode) == "drop":
-                    tok = assemble_token(
-                        x_v=np.zeros(d, np.float32),
-                        h_v=np.zeros(d, np.float32),
-                        side=side,
-                        is_empty=True,
-                        empty_vec=None,
-                    )
-                else:
-                    tok = assemble_token(
-                        x_v=ev,
-                        h_v=ev,
-                        side=side,
-                        is_empty=True,
-                        empty_vec=ev,
-                    )
+                # Placeholder zeros — learned EmptySpaceEmbedding is applied in BehaviourModel
+                tok = assemble_token(
+                    x_v=np.zeros(d, np.float32),
+                    h_v=np.zeros(d, np.float32),
+                    side=side,
+                    is_empty=True,
+                    empty_vec=None,
+                )
             else:
                 ni = id_to_idx[sid]
                 node_indices.append(ni)
@@ -189,6 +197,9 @@ class EpisodeDataset(Dataset):
         next_panel = np.full(T, -100, dtype=np.int64)
         next_rel = np.zeros((T, n_rel), dtype=np.float32)
         rank_pos = np.full(T, -1, dtype=np.int64)
+        rank_cands = np.full((T, max_rank), -1, dtype=np.int64)
+        rank_labs = np.zeros((T, max_rank), dtype=np.float32)
+        rank_mask = np.zeros((T, max_rank), dtype=np.bool_)
 
         visited: set[int] = set()
         for t in range(T):
@@ -222,10 +233,67 @@ class EpisodeDataset(Dataset):
                 rng=self.rng,
             )
             rank_pos[t] = int(pos) if pos is not None else -1
-            rank_cands_per_step.append(cands)
-            rank_labels_per_step.append(labels)
+            for j, (c, lab) in enumerate(zip(cands, labels)):
+                if j >= max_rank:
+                    break
+                rank_cands[t, j] = int(c)
+                rank_labs[t, j] = float(lab)
+                rank_mask[t, j] = True
 
         token_mat = np.stack(tokens, axis=0) if tokens else np.zeros((0, 1), np.float32)
+        # Token-pair graph relations (skip when disabled — large and unused)
+        from src.graph.build import RELATION_TO_ID
+        from collections import defaultdict
+
+        n_graph_rel = len(RELATION_TO_ID)
+        build_pair = bool(getattr(self.cfg, "build_pair_relations", True))
+        if build_pair:
+            pair_rel = np.zeros((T, T, n_graph_rel), dtype=np.float32)
+            tokens_by_node: dict[int, list[int]] = defaultdict(list)
+            for ti, ni in enumerate(node_indices):
+                if ni >= 0:
+                    tokens_by_node[ni].append(ti)
+            for (si, sj), rels in edge_lookup.items():
+                src_toks = tokens_by_node.get(si)
+                dst_toks = tokens_by_node.get(sj)
+                if not src_toks or not dst_toks:
+                    continue
+                for rid in rels:
+                    if 0 <= rid < n_graph_rel:
+                        for i in src_toks:
+                            for j in dst_toks:
+                                pair_rel[i, j, rid] = 1.0
+        else:
+            # Tiny placeholder — collate must not allocate T×T when bias unused
+            pair_rel = np.zeros((1, 1, n_graph_rel), dtype=np.float32)
+
+        # Optional truncation (configs/model_transformer.yaml → dataset_cfg.max_seq_len)
+        max_len = 0
+        if hasattr(self.cfg, "max_seq_len") and self.cfg.max_seq_len is not None:
+            max_len = int(self.cfg.max_seq_len)
+        if max_len > 0 and T > max_len:
+            sl = slice(0, max_len)
+            token_mat = token_mat[sl]
+            next_panel = next_panel[sl]
+            next_rel = next_rel[sl]
+            rank_pos = rank_pos[sl]
+            rank_cands = rank_cands[sl]
+            rank_labs = rank_labs[sl]
+            rank_mask = rank_mask[sl]
+            node_indices = node_indices[sl]
+            panel_ids = panel_ids[sl]
+            is_empty_flags = is_empty_flags[sl]
+            loop_origins = [
+                (o if isinstance(o, int) and 0 <= o < max_len else -1) for o in loop_origins[sl]
+            ]
+            if pair_rel.shape[0] == T:  # full matrix was built
+                pair_rel = pair_rel[sl, sl]
+            T = max_len
+            # last step has no next-* targets
+            next_panel[-1] = -100
+            next_rel[-1] = 0.0
+            rank_mask[-1] = False
+
         return {
             "participant_id": ep.get("participant_id"),
             "trial_id": ep.get("trial_id"),
@@ -234,31 +302,57 @@ class EpisodeDataset(Dataset):
             "next_panel": torch.from_numpy(next_panel),
             "next_relation": torch.from_numpy(next_rel),
             "rank_positive": torch.from_numpy(rank_pos),
+            "rank_candidates": torch.from_numpy(rank_cands),
+            "rank_labels": torch.from_numpy(rank_labs),
+            "rank_mask": torch.from_numpy(rank_mask),
             "node_index": torch.tensor(node_indices, dtype=torch.long),
             "panel_id": torch.tensor(panel_ids, dtype=torch.long),
             "is_empty": torch.tensor(is_empty_flags, dtype=torch.bool),
+            "loop_origin_index": torch.tensor(loop_origins, dtype=torch.long),
+            "pair_relations": torch.from_numpy(pair_rel),
+            "node_x_v": torch.from_numpy(x_v.astype(np.float32)),
+            "node_h_v": torch.from_numpy(h_v.astype(np.float32)),
+            "n_nodes": int(x_v.shape[0]),
+            "n_segments": n_seg,
             "length": T,
-            "rank_candidates": rank_cands_per_step,
-            "rank_labels": rank_labels_per_step,
             "relation_vocab": self.relation_vocab,
         }
 
 
 def collate_episodes(batch: list[dict[str, Any]]) -> dict[str, Any]:
-    """Pad variable-length episodes."""
+    """Pad variable-length episodes (and variable node counts)."""
     lengths = [int(b["length"]) for b in batch]
     max_t = max(lengths) if lengths else 0
     d = int(batch[0]["tokens"].shape[-1]) if batch and batch[0]["tokens"].ndim == 2 else 1
     n_rel = int(batch[0]["next_relation"].shape[-1]) if batch else len(RELATION_VOCAB)
+    max_c = int(batch[0]["rank_candidates"].shape[-1]) if batch else 13
+    n_graph_rel = int(batch[0]["pair_relations"].shape[-1]) if batch else 5
+    # If pair_relations are placeholders (1×1), keep collate cheap
+    pair_t = int(batch[0]["pair_relations"].shape[0]) if batch else 1
+    use_full_pair = pair_t > 1
+    node_dims = [int(b["n_nodes"]) for b in batch]
+    max_n = max(node_dims) if node_dims else 0
+    xv_d = int(batch[0]["node_x_v"].shape[-1]) if batch else 128
     B = len(batch)
     tokens = torch.zeros(B, max_t, d)
     mask = torch.zeros(B, max_t, dtype=torch.bool)
     next_panel = torch.full((B, max_t), -100, dtype=torch.long)
     next_rel = torch.zeros(B, max_t, n_rel)
     rank_pos = torch.full((B, max_t), -1, dtype=torch.long)
+    rank_cands = torch.full((B, max_t, max_c), -1, dtype=torch.long)
+    rank_labs = torch.zeros(B, max_t, max_c)
+    rank_mask = torch.zeros(B, max_t, max_c, dtype=torch.bool)
     node_index = torch.full((B, max_t), -1, dtype=torch.long)
     panel_id = torch.zeros(B, max_t, dtype=torch.long)
     is_empty = torch.zeros(B, max_t, dtype=torch.bool)
+    loop_origin = torch.full((B, max_t), -1, dtype=torch.long)
+    if use_full_pair:
+        pair_rel = torch.zeros(B, max_t, max_t, n_graph_rel)
+    else:
+        pair_rel = torch.zeros(B, 1, 1, n_graph_rel)
+    node_x = torch.zeros(B, max_n, xv_d)
+    node_h = torch.zeros(B, max_n, xv_d)
+    node_mask = torch.zeros(B, max_n, dtype=torch.bool)
     for i, b in enumerate(batch):
         L = lengths[i]
         tokens[i, :L] = b["tokens"]
@@ -266,9 +360,19 @@ def collate_episodes(batch: list[dict[str, Any]]) -> dict[str, Any]:
         next_panel[i, :L] = b["next_panel"]
         next_rel[i, :L] = b["next_relation"]
         rank_pos[i, :L] = b["rank_positive"]
+        rank_cands[i, :L] = b["rank_candidates"]
+        rank_labs[i, :L] = b["rank_labels"]
+        rank_mask[i, :L] = b["rank_mask"]
         node_index[i, :L] = b["node_index"]
         panel_id[i, :L] = b["panel_id"]
         is_empty[i, :L] = b["is_empty"]
+        loop_origin[i, :L] = b["loop_origin_index"]
+        if use_full_pair:
+            pair_rel[i, :L, :L] = b["pair_relations"]
+        n = int(b["n_nodes"])
+        node_x[i, :n] = b["node_x_v"]
+        node_h[i, :n] = b["node_h_v"]
+        node_mask[i, :n] = True
     return {
         "tokens": tokens,
         "mask": mask,
@@ -276,13 +380,20 @@ def collate_episodes(batch: list[dict[str, Any]]) -> dict[str, Any]:
         "next_panel": next_panel,
         "next_relation": next_rel,
         "rank_positive": rank_pos,
+        "rank_candidates": rank_cands,
+        "rank_labels": rank_labs,
+        "rank_mask": rank_mask,
         "node_index": node_index,
         "panel_id": panel_id,
         "is_empty": is_empty,
+        "loop_origin_index": loop_origin,
+        "pair_relations": pair_rel,
+        "node_x_v": node_x,
+        "node_h_v": node_h,
+        "node_mask": node_mask,
         "participant_id": [b["participant_id"] for b in batch],
         "trial_id": [b["trial_id"] for b in batch],
-        "rank_candidates": [b["rank_candidates"] for b in batch],
-        "rank_labels": [b["rank_labels"] for b in batch],
+        "star_condition": [b.get("star_condition") for b in batch],
     }
 
 
@@ -341,7 +452,7 @@ def load_real_episode(
         raise FileNotFoundError(fix_path)
     if not graph_path.is_file():
         raise FileNotFoundError(graph_path)
-    df = pd.read_parquet(fix_path)
+    df = read_parquet(fix_path)
     graph = torch.load(graph_path, map_location="cpu", weights_only=False)
     return {
         "participant_id": participant_id,
@@ -370,3 +481,69 @@ def discover_real_episodes(
         if max_episodes is not None and len(out) >= max_episodes:
             break
     return out
+
+
+class LazyRealEpisodeDataset(EpisodeDataset):
+    """Load fixations/graphs from disk per ``__getitem__`` (shared graph cache).
+
+    Avoids the OOM from eagerly holding 750 episode dicts each with a full
+    duplicated ``.pt`` graph in RAM.
+    """
+
+    def __init__(
+        self,
+        keys: Sequence[tuple[str, str, str]],
+        *,
+        dataset_cfg: Any,
+        fixations_root: Path,
+        graphs_root: Path,
+        graph_version: str,
+        gnn: Optional[CompactGNN] = None,
+        empty_emb: Optional[EmptySpaceEmbedding] = None,
+        seed: int = 13,
+    ) -> None:
+        # Parent expects episodes list; we keep keys instead and override getitem.
+        super().__init__(
+            [],
+            dataset_cfg=dataset_cfg,
+            gnn=gnn,
+            empty_emb=empty_emb,
+            seed=seed,
+        )
+        self.keys = list(keys)
+        self.fixations_root = Path(fixations_root)
+        self.graphs_root = Path(graphs_root)
+        self.graph_version = str(graph_version)
+        self._graph_cache: dict[str, Any] = {}
+
+    def __len__(self) -> int:
+        return len(self.keys)
+
+    def _graph(self, trial_id: str, star_condition: str) -> dict[str, Any]:
+        key = f"{trial_id}__{star_condition}"
+        if key not in self._graph_cache:
+            path = self.graphs_root / self.graph_version / f"{key}.pt"
+            if not path.is_file():
+                raise FileNotFoundError(path)
+            self._graph_cache[key] = torch.load(path, map_location="cpu", weights_only=False)
+        return self._graph_cache[key]
+
+    def __getitem__(self, idx: int) -> dict[str, Any]:
+        pid, tid, sc = self.keys[idx]
+        fix_path = self.fixations_root / pid / f"{tid}__{sc}.parquet"
+        if not fix_path.is_file():
+            raise FileNotFoundError(fix_path)
+        df = read_parquet(fix_path)
+        ep = {
+            "participant_id": pid,
+            "trial_id": tid,
+            "star_condition": sc,
+            "fixations": df,
+            "graph": self._graph(tid, sc),
+        }
+        # Temporarily park as sole episode and reuse parent builder
+        self.episodes = [ep]
+        try:
+            return super().__getitem__(0)
+        finally:
+            self.episodes = []

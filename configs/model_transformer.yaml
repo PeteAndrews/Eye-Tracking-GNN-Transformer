@@ -1,0 +1,23 @@
+# Causal behaviour transformer (PLAN S2-T5 / research plan §10).
+
+token_dim: 284          # 2 * gnn_out_dim(128) + SIDE_FEATURE_DIM(28)
+d_model: 192
+n_layers: 4
+n_heads: 4
+ff_mult: 4
+dropout: 0.1
+# Full-corpus coverage (max episode 1520). See DECISIONS M6-W6 / M6-W7.
+max_seq_len: 1536
+
+biases:
+  temporal:
+    enabled: true
+    n_buckets: 32
+  graph_relation:
+    # Restored (M6-W7). Research plan §10; was disabled as M6-W2 Win-CPU AV
+    # workaround and had become an unintended architectural constraint.
+    enabled: true
+  loop_return:
+    enabled: true
+
+train_gnn: true
