@@ -632,3 +632,17 @@ Ready for predictive confirmation and matrix launch under tag
 **Rationale.** `import torch_geometric` currently fails on this Windows host
 (WinError 6714 via PyG→pandas→pyarrow filesystem transaction). Semantics match
 research plan §7; PyG can be swapped later if the env is cleaned up.
+
+---
+
+## M8-diag — Diagnostic peek on fold0 val embeddings (2026-07-23)
+
+**Diagnostic observation, not an M8 finding.**
+
+Val-only GMM on `runs/m6_fullseq_graphbias_return_aux/fold0_seed13` (k=12, verdict=`stable`). Chosen k / labels feed nothing downstream; real M8 fits on train.
+
+Two lessons to carry to real M8:
+1. Val-only peek found **stable** modes (AMI 0.86 / 0.77 ≫ within-participant null ≈0), but BIC chose **k=12 (upper end of {4…12})** with the curve still falling — treat the search range as possibly too narrow at the top; still do **not** transfer this k (real M8 must refit on train per fold).
+2. Top-5 prototypes were not single-participant dominated here; fingerprints were mostly **panel/static-weighted** (only 1/12 history>static on mean |SMD|). Real M8 should still run the participant-identity probe as hygiene, and judge history/phase structure from tornado tops not only mean |SMD|.
+
+Artefacts: `reports/m8_diagnostic_peek/`.

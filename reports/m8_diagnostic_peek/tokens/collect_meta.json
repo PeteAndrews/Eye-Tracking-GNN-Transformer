@@ -1,0 +1,37 @@
+{
+  "diagnostic": true,
+  "label": "m8_diagnostic_peek",
+  "note": "GMM is fit on grouped-val embeddings only (deliberate peek). Real M8 fits per-fold on that fold's train and describes its val; chosen k / labels from this peek feed nothing downstream.",
+  "checkpoint": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\runs\\m6_fullseq_graphbias_return_aux\\fold0_seed13\\checkpoint_best.pt",
+  "fold": 0,
+  "seed": 13,
+  "val_participants": [
+    "P03",
+    "P06",
+    "P10",
+    "P12",
+    "P21"
+  ],
+  "n_val_episodes": 150,
+  "n_tokens": 46004,
+  "emb_dim": 192,
+  "active_relation_labels": [
+    "NEXT_SEGMENT",
+    "PREVIOUS_SEGMENT",
+    "SPATIAL_NEIGHBOUR",
+    "SEMANTIC_CANDIDATE",
+    "NO_DIRECT_RELATION",
+    "EMPTY_SPACE_TRANSITION"
+  ],
+  "panel_classes": [
+    "question",
+    "response",
+    "mark_scheme",
+    "commentary",
+    "star_chart",
+    "ui",
+    "outside_document"
+  ],
+  "device": "cuda",
+  "tokens_dir": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\m8_diagnostic_peek\\tokens"
+}

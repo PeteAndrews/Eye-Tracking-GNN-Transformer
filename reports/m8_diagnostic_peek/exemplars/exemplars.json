@@ -1,0 +1,410 @@
+{
+  "diagnostic": true,
+  "label": "m8_diagnostic_peek_step3",
+  "prototypes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "exemplars": [
+    {
+      "exemplar": {
+        "prototype": 0,
+        "episode_idx": 102,
+        "participant_id": "P12",
+        "trial_id": "T13",
+        "star_condition": "star_on",
+        "t_start": 293,
+        "t_end": 344,
+        "seed_t_start": 313,
+        "seed_t_end": 327,
+        "mean_posterior": 0.991922930876414,
+        "hard_frac": 1.0,
+        "n_seed": 15,
+        "n_display": 52,
+        "n_panels_seed": 1,
+        "n_panels_display": 9,
+        "panels_seed": [
+          "response"
+        ],
+        "panels_display": [
+          "answer_scroll_bar",
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart",
+          "ui_general"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto0_P12_T13_t293-344.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 1,
+        "episode_idx": 89,
+        "participant_id": "P10",
+        "trial_id": "T30",
+        "star_condition": "star_on",
+        "t_start": 759,
+        "t_end": 814,
+        "seed_t_start": 779,
+        "seed_t_end": 794,
+        "mean_posterior": 0.9944575428962708,
+        "hard_frac": 1.0,
+        "n_seed": 16,
+        "n_display": 56,
+        "n_panels_seed": 1,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "commentary"
+        ],
+        "panels_display": [
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto1_P10_T30_t759-814.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 2,
+        "episode_idx": 89,
+        "participant_id": "P10",
+        "trial_id": "T30",
+        "star_condition": "star_on",
+        "t_start": 10,
+        "t_end": 54,
+        "seed_t_start": 30,
+        "seed_t_end": 34,
+        "mean_posterior": 1.0,
+        "hard_frac": 1.0,
+        "n_seed": 5,
+        "n_display": 45,
+        "n_panels_seed": 3,
+        "n_panels_display": 8,
+        "panels_seed": [
+          "commentary",
+          "commentary_scroll_bar",
+          "outside"
+        ],
+        "panels_display": [
+          "answer_scroll_bar",
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto2_P10_T30_t10-54.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 3,
+        "episode_idx": 50,
+        "participant_id": "P06",
+        "trial_id": "T21",
+        "star_condition": "star_on",
+        "t_start": 655,
+        "t_end": 701,
+        "seed_t_start": 675,
+        "seed_t_end": 681,
+        "mean_posterior": 0.995725691318512,
+        "hard_frac": 1.0,
+        "n_seed": 7,
+        "n_display": 47,
+        "n_panels_seed": 1,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "mark_scheme"
+        ],
+        "panels_display": [
+          "commentary",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart",
+          "ui_general"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto3_P06_T21_t655-701.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 4,
+        "episode_idx": 86,
+        "participant_id": "P10",
+        "trial_id": "T27",
+        "star_condition": "star_on",
+        "t_start": 12,
+        "t_end": 70,
+        "seed_t_start": 32,
+        "seed_t_end": 50,
+        "mean_posterior": 0.9879601629156816,
+        "hard_frac": 1.0,
+        "n_seed": 19,
+        "n_display": 59,
+        "n_panels_seed": 1,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "question"
+        ],
+        "panels_display": [
+          "answer_scroll_bar",
+          "commentary",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto4_P10_T27_t12-70.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 5,
+        "episode_idx": 59,
+        "participant_id": "P06",
+        "trial_id": "T30",
+        "star_condition": "star_off",
+        "t_start": 27,
+        "t_end": 83,
+        "seed_t_start": 47,
+        "seed_t_end": 63,
+        "mean_posterior": 1.0,
+        "hard_frac": 1.0,
+        "n_seed": 17,
+        "n_display": 57,
+        "n_panels_seed": 1,
+        "n_panels_display": 6,
+        "panels_seed": [
+          "mark_scheme"
+        ],
+        "panels_display": [
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto5_P06_T30_t27-83.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 6,
+        "episode_idx": 89,
+        "participant_id": "P10",
+        "trial_id": "T30",
+        "star_condition": "star_on",
+        "t_start": 976,
+        "t_end": 1023,
+        "seed_t_start": 996,
+        "seed_t_end": 1003,
+        "mean_posterior": 0.9995116144418716,
+        "hard_frac": 1.0,
+        "n_seed": 8,
+        "n_display": 48,
+        "n_panels_seed": 1,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "response"
+        ],
+        "panels_display": [
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto6_P10_T30_t976-1023.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 7,
+        "episode_idx": 34,
+        "participant_id": "P06",
+        "trial_id": "T05",
+        "star_condition": "not_eligible",
+        "t_start": 57,
+        "t_end": 106,
+        "seed_t_start": 77,
+        "seed_t_end": 86,
+        "mean_posterior": 0.9395402550697327,
+        "hard_frac": 1.0,
+        "n_seed": 10,
+        "n_display": 50,
+        "n_panels_seed": 1,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "commentary"
+        ],
+        "panels_display": [
+          "answer_scroll_bar",
+          "commentary",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "ui_general"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto7_P06_T05_t57-106.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 8,
+        "episode_idx": 81,
+        "participant_id": "P10",
+        "trial_id": "T22",
+        "star_condition": "not_eligible",
+        "t_start": 28,
+        "t_end": 82,
+        "seed_t_start": 48,
+        "seed_t_end": 62,
+        "mean_posterior": 0.9010434826215108,
+        "hard_frac": 1.0,
+        "n_seed": 15,
+        "n_display": 55,
+        "n_panels_seed": 1,
+        "n_panels_display": 6,
+        "panels_seed": [
+          "commentary"
+        ],
+        "panels_display": [
+          "commentary",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "ui_general"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto8_P10_T22_t28-82.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 9,
+        "episode_idx": 146,
+        "participant_id": "P21",
+        "trial_id": "T27",
+        "star_condition": "star_on",
+        "t_start": 497,
+        "t_end": 548,
+        "seed_t_start": 517,
+        "seed_t_end": 528,
+        "mean_posterior": 0.9986780186494192,
+        "hard_frac": 1.0,
+        "n_seed": 12,
+        "n_display": 52,
+        "n_panels_seed": 1,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "response"
+        ],
+        "panels_display": [
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto9_P21_T27_t497-548.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 10,
+        "episode_idx": 89,
+        "participant_id": "P10",
+        "trial_id": "T30",
+        "star_condition": "star_on",
+        "t_start": 987,
+        "t_end": 1032,
+        "seed_t_start": 1007,
+        "seed_t_end": 1012,
+        "mean_posterior": 0.9757395386695862,
+        "hard_frac": 1.0,
+        "n_seed": 6,
+        "n_display": 46,
+        "n_panels_seed": 4,
+        "n_panels_display": 7,
+        "panels_seed": [
+          "commentary",
+          "mark_scheme",
+          "question",
+          "star_chart"
+        ],
+        "panels_display": [
+          "commentary",
+          "commentary_scroll_bar",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "star_chart"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto10_P10_T30_t987-1032.html"
+    },
+    {
+      "exemplar": {
+        "prototype": 11,
+        "episode_idx": 70,
+        "participant_id": "P10",
+        "trial_id": "T11",
+        "star_condition": "star_off",
+        "t_start": 12,
+        "t_end": 66,
+        "seed_t_start": 32,
+        "seed_t_end": 46,
+        "mean_posterior": 0.999999487400055,
+        "hard_frac": 1.0,
+        "n_seed": 15,
+        "n_display": 55,
+        "n_panels_seed": 1,
+        "n_panels_display": 6,
+        "panels_seed": [
+          "mark_scheme"
+        ],
+        "panels_display": [
+          "commentary",
+          "mark_scheme",
+          "outside",
+          "question",
+          "response",
+          "ui_general"
+        ]
+      },
+      "path": "reports\\m8_diagnostic_peek\\exemplars\\proto11_P10_T11_t12-66.html"
+    }
+  ],
+  "note": "Full-episode posterior colouring; magenta = seed hard-run; orange = context pad. Hard membership can span AOIs even when the seed run is panel-local (panel-dominated prototypes)."
+}

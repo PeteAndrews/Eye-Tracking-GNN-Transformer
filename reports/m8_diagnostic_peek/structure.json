@@ -1,0 +1,164 @@
+{
+  "diagnostic": true,
+  "label": "m8_diagnostic_peek_step1",
+  "fit_protocol": "GMM fit on grouped-val embeddings only. Deliberate for this peek; real M8 fits on train per fold. Chosen k/labels feed nothing downstream.",
+  "val_participants": [
+    "P03",
+    "P06",
+    "P10",
+    "P12",
+    "P21"
+  ],
+  "n_tokens": 46004,
+  "emb_dim": 192,
+  "pca_n_components": 44,
+  "pca_variance_retained": 0.9015748500823975,
+  "pca_target_variance": 0.9,
+  "bic_curve": [
+    {
+      "k": 4,
+      "bic": 7247214.115689481
+    },
+    {
+      "k": 5,
+      "bic": 7221812.268445282
+    },
+    {
+      "k": 6,
+      "bic": 7196367.601315829
+    },
+    {
+      "k": 7,
+      "bic": 7155805.408795752
+    },
+    {
+      "k": 8,
+      "bic": 7137386.010709268
+    },
+    {
+      "k": 9,
+      "bic": 7110206.7872443665
+    },
+    {
+      "k": 10,
+      "bic": 7088029.066770188
+    },
+    {
+      "k": 11,
+      "bic": 7037550.911969837
+    },
+    {
+      "k": 12,
+      "bic": 7030553.191800834
+    }
+  ],
+  "chosen_k": 12,
+  "stability_random": {
+    "regime": "random_80pct_tokens",
+    "mean_pairwise_ami": 0.8615802300193264,
+    "compositions": [
+      {
+        "fit": 0,
+        "n_tokens_fit": 36803,
+        "participants_in_fit": [
+          "P03",
+          "P06",
+          "P10",
+          "P12",
+          "P21"
+        ],
+        "n_participants_in_fit": 5
+      },
+      {
+        "fit": 1,
+        "n_tokens_fit": 36803,
+        "participants_in_fit": [
+          "P03",
+          "P06",
+          "P10",
+          "P12",
+          "P21"
+        ],
+        "n_participants_in_fit": 5
+      },
+      {
+        "fit": 2,
+        "n_tokens_fit": 36803,
+        "participants_in_fit": [
+          "P03",
+          "P06",
+          "P10",
+          "P12",
+          "P21"
+        ],
+        "n_participants_in_fit": 5
+      }
+    ],
+    "null_ami_mean": 0.0019725638807469945,
+    "null_ami_std": 8.044377157641778e-05,
+    "null_ami_reps": 20
+  },
+  "stability_stratified": {
+    "regime": "stratified_80pct_episodes_all_participants",
+    "mean_pairwise_ami": 0.773978598732746,
+    "compositions": [
+      {
+        "fit": 0,
+        "n_tokens_fit": 37351,
+        "n_episodes_fit": 120,
+        "participants_in_fit": [
+          "P03",
+          "P06",
+          "P10",
+          "P12",
+          "P21"
+        ],
+        "n_participants_in_fit": 5
+      },
+      {
+        "fit": 1,
+        "n_tokens_fit": 33883,
+        "n_episodes_fit": 120,
+        "participants_in_fit": [
+          "P03",
+          "P06",
+          "P10",
+          "P12",
+          "P21"
+        ],
+        "n_participants_in_fit": 5
+      },
+      {
+        "fit": 2,
+        "n_tokens_fit": 39020,
+        "n_episodes_fit": 120,
+        "participants_in_fit": [
+          "P03",
+          "P06",
+          "P10",
+          "P12",
+          "P21"
+        ],
+        "n_participants_in_fit": 5
+      }
+    ],
+    "null_ami_mean": 0.0017794276377588695,
+    "null_ami_std": 0.00010309849014071464,
+    "null_ami_reps": 20
+  },
+  "gate": {
+    "verdict": "stable",
+    "proceed_to_step2": true,
+    "ami_random": 0.8615802300193264,
+    "ami_stratified": 0.773978598732746,
+    "ami_gap": 0.08760163128658038,
+    "note": "AMI > 0.7 across both regimes."
+  },
+  "umap_note": "UMAP-2D on PCA features.",
+  "artefacts": {
+    "bic_curve_png": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\m8_diagnostic_peek\\bic_curve.png",
+    "umap_scatter_png": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\m8_diagnostic_peek\\umap_scatter.png",
+    "assignments_parquet": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\m8_diagnostic_peek\\assignments.parquet",
+    "tokens_dir": "D:\\Projects\\GNN-Transformer-Eye-Tracking\\reports\\m8_diagnostic_peek\\tokens"
+  }
+}

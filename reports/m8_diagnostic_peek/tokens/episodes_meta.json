@@ -1,0 +1,1052 @@
+[
+  {
+    "episode_idx": 0,
+    "participant_id": "P03",
+    "trial_id": "T01",
+    "star_condition": "not_eligible",
+    "n_tokens": 66
+  },
+  {
+    "episode_idx": 1,
+    "participant_id": "P03",
+    "trial_id": "T02",
+    "star_condition": "not_eligible",
+    "n_tokens": 33
+  },
+  {
+    "episode_idx": 2,
+    "participant_id": "P03",
+    "trial_id": "T03",
+    "star_condition": "not_eligible",
+    "n_tokens": 301
+  },
+  {
+    "episode_idx": 3,
+    "participant_id": "P03",
+    "trial_id": "T04",
+    "star_condition": "not_eligible",
+    "n_tokens": 183
+  },
+  {
+    "episode_idx": 4,
+    "participant_id": "P03",
+    "trial_id": "T05",
+    "star_condition": "not_eligible",
+    "n_tokens": 134
+  },
+  {
+    "episode_idx": 5,
+    "participant_id": "P03",
+    "trial_id": "T06",
+    "star_condition": "not_eligible",
+    "n_tokens": 81
+  },
+  {
+    "episode_idx": 6,
+    "participant_id": "P03",
+    "trial_id": "T07",
+    "star_condition": "not_eligible",
+    "n_tokens": 302
+  },
+  {
+    "episode_idx": 7,
+    "participant_id": "P03",
+    "trial_id": "T08",
+    "star_condition": "not_eligible",
+    "n_tokens": 317
+  },
+  {
+    "episode_idx": 8,
+    "participant_id": "P03",
+    "trial_id": "T09",
+    "star_condition": "not_eligible",
+    "n_tokens": 447
+  },
+  {
+    "episode_idx": 9,
+    "participant_id": "P03",
+    "trial_id": "T10",
+    "star_condition": "not_eligible",
+    "n_tokens": 295
+  },
+  {
+    "episode_idx": 10,
+    "participant_id": "P03",
+    "trial_id": "T11",
+    "star_condition": "star_on",
+    "n_tokens": 660
+  },
+  {
+    "episode_idx": 11,
+    "participant_id": "P03",
+    "trial_id": "T12",
+    "star_condition": "star_off",
+    "n_tokens": 579
+  },
+  {
+    "episode_idx": 12,
+    "participant_id": "P03",
+    "trial_id": "T13",
+    "star_condition": "star_off",
+    "n_tokens": 154
+  },
+  {
+    "episode_idx": 13,
+    "participant_id": "P03",
+    "trial_id": "T14",
+    "star_condition": "not_eligible",
+    "n_tokens": 572
+  },
+  {
+    "episode_idx": 14,
+    "participant_id": "P03",
+    "trial_id": "T15",
+    "star_condition": "not_eligible",
+    "n_tokens": 342
+  },
+  {
+    "episode_idx": 15,
+    "participant_id": "P03",
+    "trial_id": "T16",
+    "star_condition": "not_eligible",
+    "n_tokens": 471
+  },
+  {
+    "episode_idx": 16,
+    "participant_id": "P03",
+    "trial_id": "T17",
+    "star_condition": "not_eligible",
+    "n_tokens": 116
+  },
+  {
+    "episode_idx": 17,
+    "participant_id": "P03",
+    "trial_id": "T18",
+    "star_condition": "not_eligible",
+    "n_tokens": 67
+  },
+  {
+    "episode_idx": 18,
+    "participant_id": "P03",
+    "trial_id": "T19",
+    "star_condition": "not_eligible",
+    "n_tokens": 19
+  },
+  {
+    "episode_idx": 19,
+    "participant_id": "P03",
+    "trial_id": "T20",
+    "star_condition": "not_eligible",
+    "n_tokens": 98
+  },
+  {
+    "episode_idx": 20,
+    "participant_id": "P03",
+    "trial_id": "T21",
+    "star_condition": "star_off",
+    "n_tokens": 482
+  },
+  {
+    "episode_idx": 21,
+    "participant_id": "P03",
+    "trial_id": "T22",
+    "star_condition": "not_eligible",
+    "n_tokens": 153
+  },
+  {
+    "episode_idx": 22,
+    "participant_id": "P03",
+    "trial_id": "T23",
+    "star_condition": "not_eligible",
+    "n_tokens": 190
+  },
+  {
+    "episode_idx": 23,
+    "participant_id": "P03",
+    "trial_id": "T24",
+    "star_condition": "not_eligible",
+    "n_tokens": 179
+  },
+  {
+    "episode_idx": 24,
+    "participant_id": "P03",
+    "trial_id": "T25",
+    "star_condition": "not_eligible",
+    "n_tokens": 34
+  },
+  {
+    "episode_idx": 25,
+    "participant_id": "P03",
+    "trial_id": "T26",
+    "star_condition": "not_eligible",
+    "n_tokens": 31
+  },
+  {
+    "episode_idx": 26,
+    "participant_id": "P03",
+    "trial_id": "T27",
+    "star_condition": "star_on",
+    "n_tokens": 707
+  },
+  {
+    "episode_idx": 27,
+    "participant_id": "P03",
+    "trial_id": "T28",
+    "star_condition": "not_eligible",
+    "n_tokens": 158
+  },
+  {
+    "episode_idx": 28,
+    "participant_id": "P03",
+    "trial_id": "T29",
+    "star_condition": "not_eligible",
+    "n_tokens": 265
+  },
+  {
+    "episode_idx": 29,
+    "participant_id": "P03",
+    "trial_id": "T30",
+    "star_condition": "star_on",
+    "n_tokens": 1203
+  },
+  {
+    "episode_idx": 30,
+    "participant_id": "P06",
+    "trial_id": "T01",
+    "star_condition": "not_eligible",
+    "n_tokens": 60
+  },
+  {
+    "episode_idx": 31,
+    "participant_id": "P06",
+    "trial_id": "T02",
+    "star_condition": "not_eligible",
+    "n_tokens": 26
+  },
+  {
+    "episode_idx": 32,
+    "participant_id": "P06",
+    "trial_id": "T03",
+    "star_condition": "not_eligible",
+    "n_tokens": 318
+  },
+  {
+    "episode_idx": 33,
+    "participant_id": "P06",
+    "trial_id": "T04",
+    "star_condition": "not_eligible",
+    "n_tokens": 173
+  },
+  {
+    "episode_idx": 34,
+    "participant_id": "P06",
+    "trial_id": "T05",
+    "star_condition": "not_eligible",
+    "n_tokens": 111
+  },
+  {
+    "episode_idx": 35,
+    "participant_id": "P06",
+    "trial_id": "T06",
+    "star_condition": "not_eligible",
+    "n_tokens": 90
+  },
+  {
+    "episode_idx": 36,
+    "participant_id": "P06",
+    "trial_id": "T07",
+    "star_condition": "not_eligible",
+    "n_tokens": 181
+  },
+  {
+    "episode_idx": 37,
+    "participant_id": "P06",
+    "trial_id": "T08",
+    "star_condition": "not_eligible",
+    "n_tokens": 404
+  },
+  {
+    "episode_idx": 38,
+    "participant_id": "P06",
+    "trial_id": "T09",
+    "star_condition": "not_eligible",
+    "n_tokens": 591
+  },
+  {
+    "episode_idx": 39,
+    "participant_id": "P06",
+    "trial_id": "T10",
+    "star_condition": "not_eligible",
+    "n_tokens": 236
+  },
+  {
+    "episode_idx": 40,
+    "participant_id": "P06",
+    "trial_id": "T11",
+    "star_condition": "star_off",
+    "n_tokens": 731
+  },
+  {
+    "episode_idx": 41,
+    "participant_id": "P06",
+    "trial_id": "T12",
+    "star_condition": "star_on",
+    "n_tokens": 815
+  },
+  {
+    "episode_idx": 42,
+    "participant_id": "P06",
+    "trial_id": "T13",
+    "star_condition": "star_on",
+    "n_tokens": 344
+  },
+  {
+    "episode_idx": 43,
+    "participant_id": "P06",
+    "trial_id": "T14",
+    "star_condition": "not_eligible",
+    "n_tokens": 922
+  },
+  {
+    "episode_idx": 44,
+    "participant_id": "P06",
+    "trial_id": "T15",
+    "star_condition": "not_eligible",
+    "n_tokens": 541
+  },
+  {
+    "episode_idx": 45,
+    "participant_id": "P06",
+    "trial_id": "T16",
+    "star_condition": "not_eligible",
+    "n_tokens": 640
+  },
+  {
+    "episode_idx": 46,
+    "participant_id": "P06",
+    "trial_id": "T17",
+    "star_condition": "not_eligible",
+    "n_tokens": 299
+  },
+  {
+    "episode_idx": 47,
+    "participant_id": "P06",
+    "trial_id": "T18",
+    "star_condition": "not_eligible",
+    "n_tokens": 157
+  },
+  {
+    "episode_idx": 48,
+    "participant_id": "P06",
+    "trial_id": "T19",
+    "star_condition": "not_eligible",
+    "n_tokens": 54
+  },
+  {
+    "episode_idx": 49,
+    "participant_id": "P06",
+    "trial_id": "T20",
+    "star_condition": "not_eligible",
+    "n_tokens": 150
+  },
+  {
+    "episode_idx": 50,
+    "participant_id": "P06",
+    "trial_id": "T21",
+    "star_condition": "star_on",
+    "n_tokens": 702
+  },
+  {
+    "episode_idx": 51,
+    "participant_id": "P06",
+    "trial_id": "T22",
+    "star_condition": "not_eligible",
+    "n_tokens": 246
+  },
+  {
+    "episode_idx": 52,
+    "participant_id": "P06",
+    "trial_id": "T23",
+    "star_condition": "not_eligible",
+    "n_tokens": 287
+  },
+  {
+    "episode_idx": 53,
+    "participant_id": "P06",
+    "trial_id": "T24",
+    "star_condition": "not_eligible",
+    "n_tokens": 378
+  },
+  {
+    "episode_idx": 54,
+    "participant_id": "P06",
+    "trial_id": "T25",
+    "star_condition": "not_eligible",
+    "n_tokens": 64
+  },
+  {
+    "episode_idx": 55,
+    "participant_id": "P06",
+    "trial_id": "T26",
+    "star_condition": "not_eligible",
+    "n_tokens": 29
+  },
+  {
+    "episode_idx": 56,
+    "participant_id": "P06",
+    "trial_id": "T27",
+    "star_condition": "star_off",
+    "n_tokens": 723
+  },
+  {
+    "episode_idx": 57,
+    "participant_id": "P06",
+    "trial_id": "T28",
+    "star_condition": "not_eligible",
+    "n_tokens": 64
+  },
+  {
+    "episode_idx": 58,
+    "participant_id": "P06",
+    "trial_id": "T29",
+    "star_condition": "not_eligible",
+    "n_tokens": 541
+  },
+  {
+    "episode_idx": 59,
+    "participant_id": "P06",
+    "trial_id": "T30",
+    "star_condition": "star_off",
+    "n_tokens": 944
+  },
+  {
+    "episode_idx": 60,
+    "participant_id": "P10",
+    "trial_id": "T01",
+    "star_condition": "not_eligible",
+    "n_tokens": 34
+  },
+  {
+    "episode_idx": 61,
+    "participant_id": "P10",
+    "trial_id": "T02",
+    "star_condition": "not_eligible",
+    "n_tokens": 21
+  },
+  {
+    "episode_idx": 62,
+    "participant_id": "P10",
+    "trial_id": "T03",
+    "star_condition": "not_eligible",
+    "n_tokens": 535
+  },
+  {
+    "episode_idx": 63,
+    "participant_id": "P10",
+    "trial_id": "T04",
+    "star_condition": "not_eligible",
+    "n_tokens": 169
+  },
+  {
+    "episode_idx": 64,
+    "participant_id": "P10",
+    "trial_id": "T05",
+    "star_condition": "not_eligible",
+    "n_tokens": 274
+  },
+  {
+    "episode_idx": 65,
+    "participant_id": "P10",
+    "trial_id": "T06",
+    "star_condition": "not_eligible",
+    "n_tokens": 59
+  },
+  {
+    "episode_idx": 66,
+    "participant_id": "P10",
+    "trial_id": "T07",
+    "star_condition": "not_eligible",
+    "n_tokens": 118
+  },
+  {
+    "episode_idx": 67,
+    "participant_id": "P10",
+    "trial_id": "T08",
+    "star_condition": "not_eligible",
+    "n_tokens": 322
+  },
+  {
+    "episode_idx": 68,
+    "participant_id": "P10",
+    "trial_id": "T09",
+    "star_condition": "not_eligible",
+    "n_tokens": 269
+  },
+  {
+    "episode_idx": 69,
+    "participant_id": "P10",
+    "trial_id": "T10",
+    "star_condition": "not_eligible",
+    "n_tokens": 482
+  },
+  {
+    "episode_idx": 70,
+    "participant_id": "P10",
+    "trial_id": "T11",
+    "star_condition": "star_off",
+    "n_tokens": 382
+  },
+  {
+    "episode_idx": 71,
+    "participant_id": "P10",
+    "trial_id": "T12",
+    "star_condition": "star_off",
+    "n_tokens": 486
+  },
+  {
+    "episode_idx": 72,
+    "participant_id": "P10",
+    "trial_id": "T13",
+    "star_condition": "star_off",
+    "n_tokens": 304
+  },
+  {
+    "episode_idx": 73,
+    "participant_id": "P10",
+    "trial_id": "T14",
+    "star_condition": "not_eligible",
+    "n_tokens": 905
+  },
+  {
+    "episode_idx": 74,
+    "participant_id": "P10",
+    "trial_id": "T15",
+    "star_condition": "not_eligible",
+    "n_tokens": 755
+  },
+  {
+    "episode_idx": 75,
+    "participant_id": "P10",
+    "trial_id": "T16",
+    "star_condition": "not_eligible",
+    "n_tokens": 962
+  },
+  {
+    "episode_idx": 76,
+    "participant_id": "P10",
+    "trial_id": "T17",
+    "star_condition": "not_eligible",
+    "n_tokens": 253
+  },
+  {
+    "episode_idx": 77,
+    "participant_id": "P10",
+    "trial_id": "T18",
+    "star_condition": "not_eligible",
+    "n_tokens": 144
+  },
+  {
+    "episode_idx": 78,
+    "participant_id": "P10",
+    "trial_id": "T19",
+    "star_condition": "not_eligible",
+    "n_tokens": 36
+  },
+  {
+    "episode_idx": 79,
+    "participant_id": "P10",
+    "trial_id": "T20",
+    "star_condition": "not_eligible",
+    "n_tokens": 87
+  },
+  {
+    "episode_idx": 80,
+    "participant_id": "P10",
+    "trial_id": "T21",
+    "star_condition": "star_on",
+    "n_tokens": 536
+  },
+  {
+    "episode_idx": 81,
+    "participant_id": "P10",
+    "trial_id": "T22",
+    "star_condition": "not_eligible",
+    "n_tokens": 212
+  },
+  {
+    "episode_idx": 82,
+    "participant_id": "P10",
+    "trial_id": "T23",
+    "star_condition": "not_eligible",
+    "n_tokens": 258
+  },
+  {
+    "episode_idx": 83,
+    "participant_id": "P10",
+    "trial_id": "T24",
+    "star_condition": "not_eligible",
+    "n_tokens": 427
+  },
+  {
+    "episode_idx": 84,
+    "participant_id": "P10",
+    "trial_id": "T25",
+    "star_condition": "not_eligible",
+    "n_tokens": 56
+  },
+  {
+    "episode_idx": 85,
+    "participant_id": "P10",
+    "trial_id": "T26",
+    "star_condition": "not_eligible",
+    "n_tokens": 58
+  },
+  {
+    "episode_idx": 86,
+    "participant_id": "P10",
+    "trial_id": "T27",
+    "star_condition": "star_on",
+    "n_tokens": 669
+  },
+  {
+    "episode_idx": 87,
+    "participant_id": "P10",
+    "trial_id": "T28",
+    "star_condition": "not_eligible",
+    "n_tokens": 92
+  },
+  {
+    "episode_idx": 88,
+    "participant_id": "P10",
+    "trial_id": "T29",
+    "star_condition": "not_eligible",
+    "n_tokens": 457
+  },
+  {
+    "episode_idx": 89,
+    "participant_id": "P10",
+    "trial_id": "T30",
+    "star_condition": "star_on",
+    "n_tokens": 1240
+  },
+  {
+    "episode_idx": 90,
+    "participant_id": "P12",
+    "trial_id": "T01",
+    "star_condition": "not_eligible",
+    "n_tokens": 26
+  },
+  {
+    "episode_idx": 91,
+    "participant_id": "P12",
+    "trial_id": "T02",
+    "star_condition": "not_eligible",
+    "n_tokens": 27
+  },
+  {
+    "episode_idx": 92,
+    "participant_id": "P12",
+    "trial_id": "T03",
+    "star_condition": "not_eligible",
+    "n_tokens": 246
+  },
+  {
+    "episode_idx": 93,
+    "participant_id": "P12",
+    "trial_id": "T04",
+    "star_condition": "not_eligible",
+    "n_tokens": 84
+  },
+  {
+    "episode_idx": 94,
+    "participant_id": "P12",
+    "trial_id": "T05",
+    "star_condition": "not_eligible",
+    "n_tokens": 128
+  },
+  {
+    "episode_idx": 95,
+    "participant_id": "P12",
+    "trial_id": "T06",
+    "star_condition": "not_eligible",
+    "n_tokens": 51
+  },
+  {
+    "episode_idx": 96,
+    "participant_id": "P12",
+    "trial_id": "T07",
+    "star_condition": "not_eligible",
+    "n_tokens": 121
+  },
+  {
+    "episode_idx": 97,
+    "participant_id": "P12",
+    "trial_id": "T08",
+    "star_condition": "not_eligible",
+    "n_tokens": 202
+  },
+  {
+    "episode_idx": 98,
+    "participant_id": "P12",
+    "trial_id": "T09",
+    "star_condition": "not_eligible",
+    "n_tokens": 174
+  },
+  {
+    "episode_idx": 99,
+    "participant_id": "P12",
+    "trial_id": "T10",
+    "star_condition": "not_eligible",
+    "n_tokens": 224
+  },
+  {
+    "episode_idx": 100,
+    "participant_id": "P12",
+    "trial_id": "T11",
+    "star_condition": "star_off",
+    "n_tokens": 339
+  },
+  {
+    "episode_idx": 101,
+    "participant_id": "P12",
+    "trial_id": "T12",
+    "star_condition": "star_on",
+    "n_tokens": 545
+  },
+  {
+    "episode_idx": 102,
+    "participant_id": "P12",
+    "trial_id": "T13",
+    "star_condition": "star_on",
+    "n_tokens": 345
+  },
+  {
+    "episode_idx": 103,
+    "participant_id": "P12",
+    "trial_id": "T14",
+    "star_condition": "not_eligible",
+    "n_tokens": 525
+  },
+  {
+    "episode_idx": 104,
+    "participant_id": "P12",
+    "trial_id": "T15",
+    "star_condition": "not_eligible",
+    "n_tokens": 872
+  },
+  {
+    "episode_idx": 105,
+    "participant_id": "P12",
+    "trial_id": "T16",
+    "star_condition": "not_eligible",
+    "n_tokens": 365
+  },
+  {
+    "episode_idx": 106,
+    "participant_id": "P12",
+    "trial_id": "T17",
+    "star_condition": "not_eligible",
+    "n_tokens": 115
+  },
+  {
+    "episode_idx": 107,
+    "participant_id": "P12",
+    "trial_id": "T18",
+    "star_condition": "not_eligible",
+    "n_tokens": 109
+  },
+  {
+    "episode_idx": 108,
+    "participant_id": "P12",
+    "trial_id": "T19",
+    "star_condition": "not_eligible",
+    "n_tokens": 76
+  },
+  {
+    "episode_idx": 109,
+    "participant_id": "P12",
+    "trial_id": "T20",
+    "star_condition": "not_eligible",
+    "n_tokens": 105
+  },
+  {
+    "episode_idx": 110,
+    "participant_id": "P12",
+    "trial_id": "T21",
+    "star_condition": "star_on",
+    "n_tokens": 420
+  },
+  {
+    "episode_idx": 111,
+    "participant_id": "P12",
+    "trial_id": "T22",
+    "star_condition": "not_eligible",
+    "n_tokens": 129
+  },
+  {
+    "episode_idx": 112,
+    "participant_id": "P12",
+    "trial_id": "T23",
+    "star_condition": "not_eligible",
+    "n_tokens": 199
+  },
+  {
+    "episode_idx": 113,
+    "participant_id": "P12",
+    "trial_id": "T24",
+    "star_condition": "not_eligible",
+    "n_tokens": 155
+  },
+  {
+    "episode_idx": 114,
+    "participant_id": "P12",
+    "trial_id": "T25",
+    "star_condition": "not_eligible",
+    "n_tokens": 66
+  },
+  {
+    "episode_idx": 115,
+    "participant_id": "P12",
+    "trial_id": "T26",
+    "star_condition": "not_eligible",
+    "n_tokens": 40
+  },
+  {
+    "episode_idx": 116,
+    "participant_id": "P12",
+    "trial_id": "T27",
+    "star_condition": "star_off",
+    "n_tokens": 283
+  },
+  {
+    "episode_idx": 117,
+    "participant_id": "P12",
+    "trial_id": "T28",
+    "star_condition": "not_eligible",
+    "n_tokens": 49
+  },
+  {
+    "episode_idx": 118,
+    "participant_id": "P12",
+    "trial_id": "T29",
+    "star_condition": "not_eligible",
+    "n_tokens": 287
+  },
+  {
+    "episode_idx": 119,
+    "participant_id": "P12",
+    "trial_id": "T30",
+    "star_condition": "star_off",
+    "n_tokens": 748
+  },
+  {
+    "episode_idx": 120,
+    "participant_id": "P21",
+    "trial_id": "T01",
+    "star_condition": "not_eligible",
+    "n_tokens": 27
+  },
+  {
+    "episode_idx": 121,
+    "participant_id": "P21",
+    "trial_id": "T02",
+    "star_condition": "not_eligible",
+    "n_tokens": 10
+  },
+  {
+    "episode_idx": 122,
+    "participant_id": "P21",
+    "trial_id": "T03",
+    "star_condition": "not_eligible",
+    "n_tokens": 110
+  },
+  {
+    "episode_idx": 123,
+    "participant_id": "P21",
+    "trial_id": "T04",
+    "star_condition": "not_eligible",
+    "n_tokens": 30
+  },
+  {
+    "episode_idx": 124,
+    "participant_id": "P21",
+    "trial_id": "T05",
+    "star_condition": "not_eligible",
+    "n_tokens": 76
+  },
+  {
+    "episode_idx": 125,
+    "participant_id": "P21",
+    "trial_id": "T06",
+    "star_condition": "not_eligible",
+    "n_tokens": 52
+  },
+  {
+    "episode_idx": 126,
+    "participant_id": "P21",
+    "trial_id": "T07",
+    "star_condition": "not_eligible",
+    "n_tokens": 52
+  },
+  {
+    "episode_idx": 127,
+    "participant_id": "P21",
+    "trial_id": "T08",
+    "star_condition": "not_eligible",
+    "n_tokens": 182
+  },
+  {
+    "episode_idx": 128,
+    "participant_id": "P21",
+    "trial_id": "T09",
+    "star_condition": "not_eligible",
+    "n_tokens": 301
+  },
+  {
+    "episode_idx": 129,
+    "participant_id": "P21",
+    "trial_id": "T10",
+    "star_condition": "not_eligible",
+    "n_tokens": 157
+  },
+  {
+    "episode_idx": 130,
+    "participant_id": "P21",
+    "trial_id": "T11",
+    "star_condition": "star_on",
+    "n_tokens": 651
+  },
+  {
+    "episode_idx": 131,
+    "participant_id": "P21",
+    "trial_id": "T12",
+    "star_condition": "star_off",
+    "n_tokens": 777
+  },
+  {
+    "episode_idx": 132,
+    "participant_id": "P21",
+    "trial_id": "T13",
+    "star_condition": "star_off",
+    "n_tokens": 255
+  },
+  {
+    "episode_idx": 133,
+    "participant_id": "P21",
+    "trial_id": "T14",
+    "star_condition": "not_eligible",
+    "n_tokens": 656
+  },
+  {
+    "episode_idx": 134,
+    "participant_id": "P21",
+    "trial_id": "T15",
+    "star_condition": "not_eligible",
+    "n_tokens": 438
+  },
+  {
+    "episode_idx": 135,
+    "participant_id": "P21",
+    "trial_id": "T16",
+    "star_condition": "not_eligible",
+    "n_tokens": 541
+  },
+  {
+    "episode_idx": 136,
+    "participant_id": "P21",
+    "trial_id": "T17",
+    "star_condition": "not_eligible",
+    "n_tokens": 145
+  },
+  {
+    "episode_idx": 137,
+    "participant_id": "P21",
+    "trial_id": "T18",
+    "star_condition": "not_eligible",
+    "n_tokens": 67
+  },
+  {
+    "episode_idx": 138,
+    "participant_id": "P21",
+    "trial_id": "T19",
+    "star_condition": "not_eligible",
+    "n_tokens": 54
+  },
+  {
+    "episode_idx": 139,
+    "participant_id": "P21",
+    "trial_id": "T20",
+    "star_condition": "not_eligible",
+    "n_tokens": 216
+  },
+  {
+    "episode_idx": 140,
+    "participant_id": "P21",
+    "trial_id": "T21",
+    "star_condition": "star_off",
+    "n_tokens": 689
+  },
+  {
+    "episode_idx": 141,
+    "participant_id": "P21",
+    "trial_id": "T22",
+    "star_condition": "not_eligible",
+    "n_tokens": 141
+  },
+  {
+    "episode_idx": 142,
+    "participant_id": "P21",
+    "trial_id": "T23",
+    "star_condition": "not_eligible",
+    "n_tokens": 354
+  },
+  {
+    "episode_idx": 143,
+    "participant_id": "P21",
+    "trial_id": "T24",
+    "star_condition": "not_eligible",
+    "n_tokens": 385
+  },
+  {
+    "episode_idx": 144,
+    "participant_id": "P21",
+    "trial_id": "T25",
+    "star_condition": "not_eligible",
+    "n_tokens": 50
+  },
+  {
+    "episode_idx": 145,
+    "participant_id": "P21",
+    "trial_id": "T26",
+    "star_condition": "not_eligible",
+    "n_tokens": 37
+  },
+  {
+    "episode_idx": 146,
+    "participant_id": "P21",
+    "trial_id": "T27",
+    "star_condition": "star_on",
+    "n_tokens": 837
+  },
+  {
+    "episode_idx": 147,
+    "participant_id": "P21",
+    "trial_id": "T28",
+    "star_condition": "not_eligible",
+    "n_tokens": 63
+  },
+  {
+    "episode_idx": 148,
+    "participant_id": "P21",
+    "trial_id": "T29",
+    "star_condition": "not_eligible",
+    "n_tokens": 354
+  },
+  {
+    "episode_idx": 149,
+    "participant_id": "P21",
+    "trial_id": "T30",
+    "star_condition": "star_on",
+    "n_tokens": 1180
+  }
+]
